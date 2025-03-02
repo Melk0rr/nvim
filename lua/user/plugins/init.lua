@@ -31,3 +31,4 @@ return {
   -- INFO: Colorschemes
   require("user.plugins.colorschemes"),
 }
+
