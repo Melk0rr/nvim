@@ -1,4 +1,7 @@
 return {
   "RRethy/vim-illuminate",
-  event = "BufEnter",
+  event = "CursorHold",
+  config = function ()
+    require("illuminate").configure({ delay = 200 })
+  end
 }

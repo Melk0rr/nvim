@@ -45,6 +45,12 @@ return {
 						separator = true,
 						highlight = "Directory",
 					},
+					{
+						filetype = "snacks_picker_list",
+						text = "Files",
+						separator = true,
+						highlight = "Directory",
+					},
 				},
 				always_show_bufferline = true,
 				sort_by = "id",
@@ -53,3 +59,4 @@ return {
 		})
 	end,
 }
+

@@ -1,5 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
   build = ":TSUpdate",
   config = function()
     require("nvim-treesitter.configs").setup({
@@ -36,30 +37,16 @@ return {
         },
       },
       textobjects = {
-        select = {
-          enable = false,
-          lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-          keymaps = {
-            -- You can use the capture groups defined in textobjects.scm
-            ['aa'] = '@parameter.outer',
-            ['ia'] = '@parameter.inner',
-            -- ['aF'] = '@function.outer',
-            -- ['iF'] = '@function.inner',
-            ['ac'] = '@class.outer',
-            ['ic'] = '@class.inner',
-            ['ii'] = '@conditional.inner',
-            ['ai'] = '@conditional.outer',
-            -- ['il'] = '@loop.inner',
-            -- ['al'] = '@loop.outer',
-            ['at'] = '@comment.outer',
-          },
-        },
         move = {
-          enable = false,
+          enable = true,
           set_jumps = true, -- whether to set jumps in the jumplist
           goto_next_start = {
             [']f'] = '@function.outer',
             [']c'] = '@class.outer',
+            [']p'] = '@parameter.outer',
+            [']i'] = '@conditional.outer',
+            [']l'] = '@loop.outer',
+            [']t'] = '@comment.outer',
           },
           goto_next_end = {
             [']F'] = '@function.outer',
@@ -68,6 +55,10 @@ return {
           goto_previous_start = {
             ['[f'] = '@function.outer',
             ['[c'] = '@class.outer',
+            ['[p'] = '@parameter.outer',
+            ['[i'] = '@conditional.outer',
+            ['[l'] = '@loop.outer',
+            ['[t'] = '@comment.outer',
           },
           goto_previous_end = {
             ['[F'] = '@function.outer',
@@ -77,13 +68,14 @@ return {
         swap = {
           enable = true,
           swap_next = {
-            ['<leader>a'] = '@parameter.inner',
+            ['gSj'] = '@parameter.inner',
           },
           swap_previous = {
-            ['<leader>A'] = '@parameter.inner',
+            ['gSk'] = '@parameter.inner',
           },
         },
       },
     })
   end
 }
+
