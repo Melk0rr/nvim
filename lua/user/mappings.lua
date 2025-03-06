@@ -32,8 +32,8 @@ map('n', '<leader>bdo', "<cmd>lua require('snacks').bufdelete.other()<cr>", opts
 map('n', '<leader>bde', '<cmd>%bd|e#<cr>', opts("Close all buffers except the current one"))
 
 -- NOTE: Stay in indent mode
-map('v', '<', '<gv^', opts("Unindent"))
-map('v', '>', '>gv^', opts("Indent"))
+map('v', '<', '<gv', opts("Unindent"))
+map('v', '>', '>gv', opts("Indent"))
 
 -- NOTE: Move lines
 map('n', '<A-j>', ':m .+1<cr>==', opts("Move line down"))
