@@ -106,3 +106,28 @@ map('n', "<leader>lcp", "<cmd>CccPick<cr>", opts("Toggles color picker"))
 map('n', "<leader>lCd", "<cmd>RainbowDelim<cr>", opts("Rainbow CSV delim with character under cursor"))
 map('n', "<leader>lCa", "<cmd>RainbowAlign<cr>", opts("Rainbow CSV align"))
 map('n', "<leader>lCs", "<cmd>RainbowShrink<cr>", opts("Rainbow CSV shrink"))
+
+-- NOTE: Folds
+-- HACK: Function to fold all headings of a specific level
+local function fold_headings_of_level(level)
+  -- Move to the top of the file
+  vim.cmd("normal! gg")
+  -- Get the total number of lines
+  local total_lines = vim.fn.line("$")
+  for line = 1, total_lines do
+    -- Get the content of the current line
+    local line_content = vim.fn.getline(line)
+    -- "^" -> Ensures the match is at the start of the line
+    -- string.rep("#", level) -> Creates a string with 'level' number of "#" characters
+    -- "%s" -> Matches any whitespace character after the "#" characters
+    -- So this will match `## `, `### `, `#### ` for example, which are markdown headings
+    if line_content:match("^" .. string.rep("#", level) .. "%s") then
+      -- Move the cursor to the current line
+      vim.fn.cursor(line, 1)
+      -- Fold the heading if it matches the level
+      if vim.fn.foldclosed(line) == -1 then
+        vim.cmd("normal! za")
+      end
+    end
+  end
+end
