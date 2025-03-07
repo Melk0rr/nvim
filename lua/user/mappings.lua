@@ -131,3 +131,16 @@ local function fold_headings_of_level(level)
     end
   end
 end
+
+-- HACK: Fold markdown headings
+local function fold_markdown_headings(levels)
+  -- I save the view to know where to jump back after folding
+  local saved_view = vim.fn.winsaveview()
+  for _, level in ipairs(levels) do
+    fold_headings_of_level(level)
+  end
+  vim.cmd("nohlsearch")
+  -- Restore the view to jump to where I was
+  vim.fn.winrestview(saved_view)
+end
+
