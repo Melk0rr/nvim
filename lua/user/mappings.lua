@@ -144,3 +144,16 @@ local function fold_markdown_headings(levels)
   vim.fn.winrestview(saved_view)
 end
 
+-- HACK: Fold markdown headings in Neovim with a keymap
+-- Keymap for folding markdown headings of level 1 or above
+vim.keymap.set("n", "zj", function()
+  -- "Update" saves only if the buffer has been modified since the last save
+  vim.cmd("silent update")
+  -- vim.keymap.set("n", "<leader>mfj", function()
+  -- Reloads the file to refresh folds, otheriise you have to re-open neovim
+  vim.cmd("edit!")
+  -- Unfold everything first or I had issues
+  vim.cmd("normal! zR")
+  fold_markdown_headings({ 6, 5, 4, 3, 2, 1 })
+  vim.cmd("normal! zz") -- center the cursor line on screen
+end, opts("Fold all headings level 1 or above"))
