@@ -170,3 +170,17 @@ vim.keymap.set("n", "zk", function()
   fold_markdown_headings({ 6, 5, 4, 3, 2 })
   vim.cmd("normal! zz") -- center the cursor line on screen
 end, opts("Fold all headings level 2 or above"))
+
+-- HACK: Fold markdown headings in Neovim with a keymap
+-- Keymap for folding markdown headings of level 3 or above
+vim.keymap.set("n", "zl", function()
+  -- "Update" saves only if the buffer has been modified since the last save
+  vim.cmd("silent update")
+  -- Reloads the file to refresh folds, otherwise you have to re-open neovim
+  vim.cmd("edit!")
+  -- Unfold everything first or I had issues
+  vim.cmd("normal! zR")
+  fold_markdown_headings({ 6, 5, 4, 3 })
+  vim.cmd("normal! zz") -- center the cursor line on screen
+end, opts("Fold all headings level 3 or above"))
+
