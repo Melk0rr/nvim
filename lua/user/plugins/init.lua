@@ -1,10 +1,10 @@
 return {
-  require("user.plugins.base16"),
   require("user.plugins.bufferline"),
   require("user.plugins.blink"),
   require("user.plugins.ccc"),
   require("user.plugins.crates"),
   require("user.plugins.dap"),
+  require("user.plugins.gruvbox"),
   require("user.plugins.illuminate"),
   require("user.plugins.inlay-hint"),
   require("user.plugins.lspconfig"),
