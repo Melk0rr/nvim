@@ -29,7 +29,7 @@ vim.opt.foldmethod = "expr"
 if vim.fn.has("nvim-0.10") == 1 then
   vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
   vim.opt.foldmethod = "expr"
-  vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
+  vim.opt.foldtext = ""
 else
   vim.opt.foldmethod = "indent"
 end
@@ -51,8 +51,7 @@ vim.opt.ch = 0
 vim.g.terminal_emulator = "kitty"
 
 -- INFO: Term colors
-vim.cmd "colorscheme vim" 		        -- WARN: overwritten by plugins color scheme
---vim.cmd "set background=dark"
+-- vim.cmd "colorscheme vim"
 vim.opt.termguicolors = true
 
 -- INFO: Miscellaneous
