@@ -144,9 +144,24 @@ local function fold_markdown_headings(levels)
   vim.fn.winrestview(saved_view)
 end
 
+-- HACK: Use <CR> to fold in normal mode
+map('n', "<CR>", function ()
+  -- Get current line number
+  local line = vim.fn.line(".")
+
+  -- Get fold level
+  local foldlevel = vim.fn.foldlevel(line)
+  if foldlevel == 0 then
+    vim.notify("No fold found", vim.log.levels.INFO)
+  else
+    vim.cmd("normal! za")
+    vim.cmd("normal! zz")
+  end
+end, opts("Toggle fold"))
+
 -- HACK: Fold markdown headings in Neovim with a keymap
 -- Keymap for folding markdown headings of level 1 or above
-vim.keymap.set("n", "zj", function()
+map('n', "zj", function()
   -- "Update" saves only if the buffer has been modified since the last save
   vim.cmd("silent update")
   -- vim.keymap.set("n", "<leader>mfj", function()
@@ -160,7 +175,7 @@ end, opts("Fold all headings level 1 or above"))
 
 -- HACK: Fold markdown headings in Neovim with a keymap
 -- Keymap for folding markdown headings of level 2 or above
-vim.keymap.set("n", "zk", function()
+map('n', "zk", function()
   -- "Update" saves only if the buffer has been modified since the last save
   vim.cmd("silent update")
   -- Reloads the file to refresh folds, otherwise you have to re-open neovim
@@ -173,7 +188,7 @@ end, opts("Fold all headings level 2 or above"))
 
 -- HACK: Fold markdown headings in Neovim with a keymap
 -- Keymap for folding markdown headings of level 3 or above
-vim.keymap.set("n", "zl", function()
+map('n', "zl", function()
   -- "Update" saves only if the buffer has been modified since the last save
   vim.cmd("silent update")
   -- Reloads the file to refresh folds, otherwise you have to re-open neovim
@@ -183,4 +198,3 @@ vim.keymap.set("n", "zl", function()
   fold_markdown_headings({ 6, 5, 4, 3 })
   vim.cmd("normal! zz") -- center the cursor line on screen
 end, opts("Fold all headings level 3 or above"))
-
