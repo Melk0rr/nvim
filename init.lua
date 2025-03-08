@@ -7,5 +7,6 @@ require("user.lazy")
 require("user.autocmd")
 require("user.mappings")
 
--- INFO: Colorscheme
-vim.cmd[[colorscheme gruvbox]]
+-- INFO: Colorscheme settings
+vim.o.background = "dark"
+vim.cmd([[colorscheme gruvbox]])
