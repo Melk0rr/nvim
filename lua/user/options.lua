@@ -48,7 +48,7 @@ vim.opt.showmode = false
 vim.opt.ch = 0
 
 -- INFO: Term
-vim.g.terminal_emulator = "kitty"
+vim.g.terminal_emulator = "ghostty"
 
 -- INFO: Term colors
 vim.cmd "colorscheme vim" 		        -- WARN: overwritten by plugins color scheme
