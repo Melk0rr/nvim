@@ -54,8 +54,7 @@ vim.opt.ch = 0
 vim.g.terminal_emulator = "ghostty"
 
 -- INFO: Term colors
-vim.cmd "colorscheme vim" -- WARN: overwritten by plugins color scheme
---vim.cmd "set background=dark"
+-- vim.cmd "colorscheme vim"
 vim.opt.termguicolors = true
 
 -- INFO: Miscellaneous
