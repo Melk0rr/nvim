@@ -5,8 +5,12 @@ vim.api.nvim_create_autocmd("BufEnter", {
     --vim.api.nvim_set_hl(0, "LineNr", { bg="NONE", bold=false })
     vim.api.nvim_set_hl(0, "CursorLineNr", { bg="NONE", bold=true, cterm={ bold=true } })
 
+    -- HACK: Remove folded background
+    vim.api.nvim_set_hl(0, "Folded", { bg="NONE" })
+
     -- HACK: Plugin:Illuminate
     vim.api.nvim_set_hl(0, "IlluminatedWordRead", { standout=true })
+
   end,
 })
 

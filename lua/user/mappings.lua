@@ -139,7 +139,7 @@ local function fold_markdown_headings(levels)
   for _, level in ipairs(levels) do
     fold_headings_of_level(level)
   end
-  -- vim.cmd("nohlsearch")
+  vim.cmd("nohlsearch")
   -- Restore the view to jump to where I was
   vim.fn.winrestview(saved_view)
 end
