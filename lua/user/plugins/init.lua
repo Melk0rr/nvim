@@ -1,5 +1,4 @@
 return {
-  require("user.plugins.base16"),
   require("user.plugins.bufferline"),
   require("user.plugins.blink"),
   require("user.plugins.ccc"),
