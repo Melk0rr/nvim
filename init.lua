@@ -6,4 +6,5 @@ require("user.options")
 require("user.lazy")
 require("user.autocmd")
 require("user.mappings")
-require("user.theme")
+
+vim.cmd([[colorscheme tokyonight-night]])
