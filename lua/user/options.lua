@@ -1,8 +1,8 @@
 -- INFO: Tabulation
-vim.opt.expandtab = true		          -- tab to space
+vim.opt.expandtab = true -- tab to space
 
 -- WARN: Can be overwritten by lsp
-vim.opt.tabstop = 2			              -- tab size
+vim.opt.tabstop = 2 -- tab size
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.smarttab = true
@@ -12,7 +12,7 @@ vim.opt.smartcase = true
 
 -- INFO: Line
 vim.opt.cursorline = true
-vim.opt.number = true 			          -- HACK: line number
+vim.opt.number = true -- HACK: line number
 vim.opt.fillchars = { eob = ' ' }
 
 -- INFO: Split
@@ -30,6 +30,8 @@ if vim.fn.has("nvim-0.10") == 1 then
   vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
   vim.opt.foldmethod = "expr"
   vim.opt.foldtext = ""
+
+  -- HACK: Removes fill chars
   vim.opt.fillchars:append({ fold = " " })
 else
   vim.opt.foldmethod = "indent"
@@ -52,7 +54,7 @@ vim.opt.ch = 0
 vim.g.terminal_emulator = "ghostty"
 
 -- INFO: Term colors
-vim.cmd "colorscheme vim" 		        -- WARN: overwritten by plugins color scheme
+vim.cmd "colorscheme vim" -- WARN: overwritten by plugins color scheme
 --vim.cmd "set background=dark"
 vim.opt.termguicolors = true
 
@@ -61,4 +63,3 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.opt.pumheight = 40
 vim.lsp.inlay_hint.enable(true)
-
