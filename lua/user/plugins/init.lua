@@ -29,6 +29,7 @@ return {
   -- INFO: Colorschemes
   require("user.plugins.base16"),
   -- require("user.plugins.gruvbox"),
+  -- require("user.plugins.catppuccin"),
   -- require("user.plugins.rosepine"),
   -- require("user.plugins.tokyonight"),
 }
