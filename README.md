@@ -5,31 +5,31 @@
 # My neovim config
 ## Plugins I use
 ### UI
-require("user.plugins.bufferline"),
-require("user.plugins.ccc"),
-require("user.plugins.illuminate"),
-require("user.plugins.lualine"),
-require("user.plugins.noice"),
+- bufferline
+- ccc
+- illuminate
+- lualine
+- noice
 
 ### QoL
-require("user.plugins.snacks"),
-require("user.plugins.todo-comments"),
-require("user.plugins.whichkey"),
+- snacks
+- todo-comments
+- whichkey
 
 ### LSP / Linting / Completion / Language support
-require("user.plugins.treesitter"),
-require("user.plugins.blink"),
-require("user.plugins.crates"),
-require("user.plugins.inlay-hint"),
-require("user.plugins.lspconfig"),
-require("user.plugins.markdown"),
-require("user.plugins.mason"),
-require("user.plugins.mini"),
-require("user.plugins.rainbowcsv"),
-require("user.plugins.rustaceanvim"),
+- treesitter
+- blink
+- crates
+- inlay-hint
+- lspconfig
+- markdown
+- mason
+- mini
+- rainbowcsv
+- rustaceanvim
 
 ### Debug
-require("user.plugins.dap"),
+- dap
 
 ## Colorschemes
 I can use many different colorschemes depending on which distro I'm on
