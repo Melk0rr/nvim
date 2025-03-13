@@ -28,8 +28,9 @@ map('t', "<C-l>", [[<C-\><C-n><C-w>l]], opts("Go to right terminal"))
 -- NOTE: Buffer navigation
 map('n', "<Tab>", "<cmd>bnext<cr>", opts("Next buffer"))
 map('n', "<S-Tab>", "<cmd>bprevious<cr>", opts("Previous buffer"))
-map('n', "<leader>bd", "<cmd>lua require('snacks').bufdelete()<cr>", opts("Delete buffer"))
-map('n', "<leader>bo", "<cmd>lua require('snacks').bufdelete.other()<cr>", opts("Delete other buffer"))
+map('n', "<leader>bd", "<cmd>lua require('snacks').bufdelete()<cr>", opts("Delete current buffer"))
+map('n', "<leader>bo", "<cmd>lua require('snacks').bufdelete.other()<cr>", opts("Delete other buffers"))
+map('n', "<leader>ba", "<cmd>lua require('snacks').bufdelete.all()<cr>", opts("Delete all buffers"))
 
 -- NOTE: Stay in indent mode
 map('v', '<', "<gv", opts("Unindent"))
