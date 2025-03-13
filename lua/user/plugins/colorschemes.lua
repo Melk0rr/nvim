@@ -51,6 +51,12 @@ return {
     priority = 1000,
   },
 
+  -- INFO: Melange
+  {
+    "savq/melange-nvim",
+    priority = 1000,
+  },
+
   -- INFO: Nord
   {
     "shaunsingh/nord.nvim",
