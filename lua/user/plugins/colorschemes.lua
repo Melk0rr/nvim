@@ -13,6 +13,13 @@ return {
     priority = 1000,
   },
 
+  -- INFO: Everblush
+  {
+    "Everblush/everblush.nvim",
+    priority = 1000,
+    name = 'everblush'
+  },
+
   -- INFO: Evergarden
   {
     "comfysage/evergarden",
