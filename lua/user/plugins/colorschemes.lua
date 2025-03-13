@@ -37,6 +37,7 @@ return {
     "oahlen/iceberg.nvim",
     priority = 1000,
   },
+
   -- INFO: Kanagawa
   {
     "rebelot/kanagawa.nvim",
