@@ -54,10 +54,10 @@ But I also use
 
 
 ### OpenSUSE
-While using OpenSUSE Tumbleweed on my laptop, I mainly use [Gruvbox](https://github.com/ellisonleao/gruvbox.nvim) as I find it matches the most the OpenSUSE aesthetic
+While using [OpenSUSE](https://github.com/Melk0rr/opensuse) Tumbleweed on my laptop, I mainly use [Gruvbox](https://github.com/ellisonleao/gruvbox.nvim) as I find it matches the most the OpenSUSE aesthetic
 
 ### NixOS
-While on my tablet, [Catppuccin](https://github.com/catppuccin/nvim) for the whole system
+While on my [NixOS](https://github.com/Melk0rr/nixos) tablet, [Catppuccin](https://github.com/catppuccin/nvim) for the whole system
 
 ### Debian
 Finally, while on Debian, I use either
