@@ -4,32 +4,19 @@
 
 # My neovim config
 ## Plugins I use
-### UI
-- bufferline
-- ccc
-- illuminate
-- lualine
-- noice
 
-### QoL
-- snacks
-- todo-comments
-- whichkey
-
-### LSP / Linting / Completion / Language support
-- treesitter
-- blink
-- crates
-- inlay-hint
-- lspconfig
-- markdown
-- mason
-- mini
-- rainbowcsv
-- rustaceanvim
-
-### Debug
-- dap
+| UI | QoL | LSP | Debug |
+| --------------- | --------------- | --------------- | --------------- |
+| bufferline | snacks | treesitter | dap |
+| ccc | todo-comments | blink | |
+| illuminate | whichkey | crates | |
+| lualine | | inlay-hint | |
+| noice | | lspconfig | |
+| | | markdown | |
+| | | mason | |
+| | | mini | |
+| | | rainbowcsv | |
+| | | rustaceanvim | |
 
 ## Colorschemes
 I can use many different colorschemes depending on which distro I'm on
