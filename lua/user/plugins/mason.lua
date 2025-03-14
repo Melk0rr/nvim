@@ -13,6 +13,7 @@ return {
       "jsonls",
       "lua_ls",
       "markdown_oxide",
+      "marksman",
       "pylsp",
       "ruff",
       "rust_analyzer",
