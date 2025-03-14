@@ -60,6 +60,7 @@ return {
 
     -- INFO: Markdown
     lspconfig.markdown_oxide.setup({ on_attach = on_attach, capabilities = capabilities })
+    lspconfig.marksman.setup({ on_attach = on_attach, capabilities = capabilities })
 
     -- INFO: Python
     lspconfig.ruff.setup({
