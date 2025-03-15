@@ -7,6 +7,7 @@ return {
   require("user.plugins.noice"),
 
   -- INFO: QoL
+  require("user.plugins.image"),
   require("user.plugins.snacks"),
   require("user.plugins.todo-comments"),
   require("user.plugins.whichkey"),
