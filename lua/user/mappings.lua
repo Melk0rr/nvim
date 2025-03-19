@@ -4,8 +4,8 @@ local opts = function(desc)
 end
 
 -- NOTE: Common
-map('', 'Y', 'y$', opts("Yank whole line"))
-map('n', "<leader;", "mqA;<esc>`q", opts("Semicolon at end of line"))
+map('n', 'Y', 'yy', opts("Yank whole line"))
+map('n', "<leader>;", "mqA;<esc>`q", opts("Semicolon at end of line"))
 map('n', "<leader>h", "<cmd>noh<cr>", opts("No search highlight"))
 map('n', "<leader>qq", "<cmd>wqa!<cr>", opts("Save and quit"))
 map('n', "<C-a>", "goVG", opts("Select all"))
@@ -16,10 +16,12 @@ map('i', "jk", "<ESC>", opts("jk to exit insert mode"))
 map('i', "kj", "<ESC>", opts("kj to exit insert mode"))
 
 -- NOTE: Window navigation
-map('n', "<C-h>", "<C-w>h", opts("Go to left window"))
+map('n', "<C-d>", "<C-d>zz", { desc = "Go down half page and center" })
+map('n', "<C-u>", "<C-u>zz", { desc = "Go up half pase and center" })
+map('n', "<C-h>", "<C-w>h", { desc = "Go to left window" })
 map('n', "<C-j>", "<C-w>j", opts("Go to lower window"))
 map('n', "<C-k>", "<C-w>k", opts("Go to upper window"))
-map('n', "<C-l>", "<C-w>l", opts("Go to right window"))
+map('n', "<C-l>", "<C-w>l", opts("Go to risht window"))
 map('t', "<C-h>", [[<C-\><C-n><C-w>h]], opts("Go to left terminal"))
 map('t', "<C-j>", [[<C-\><C-n><C-w>j]], opts("Go to lower terminal"))
 map('t', "<C-k>", [[<C-\><C-n><C-w>k]], opts("Go to upper terminal"))
@@ -190,7 +192,7 @@ end, opts("Fold all headings level 2 or above"))
 -- HACK: Fold markdown headings in Neovim with a keymap
 -- Keymap for folding markdown headings of level 3 or above
 map('n', "zl", function()
-  -- "Update" saves only if the buffer has been modified since the last save
+  -- Saves only if the buffer has been modified since the last save
   vim.cmd("silent update")
   -- Reloads the file to refresh folds, otherwise you have to re-open neovim
   vim.cmd("edit!")
