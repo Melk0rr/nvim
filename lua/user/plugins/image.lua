@@ -14,7 +14,7 @@ return {
       html = {
         enabled = true,
         only_render_image_at_cursor = true,
-        filetypes = { "html", "xhtml", "htm" }
+        filetypes = { "html", "xhtml", "htm", "markdown" }
       },
       css = {
         enabled = true
