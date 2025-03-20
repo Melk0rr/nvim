@@ -21,4 +21,16 @@ function read_config(file_path)
   return content
 end
 
+-- INFO: Function to extract hyde theme
+function get_hyde_theme(content)
+  for line in content:gmatch("[^\n]") do
+    local theme = line:match('hydeTheme="([^"]+)"')
+    if theme then
+      return theme
+    end
+  end
+  return nil
+end
+
+local hyde_conf = os.getenv("HOME") .. "/.config/hyde/hyde.conf"
 
