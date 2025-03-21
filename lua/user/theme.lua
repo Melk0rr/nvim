@@ -1,20 +1,20 @@
 -- HACK: Handling theme based on hyde
--- INFO: Function to read config file
-local function read_config(file_path)
-  local handle = io.open(file_path, 'r')
-  if not handle then
-    error("Cannot open hyde config file: " .. file_path)
+-- INFO: Function to check if the file exists
+local function check_config(file_path)
+  local f = io.open(file_path, "rb")
+  if f then
+    f:close()
   end
-
-  local content = handle:read("*a")
-  handle.close(file_path)
-
-  return content
+  return f ~= nil
 end
 
 -- INFO: Function to extract hyde theme
-local function get_hyde_theme(content)
-  for line in content:gmatch("[^\n]") do
+local function get_hyde_theme(file_path)
+  if not check_config(file_path) then
+    return nil
+  end
+
+  for line in io.lines(file_path) do
     local theme = line:match('hydeTheme="([^"]+)"')
     if theme then
       return theme
@@ -25,82 +25,79 @@ end
 
 -- INFO: Function to change colorscheme based on hyde theme
 local function set_colorscheme(file_path)
-  local content = read_config(file_path)
-  if content then
-    local theme = get_hyde_theme(content)
-    if theme then
-      -- NOTE: Autumn Leaves
-      if theme == "Autumn Leaves" then
-        vim.cmd[[colorscheme melange]]
+  local theme = get_hyde_theme(file_path)
+  if theme then
+    -- NOTE: Autumn Leaves
+    if theme == "Autumn Leaves" then
+      vim.cmd [[colorscheme melange]]
 
       -- NOTE: Barad Dur
-      elseif theme == "Barad Dur" then
-        vim.cmd[[colorscheme darkrose]]
+    elseif theme == "Barad Dur" then
+      vim.cmd [[colorscheme darkrose]]
 
       -- NOTE: Catppuccin Latte
-      elseif theme == "Catppuccin Latte" then
-        vim.cmd[[colorscheme kanagawa-lotus]]
+    elseif theme == "Catppuccin Latte" then
+      vim.cmd [[colorscheme kanagawa-lotus]]
 
       -- NOTE: Catppuccin Mocha
-      elseif theme == "Catppuccin Mocha" then
-        vim.cmd[[colorscheme catppuccin-mocha]]
+    elseif theme == "Catppuccin Mocha" then
+      vim.cmd [[colorscheme catppuccin-mocha]]
 
       -- NOTE: Cosmic Blue
-      elseif theme == "Cosmic Blue" then
-        vim.cmd[[colorscheme iceberg]]
+    elseif theme == "Cosmic Blue" then
+      vim.cmd [[colorscheme iceberg]]
 
       -- NOTE: Decay Green
-      elseif theme == "Decay Green" then
-        vim.cmd[[colorscheme everblush]]
+    elseif theme == "Decay Green" then
+      vim.cmd [[colorscheme everblush]]
 
       -- NOTE: Edge Runner
-      elseif theme == "Edge Runner" then
-        vim.cmd[[colorscheme lavender]]
+    elseif theme == "Edge Runner" then
+      vim.cmd [[colorscheme lavender]]
 
       -- NOTE: Graphite Mono
-      elseif theme == "Graphite Mono" then
-        vim.cmd[[colorscheme lackluster]]
+    elseif theme == "Graphite Mono" then
+      vim.cmd [[colorscheme lackluster]]
 
       -- NOTE: Gruvbox Retro
-      elseif theme == "Gruvbox Retro" then
-        vim.cmd[[colorscheme gruvbox]]
+    elseif theme == "Gruvbox Retro" then
+      vim.cmd [[colorscheme gruvbox]]
 
       -- NOTE: Nordic Blue
-      elseif theme == "Nordic Blue" then
-        vim.cmd[[colorscheme nord]]
+    elseif theme == "Nordic Blue" then
+      vim.cmd [[colorscheme nord]]
 
       -- NOTE: Rosé Pine
-      elseif theme == "Rosé Pine" then
-        vim.cmd[[colorscheme rose-pine]]
+    elseif theme == "Rosé Pine" then
+      vim.cmd [[colorscheme rose-pine]]
 
       -- NOTE: Rust Sand
-      elseif theme == "Rust Sand" then
-        vim.cmd[[colorscheme melange]]
+    elseif theme == "Rust Sand" then
+      vim.cmd [[colorscheme melange]]
 
       -- NOTE: Sci-Fi
-      elseif theme == "Sci-Fi" then
-        vim.cmd[[colorscheme lavender]]
+    elseif theme == "Sci-Fi" then
+      vim.cmd [[colorscheme lavender]]
 
       -- NOTE: Silent Shrine
-      elseif theme == "Silent Shrine" then
-        vim.cmd[[colorscheme evergarden]]
+    elseif theme == "Silent Shrine" then
+      vim.cmd [[colorscheme evergarden]]
 
       -- NOTE: Synth Wave
-      elseif theme == "Synth Wave" then
-        vim.cmd[[colorscheme lavender]]
+    elseif theme == "Synth Wave" then
+      vim.cmd [[colorscheme lavender]]
 
       -- NOTE: Terra Nova
-      elseif theme == "Terra Nova" then
-        vim.cmd[[colorscheme kanagawa-wave]]
+    elseif theme == "Terra Nova" then
+      vim.cmd [[colorscheme kanagawa-wave]]
 
       -- NOTE: Tokyo Night
-      elseif theme == "Tokyo Night" then
-        vim.cmd[[colorscheme tokyonight-night]]
-      end
-    else
-      print("Failed to read hyde conf")
+    elseif theme == "Tokyo Night" then
+      vim.cmd [[colorscheme tokyonight-night]]
     end
-
+  else
+    print(theme)
+    print("Failed to read hyde conf")
   end
 end
 
