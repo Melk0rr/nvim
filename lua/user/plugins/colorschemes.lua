@@ -51,6 +51,13 @@ return {
     priority = 1000,
   },
 
+  -- INFO: Lackluster (Mono)
+  {
+    "slugbyte/lackluster.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+
   -- INFO: Lavender
   {
     url = "https://codeberg.org/jthvai/lavender.nvim",
