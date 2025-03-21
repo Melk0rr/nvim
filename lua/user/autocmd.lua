@@ -10,22 +10,5 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
     -- HACK: Plugin:Illuminate
     vim.api.nvim_set_hl(0, "IlluminatedWordRead", { standout=true })
-
   end,
-})
-
-local theme = require("base16-colorscheme")
-
-local indscope = theme.colors.base07
-local bright = theme.colors.base0F
-vim.api.nvim_create_autocmd("BufEnter", {
-	callback = function()
-
-		-- HACK: Snack indent scope
-		vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = indscope })
-
-		-- HACK: Bufferline
-		vim.api.nvim_set_hl(0, "BufferLineIndicatorSelected", { sp = bright })
-		vim.api.nvim_set_hl(0, "TabLineSel", { bg = bright })
-	end,
 })
