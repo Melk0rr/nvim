@@ -28,6 +28,5 @@ return {
   require("user.plugins.dap"),
 
   -- INFO: Colorschemes
-  require("user.plugins.base16"),
   require("user.plugins.colorschemes"),
 }
