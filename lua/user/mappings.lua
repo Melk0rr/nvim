@@ -10,6 +10,7 @@ map('n', "<leader>h", "<cmd>noh<cr>", opts("No search highlight"))
 map('n', "<leader>qq", "<cmd>wqa!<cr>", opts("Save and quit"))
 map('n', "gA", "ggVG", { desc = "Select all" })
 map('n', "<leader>nf", "<cmd>enew<cr>", opts("New file"))
+map('n', 'K', "i<cr><esc>", opts("Insert line break"))
 
 -- NOTE: Press jk fast to exit insert mode
 map('i', "jk", "<ESC>", opts("jk to exit insert mode"))
