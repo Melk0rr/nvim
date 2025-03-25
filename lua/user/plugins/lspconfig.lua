@@ -26,7 +26,11 @@ return {
     local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     -- INFO: Bash
-    lspconfig.bashls.setup({ on_attach = on_attach, capabilities = capabilities, filetypes = { "bash", "sh", "zsh" } })
+    lspconfig.bashls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = { "bash", "sh", "zsh" }
+    })
 
     -- INFO: CSS
     lspconfig.cssls.setup({ on_attach = on_attach, capabilities = capabilities })
