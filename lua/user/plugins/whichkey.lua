@@ -35,7 +35,7 @@ return {
       { "<leader>s", group = "Search", icon = { icon = "", color = "blue" } },
 
       -- NOTE: Terminal group
-      { "<leader>t", group = "Terminal", icon = { icon = "", color = "green" } },
+      { "<leader>T", group = "Terminal", icon = { icon = "", color = "green" } },
     }
   )
   end
