@@ -4,13 +4,16 @@ local opts = function(desc)
 end
 
 -- NOTE: Common
-map('n', 'Y', 'yy', opts("Yank whole line"))
-map('n', "<leader>;", "mqA;<esc>`q", opts("Semicolon at end of line"))
 map('n', "<leader>h", "<cmd>noh<cr>", opts("No search highlight"))
 map('n', "<leader>qq", "<cmd>wqa!<cr>", opts("Save and quit"))
-map('n', "gA", "ggVG", { desc = "Select all" })
 map('n', "<leader>nf", "<cmd>enew<cr>", opts("New file"))
+
+-- NOTE: Text manipulation
+map('n', "gA", "ggVG", { desc = "Select all" })
+map('n', 'Y', 'yy', opts("Yank whole line"))
 map('n', 'K', "i<cr><esc>", opts("Insert line break"))
+map('n', '<leader>p', "ma$p`a", opts("Prints at the end of the line"))
+map('n', "<leader>;", "mqA;<esc>`q", opts("Semicolon at end of line"))
 
 -- NOTE: Press jk fast to exit insert mode
 map('i', "jk", "<ESC>", opts("jk to exit insert mode"))
@@ -74,7 +77,7 @@ map('n', "<leader>fb", "<cmd>lua require('snacks').picker.buffers()<cr>", opts("
 map('n', "<leader>fB", "<cmd>lua require('snacks').picker.grep_buffers()<cr>", opts("Grep open buffers"))
 map('n', "<leader>fc", "<cmd>lua require('snacks').picker.files()<cr>", opts("Find config files"))
 map('n', "<leader>fC", "<cmd>lua require('snacks').picker.commands()<cr>", opts("Find commands"))
-map('n', "<leader>ff", "<cmd>lua require('snacks').picker.files()<cr>", opts("Find files"))
+map('n', "<leader>ff", "<cmd>lua require('snacks').picker.files({ focus = 'input' })<cr>", opts("Find files"))
 map('n', "<leader>fg", "<cmd>lua require('snacks').picker.grep_word()<cr>", opts("Grep selection"))
 map('n', "<leader>fG", "<cmd>lua require('snacks').picker.grep({ focus = 'input' })<cr>", opts("Live grep"))
 map('n', "<leader>fh", "<cmd>lua require('snacks').picker.highlights()<cr>", opts("Find highlights"))
@@ -96,7 +99,10 @@ map('n', "<leader>sn", "<cmd>lua require('snacks').notifier.show_history()<cr>",
 map('n', "<leader>su", "<cmd>lua require('snacks').picker.undo({ layout = 'vertical' })<cr>", opts("Search undo history"))
 
 -- NOTE: Terminal
-map({ 'n', 't' }, "<leader>tt", "<cmd>lua require('snacks').terminal()<cr>", opts("Toggle terminal"))
+map({ 'n', 't' }, "<leader>Tj", "<cmd>lua require('snacks').terminal({ position = 'bottom' })<cr>", opts("Toggle terminal"))
+map({ 'n', 't' }, "<leader>Tk", "<cmd>lua require('snacks').terminal({ position = 'top' })<cr>", opts("Toggle terminal"))
+map({ 'n', 't' }, "<leader>Th", "<cmd>lua require('snacks').terminal({ position = 'left' })<cr>", opts("Toggle terminal"))
+map({ 'n', 't' }, "<leader>Tl", "<cmd>lua require('snacks').terminal({ position = 'right' })<cr>", opts("Toggle terminal"))
 
 -- NOTE: Words & LSP
 map('n', "<leader>ld", "<cmd>lua require('snacks').picker.diagnostics()<cr>", opts("Find LSP diagnostics"))
