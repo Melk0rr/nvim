@@ -102,10 +102,10 @@ map('n', "<leader>sn", "<cmd>lua require('snacks').notifier.show_history()<cr>",
 map('n', "<leader>su", "<cmd>lua require('snacks').picker.undo({ layout = 'vertical' })<cr>", opts("Search undo history"))
 
 -- NOTE: Terminal
-map({ 'n', 't' }, "<leader>Tj", "<cmd>lua require('snacks').terminal()<cr>", opts("Toggle terminal bottom"))
-map({ 'n', 't' }, "<leader>Tk", "<cmd>lua require('snacks').terminal({ position = 'top' })<cr>", opts("Toggle terminal top"))
-map({ 'n', 't' }, "<leader>Th", "<cmd>lua require('snacks').terminal({ position = 'left' })<cr>", opts("Toggle terminal left"))
-map({ 'n', 't' }, "<leader>Tl", "<cmd>lua require('snacks').terminal({ position = 'right' })<cr>", opts("Toggle terminal right"))
+map({ 'n', 't' }, "<leader>Tj", "<cmd>lua require('snacks').terminal(nil, { win = { position = 'bottom' } })<cr>", opts("Toggle terminal bottom"))
+map({ 'n', 't' }, "<leader>Tk", "<cmd>lua require('snacks').terminal(nil, { win = { position = 'top' } })<cr>", opts("Toggle terminal top"))
+map({ 'n', 't' }, "<leader>Th", "<cmd>lua require('snacks').terminal(nil, { win = { position = 'left' } })<cr>", opts("Toggle terminal left"))
+map({ 'n', 't' }, "<leader>Tl", "<cmd>lua require('snacks').terminal(nil, { win = { position = 'right' } })<cr>", opts("Toggle terminal right"))
 
 -- NOTE: Words & LSP
 map('n', "<leader>ld", "<cmd>lua require('snacks').picker.diagnostics()<cr>", opts("Find LSP diagnostics"))
