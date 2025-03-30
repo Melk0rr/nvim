@@ -10,7 +10,7 @@ map('n', "<leader>nf", "<cmd>enew<cr>", opts("New file"))
 
 -- NOTE: Yank
 map('n', 'Y', 'yy', opts("Yank whole line"))
-map('n', 'yc', '"+y', opts("Yank to clipboard"))
+map('n', "<leader>yc", '"+y', opts("Yank to clipboard"))
 
 -- NOTE: Text manipulation
 map('n', "gA", "ggVG", { desc = "Select all" })
