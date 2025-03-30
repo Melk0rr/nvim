@@ -119,6 +119,7 @@ map('n', "<leader>lcp", "<cmd>CccPick<cr>", opts("Toggles color picker"))
 map('n', "<leader>lCd", "<cmd>RainbowDelim<cr>", opts("Rainbow CSV delim with character under cursor"))
 map('n', "<leader>lCa", "<cmd>RainbowAlign<cr>", opts("Rainbow CSV align"))
 map('n', "<leader>lCs", "<cmd>RainbowShrink<cr>", opts("Rainbow CSV shrink"))
+map('n', "<leader>lk", "<cmd>lua require('codedocs').insert_docs<cr>", opts("Insert code docs"))
 
 -- NOTE: Folds
 -- HACK: Function to fold all headings of a specific level
