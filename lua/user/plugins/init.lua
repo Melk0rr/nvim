@@ -13,8 +13,8 @@ return {
   require("user.plugins.whichkey"),
 
   -- INFO: LSP / Linting / Completion / Language support
-  require("user.plugins.treesitter"),
   require("user.plugins.blink"),
+  require("user.plugins.codedocs"),
   require("user.plugins.crates"),
   require("user.plugins.inlay-hint"),
   require("user.plugins.lspconfig"),
@@ -23,6 +23,7 @@ return {
   require("user.plugins.mini"),
   require("user.plugins.rainbowcsv"),
   require("user.plugins.rustaceanvim"),
+  require("user.plugins.treesitter"),
 
   -- INFO: Debug
   require("user.plugins.dap"),
