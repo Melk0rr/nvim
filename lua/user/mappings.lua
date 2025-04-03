@@ -14,7 +14,7 @@ map({ 'n', 'v' }, "<C-c>", '"+y', opts("Yank to clipboard"))
 
 -- NOTE: Text manipulation
 map('n', "gA", "ggVG", { desc = "Select all" })
-map('n', 'K', "i<cr><esc>", opts("Insert line break"))
+map('n', 'gL', "i<cr><esc>", opts("Insert line break"))
 map('n', '<leader>p', "ma$p`a", opts("Prints at the end of the line"))
 map('n', "<leader>;", "mqA;<esc>`q", opts("Semicolon at end of line"))
 
