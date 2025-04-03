@@ -159,7 +159,7 @@ return {
     })
 
     -- HACK: Change diagnostics symbols
-    vim.diagnostic.config = {
+    vim.diagnostic.config {
       signs = {
         text = {
           [vim.diagnostic.severity.ERROR] = "󰅚 ",
