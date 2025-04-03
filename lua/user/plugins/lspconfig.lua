@@ -158,24 +158,5 @@ return {
       },
     })
 
-    -- HACK: Change diagnostics symbols
-    vim.diagnostic.config {
-      virtual_text = true,
-      signs = {
-        text = {
-          [vim.diagnostic.severity.ERROR] = "󰅚 ",
-          [vim.diagnostic.severity.WARN] = "󰀪 ",
-          [vim.diagnostic.severity.HINT] = "󰌶 ",
-          [vim.diagnostic.severity.INFO] = " ",
-        }
-      }
-    }
-
-    vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-      pattern = "*.wgsl",
-      callback = function()
-        vim.bo.filetype = "wgsl"
-      end,
-    })
   end,
 }
