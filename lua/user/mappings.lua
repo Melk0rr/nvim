@@ -87,6 +87,7 @@ map('n', "<leader>fh", "<cmd>lua require('snacks').picker.highlights()<cr>", opt
 map('n', "<leader>fH", "<cmd>lua require('snacks').picker.help()<cr>", opts("Find help pages"))
 map('n', "<leader>fi", "<cmd>lua require('snacks').picker.icons()<cr>", opts("Find icons"))
 map('n', "<leader>fk", "<cmd>lua require('snacks').picker.keymaps({ layout = 'vertical' })<cr>", opts("Find keymaps"))
+map('n', "<leader>fm", "<cmd>lua require('snacks').picker.marks({ layout = 'vertical' })<cr>", opts("Find marks"))
 map('n', "<leader>fM", "<cmd>lua require('snacks').picker.man()<cr>", opts("Find man pages"))
 map('n', "<leader>fp", "<cmd>lua require('snacks').picker.projects()<cr>", opts("Find projects"))
 map('n', "<leader>fr", "<cmd>lua require('snacks').picker.recent()<cr>", opts("Find recent files"))
