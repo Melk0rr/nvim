@@ -92,7 +92,7 @@ map('n', "<leader>fp", "<cmd>lua require('snacks').picker.projects()<cr>", opts(
 map('n', "<leader>fr", "<cmd>lua require('snacks').picker.recent()<cr>", opts("Find recent files"))
 map('n', "<leader>fS", "<cmd>lua require('snacks').picker.colorschemes({ layout = 'select', focus = 'input' })<cr>", opts("Find colorschemes"))
 map('n', "<leader>ft", "<cmd>lua require('snacks').picker.todo_comments()<cr>", opts("Find Todo comments"))
-map('n', "<leader>fT", "<cmd>lua require('snacks').picker.todo_comments({ 'TODO', 'FIX', 'FIXME' })<cr>", opts("Find Todo/Fix/Fixme"))
+map('n', "<leader>fT", "<cmd>lua require('snacks').picker.todo_comments({ keywords = { 'TODO', 'FIX', 'FIXME' } })<cr>", opts("Find Todo/Fix/Fixme"))
 
 -- NOTE: Picker search
 map('n', '<leader>s"', "<cmd>lua require('snacks').picker.registers()<cr>", opts("Search registers"))
