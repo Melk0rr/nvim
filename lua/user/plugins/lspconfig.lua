@@ -36,7 +36,7 @@ return {
     lspconfig.cssls.setup({ on_attach = on_attach, capabilities = capabilities })
 
     -- INFO: Fish
-    lspconfig.fish_lsp.setup({ on_attach = on_attach, capabilities = capabilities })
+    lspconfig.fish_lsp.setup({ on_attach = on_attach, capabilities = capabilities, filetypes = { "fish" } })
 
     -- INFO: Assembly
     lspconfig.asm_lsp.setup({ on_attach = on_attach, capabilities = capabilities })
@@ -157,6 +157,5 @@ return {
         },
       },
     })
-
   end,
 }
