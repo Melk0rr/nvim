@@ -82,7 +82,7 @@ return {
     -- HACK: Picker docs @ https://github.com/folke/snacks.nvim/blob/main/docs/picker.md
     picker = {
       enabled = true,
-      focus = "list",
+      focus = "input",
       layout = {
         preset = "telescope",
         cycle = true,
