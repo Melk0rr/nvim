@@ -103,11 +103,21 @@ map('n', "<leader>sn", "<cmd>lua require('snacks').notifier.show_history()<cr>",
 map('n', "<leader>su", "<cmd>lua require('snacks').picker.undo({ layout = 'vertical' })<cr>", opts("Search undo history"))
 
 -- NOTE: Terminal
-map({ 'n', 't' }, "<leader>Tj", "<cmd>lua require('snacks').terminal(nil, { win = { position = 'bottom' } })<cr>", opts("Toggle terminal at bottom"))
-map({ 'n', 't' }, "<leader>Tk", "<cmd>lua require('snacks').terminal(nil, { win = { position = 'top' } })<cr>", opts("Toggle terminal at top"))
-map({ 'n', 't' }, "<leader>Th", "<cmd>lua require('snacks').terminal(nil, { win = { position = 'left' } })<cr>", opts("Toggle terminal at left"))
-map({ 'n', 't' }, "<leader>Tl", "<cmd>lua require('snacks').terminal(nil, { win = { position = 'right' } })<cr>", opts("Toggle terminal at right"))
-map('t', "<leader>Tq", "<C-d>", opts("Exit terminal"))
+-- NOTE: Terminal
+local function toggle_snacks_term(cmd, pos)
+  local ft = vim.bo.filetype
+  if ft == "snacks_terminal" then
+    vim.cmd([[close]])
+  else
+    require("snacks").terminal.toggle(cmd, { win = { position = pos } })
+  end
+end
+
+map({ 'n', 't' }, "<leader>Tj", function () toggle_snacks_term(nil, "bottom") end, opts("Toggle terminal at bottom"))
+map({ 'n', 't' }, "<leader>Tk", function () toggle_snacks_term(nil, "top") end, opts("Toggle terminal at top"))
+map({ 'n', 't' }, "<leader>Th", function () toggle_snacks_term(nil, "left") end, opts("Toggle terminal at left"))
+map({ 'n', 't' }, "<leader>Tl", function () toggle_snacks_term(nil, "right") end, opts("Toggle terminal at right"))
+map({ 'n', 't' }, "<leader>Tm", function () toggle_snacks_term({"make"}, "bottom") end, opts("Open terminal and run C make"))
 
 -- NOTE: Words & LSP
 map('n', "<leader>ld", "<cmd>lua require('snacks').picker.diagnostics()<cr>", opts("Find LSP diagnostics"))
