@@ -6,4 +6,6 @@ require("user.options")
 require("user.lazy")
 require("user.autocmd")
 require("user.mappings")
+
+im.cmd([[colorscheme catppuccin-mocha]])
 -- require("user.theme")
