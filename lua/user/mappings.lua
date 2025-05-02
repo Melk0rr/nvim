@@ -102,6 +102,9 @@ map('n', "<leader>s/", "<cmd>lua require('snacks').picker.search_history({ focus
 map('n', "<leader>sn", "<cmd>lua require('snacks').notifier.show_history()<cr>", opts("Search history"))
 map('n', "<leader>su", "<cmd>lua require('snacks').picker.undo({ layout = 'vertical' })<cr>", opts("Search undo history"))
 
+-- NOTE: Yazi
+map({'n', 'v'}, "<leader>-", "<cmd>Yazi cwd<cr>", opts("Open Yazi in current working directory"))
+
 -- NOTE: Terminal
 local function toggle_snacks_term(pos)
   local ft = vim.bo.filetype

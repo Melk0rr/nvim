@@ -11,6 +11,7 @@ return {
   require("user.plugins.snacks"),
   require("user.plugins.todo-comments"),
   require("user.plugins.whichkey"),
+  require("user.plugins.yazi"),
 
   -- INFO: LSP / Linting / Completion / Language support
   require("user.plugins.blink"),
