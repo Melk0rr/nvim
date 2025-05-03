@@ -18,8 +18,8 @@ return {
       map("n", "<leader>lf", vim.lsp.buf.format, opts("LSP format"))
       map("n", "<leader>lh", vim.lsp.buf.hover, opts("LSP hover info"))
       map("n", "<leader>lH", vim.lsp.buf.signature_help, opts("LSP signature help"))
-      map("n", "<leader>lk", vim.diagnostic.goto_prev, opts("Previous LSP diagnostic"))
-      map("n", "<leader>lj", vim.diagnostic.goto_next, opts("Next LSP diagnostic"))
+      map("n", "<leader>lk", function () vim.diagnostic.jump({ count=-1, float=true }) end, opts("Previous LSP diagnostic"))
+      map("n", "<leader>lj", function () vim.diagnostic.jump({ count=1, float=true }) end, opts("Next LSP diagnostic"))
     end
 
     -- INFO: Capabilities
@@ -57,7 +57,7 @@ return {
     lspconfig.jsonls.setup({ on_attach = on_attach, capabilities = capabilities })
 
     -- INFO: Nix
-    -- lspconfig.nil_ls.setup({ on_attach = on_attach, capabilities = capabilities })
+    lspconfig.nil_ls.setup({ on_attach = on_attach, capabilities = capabilities })
 
     -- INFO: Hyprlang
     lspconfig.hyprls.setup({ on_attach = on_attach, capabilities = capabilities })
