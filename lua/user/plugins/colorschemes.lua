@@ -92,9 +92,9 @@ return {
     priority = 1000,
     config = function ()
       require("tokyonight").setup({
-        on_colors = function (colors)
-          colors.bg = vim.o.background
-        end
+        -- on_colors = function (colors)
+        --   colors.bg = vim.o.background
+        -- end
       })
     end
   },
