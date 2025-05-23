@@ -79,6 +79,9 @@ return {
             enable = true,
             ignore = { "E111", "E114", "E121", "E202", "E203", "E501", "E221", "W503", "E241", "E402" },
           },
+          args = {
+            "--line-length=100",
+          }
         },
       },
     })
@@ -97,8 +100,7 @@ return {
             pycodestyle = {
               enabled = false,
               ignore = { "E111", "E114", "E121", "E202", "E203", "E501", "E221", "W503", "E241", "E402" },
-              -- maxLineLength = 100,
-              -- indentSize = 2,
+              maxLineLength = 100,
             },
           },
         },
