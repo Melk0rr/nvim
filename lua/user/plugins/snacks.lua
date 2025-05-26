@@ -94,13 +94,6 @@ return {
         modified = "m",
         regex = { icon = "R", value = false },
       },
-      win = {
-        input = {
-          keys = {
-            ["<c-q>"] = { "qflist", mode = { "i", "n" } },
-          }
-        }
-      },
       layouts = {
         ivy = {
           layout = {
