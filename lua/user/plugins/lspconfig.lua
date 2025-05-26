@@ -18,8 +18,9 @@ return {
       map("n", "<leader>lf", vim.lsp.buf.format, opts("LSP format"))
       map("n", "<leader>lh", vim.lsp.buf.hover, opts("LSP hover info"))
       map("n", "<leader>lH", vim.lsp.buf.signature_help, opts("LSP signature help"))
-      map("n", "<leader>lk", function () vim.diagnostic.jump({ count=-1, float=true }) end, opts("Previous LSP diagnostic"))
-      map("n", "<leader>lj", function () vim.diagnostic.jump({ count=1, float=true }) end, opts("Next LSP diagnostic"))
+      map("n", "<leader>lk", function() vim.diagnostic.jump({ count = -1, float = true }) end,
+        opts("Previous LSP diagnostic"))
+      map("n", "<leader>lj", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts("Next LSP diagnostic"))
     end
 
     -- INFO: Capabilities
@@ -74,11 +75,24 @@ return {
         settings = {
           configuration = "~/.config/ruff/ruff.toml",
           lineLength = 100,
-          indentWidth = 2,
           lint = {
             enable = true,
-            lineLength = 100,
-            ignore = { "E111", "E114", "E121", "E202", "E203", "E501", "E221", "W503", "E241", "E402" },
+            select = { "E", "F", "W", "A", "PLC", "PLE", "PLW", "I" },
+            ignore = {
+              "E111",
+              "E114",
+              "E121",
+              "E202",
+              "E203",
+              "E501",
+              "E221",
+              "W503",
+              "E241",
+              "E402"
+            },
+          },
+          format = {
+            enable = true,
           },
         },
       },
@@ -97,7 +111,18 @@ return {
             flake8 = { enabled = false },
             pycodestyle = {
               enabled = false,
-              ignore = { "E111", "E114", "E121", "E202", "E203", "E501", "E221", "W503", "E241", "E402" },
+              ignore = {
+                "E111",
+                "E114",
+                "E121",
+                "E202",
+                "E203",
+                "E501",
+                "E221",
+                "W503",
+                "E241",
+                "E402"
+              },
               maxLineLength = 100,
             },
           },
