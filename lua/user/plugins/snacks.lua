@@ -87,6 +87,7 @@ return {
         preset = "telescope",
         cycle = true,
       },
+
       toggles = {
         follow = "f",
         hidden = "h",
@@ -94,6 +95,7 @@ return {
         modified = "m",
         regex = { icon = "R", value = false },
       },
+
       layouts = {
         ivy = {
           layout = {
