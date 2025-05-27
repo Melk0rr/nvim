@@ -10,8 +10,8 @@
 | bufferline | snacks | treesitter | dap |
 | ccc | todo-comments | blink | |
 | illuminate | whichkey | crates | |
-| lualine | | inlay-hint | |
-| noice | | lspconfig | |
+| lualine | image | inlay-hint | |
+| noice | yazi | lspconfig | |
 | | | markdown | |
 | | | mason | |
 | | | mini | |
