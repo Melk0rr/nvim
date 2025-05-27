@@ -14,7 +14,7 @@ return {
       "lua_ls",
       "markdown_oxide",
       "marksman",
-      "pylsp",
+      -- "pylsp",
       "ruff",
       "rust_analyzer",
     }
