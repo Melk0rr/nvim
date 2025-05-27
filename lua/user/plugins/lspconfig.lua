@@ -73,7 +73,7 @@ return {
       capabilities = capabilities,
       init_options = {
         settings = {
-          -- configuration = "~/.config/ruff/ruff.toml",
+          configuration = "~/.config/ruff/ruff.toml",
           lineLength = 100,
           lint = {
             enable = true,
@@ -98,7 +98,7 @@ return {
               ignore = { "E111", "E114", "E121", "E202", "E203", "E501", "E221", "W503", "E241", "E402" },
             },
             pycodestyle = {
-              enabled = false,
+              enabled = true,
               maxLineLength = 100,
               ignore = { "E111", "E114", "E121", "E202", "E203", "E501", "E221", "W503", "E241", "E402" },
             },
