@@ -82,30 +82,30 @@ return {
         },
       },
     })
-    -- lspconfig.pylsp.setup({
-    --   on_attach = on_attach,
-    --   capabilities = capabilities,
-    --   settings = {
-    --     pylsp = {
-    --       plugins = {
-    --         autopep8 = { enabled = false },
-    --         black = { enabled = false },
-    --         yapf = { enabled = false },
-    --         mccabe = { enabled = false },
-    --         pyflakes = { enabled = false },
-    --         flake8 = {
-    --           enabled = false,
-    --           ignore = { "E111", "E114", "E121", "E202", "E203", "E501", "E221", "W503", "E241", "E402" },
-    --         },
-    --         pycodestyle = {
-    --           enabled = false,
-    --           maxLineLength = 100,
-    --           ignore = { "E111", "E114", "E121", "E202", "E203", "E501", "E221", "W503", "E241", "E402" },
-    --         },
-    --       },
-    --     },
-    --   },
-    -- })
+    lspconfig.pylsp.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = {
+        pylsp = {
+          plugins = {
+            autopep8 = { enabled = false },
+            black = { enabled = false },
+            yapf = { enabled = false },
+            mccabe = { enabled = false },
+            pyflakes = { enabled = false },
+            flake8 = {
+              enabled = false,
+              ignore = { "E111", "E114", "E121", "E202", "E203", "E501", "E221", "W503", "E241", "E402" },
+            },
+            pycodestyle = {
+              enabled = false,
+              maxLineLength = 100,
+              ignore = { "E111", "E114", "E121", "E202", "E203", "E501", "E221", "W503", "E241", "E402" },
+            },
+          },
+        },
+      },
+    })
 
     -- INFO: Lua
     lspconfig.lua_ls.setup({
