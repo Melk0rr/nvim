@@ -72,16 +72,12 @@ return {
       capabilities = capabilities,
       init_options = {
         settings = {
-          configuration = "~/.config/ruff/ruff.toml",
+          -- configuration = "~/.config/ruff/ruff.toml",
           lineLength = 100,
-          indentWidth = 2,
           lint = {
             enable = true,
             ignore = { "E111", "E114", "E121", "E202", "E203", "E501", "E221", "W503", "E241", "E402" },
           },
-          args = {
-            "--line-length=100",
-          }
         },
       },
     })
