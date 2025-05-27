@@ -77,7 +77,7 @@ return {
           lineLength = 100,
           lint = {
             enable = true,
-            ignore = { "D212", "E111", "E114", "E121", "E202", "E203", "E501", "E221", "W503", "E241", "E402" },
+            ignore = { "D200", "D202", "D212", "E111", "E114", "E121", "E202", "E203", "E501", "E221", "W503", "E241", "E402" },
           },
         },
       },
@@ -98,7 +98,7 @@ return {
             pydocstyle = {
               enabled = true,
               convention = "google",
-              ignore = { "D212" },
+              ignore = { "D200", "D202", "D212" },
             },
           },
         },
