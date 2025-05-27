@@ -18,8 +18,9 @@ return {
       map("n", "<leader>lf", vim.lsp.buf.format, opts("LSP format"))
       map("n", "<leader>lh", vim.lsp.buf.hover, opts("LSP hover info"))
       map("n", "<leader>lH", vim.lsp.buf.signature_help, opts("LSP signature help"))
-      map("n", "<leader>lk", function () vim.diagnostic.jump({ count=-1, float=true }) end, opts("Previous LSP diagnostic"))
-      map("n", "<leader>lj", function () vim.diagnostic.jump({ count=1, float=true }) end, opts("Next LSP diagnostic"))
+      map("n", "<leader>lk", function() vim.diagnostic.jump({ count = -1, float = true }) end,
+        opts("Previous LSP diagnostic"))
+      map("n", "<leader>lj", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts("Next LSP diagnostic"))
     end
 
     -- INFO: Capabilities
@@ -92,8 +93,12 @@ return {
             yapf = { enabled = false },
             mccabe = { enabled = false },
             pyflakes = { enabled = false },
-            flake8 = { enabled = true },
-            pycodestyle = { enabled = false },
+            flake8 = { enabled = false },
+            pycodestyle = {
+              enabled = false,
+              maxLineLength = 100,
+              ignore = { "E111", "E114", "E121", "E202", "E203", "E501", "E221", "W503", "E241", "E402" },
+            },
           },
         },
       },
