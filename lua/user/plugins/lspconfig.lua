@@ -97,7 +97,6 @@ return {
             pycodestyle = { enabled = false, maxLineLength = 100 },
             pydocstyle = {
               enabled = true,
-              convention = "google",
               ignore = { "D200", "D202", "D212" },
             },
           },
