@@ -94,7 +94,7 @@ return {
             mccabe = { enabled = false },
             pyflakes = { enabled = false },
             flake8 = {
-              enabled = true,
+              enabled = false,
               ignore = { "E111", "E114", "E121", "E202", "E203", "E501", "E221", "W503", "E241", "E402" },
             },
             pycodestyle = {
