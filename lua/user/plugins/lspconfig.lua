@@ -95,7 +95,11 @@ return {
             pyflakes = { enabled = false },
             flake8 = { enabled = false },
             pycodestyle = { enabled = false, maxLineLength = 100 },
-            pydocstyle = { enabled = true, convention = "google" },
+            pydocstyle = {
+              enabled = true,
+              convention = "google",
+              ignore = { "D212" },
+            },
           },
         },
       },
