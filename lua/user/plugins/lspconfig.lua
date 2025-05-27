@@ -73,7 +73,7 @@ return {
       capabilities = capabilities,
       init_options = {
         settings = {
-          configuration = "~/.config/ruff/ruff.toml",
+          -- configuration = "~/.config/ruff/ruff.toml",
           lineLength = 100,
           lint = {
             enable = true,
