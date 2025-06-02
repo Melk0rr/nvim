@@ -97,7 +97,7 @@ return {
             pycodestyle = { enabled = false, maxLineLength = 100 },
             pydocstyle = {
               enabled = true,
-              ignore = { "D100", "D200", "D202", "D203", "D212", "D406", "D407" },
+              ignore = { "D100", "D200", "D202", "D203", "D212", "D403", "D406", "D407" },
             },
           },
         },
