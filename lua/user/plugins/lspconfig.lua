@@ -77,7 +77,8 @@ return {
           lineLength = 100,
           lint = {
             enable = true,
-            ignore = { "D200", "D202", "D212", "E111", "E114", "E121", "E202", "E203", "E501", "E221", "W503", "E241", "E402" },
+            select = { "D", "E", "F", "W", "A", "PLC", "PLE", "PLW", "I" },
+            ignore = { "D200", "D202", "D203", "D212", "D406", "D407", "D413", "E111", "E114", "E121", "E202", "E203", "E501", "E221", "W503", "E241", "E402" },
           },
         },
       },
@@ -95,10 +96,6 @@ return {
             pyflakes = { enabled = false },
             flake8 = { enabled = false },
             pycodestyle = { enabled = false, maxLineLength = 100 },
-            pydocstyle = {
-              enabled = true,
-              ignore = { "D200", "D202", "D212" },
-            },
           },
         },
       },
