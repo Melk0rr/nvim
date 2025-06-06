@@ -19,7 +19,7 @@ map('n', "<leader>p", "ma$p`a", opts("Prints at the end of the line"))
 map('n', "<leader>;", "mqA;<esc>`q", opts("Semicolon at end of line"))
 
 for i, char in ipairs({ '/', '|', ':' }) do
-  map('n', "vi" ..char, "normal! T" ..char.. "vt" ..char.. "<cr>", opts("inner " ..char))
+  map('n', "vi" ..char, "<cmd>normal! T" ..char.. "vt" ..char.. "<cr>", opts("inner " ..char))
 end
 
 -- NOTE: Press jk fast to exit insert mode
