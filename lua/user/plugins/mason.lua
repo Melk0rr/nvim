@@ -7,6 +7,7 @@ return {
       "bashls",
       "clangd",
       "cssls",
+      "emmet_language_server",
       "gopls",
       "html",
       "hyprls",
