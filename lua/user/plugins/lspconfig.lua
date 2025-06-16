@@ -36,6 +36,23 @@ return {
     -- INFO: CSS
     lspconfig.cssls.setup({ on_attach = on_attach, capabilities = capabilities })
 
+    -- INFO: Emmet
+    lspconfig.emmet_language_server.setup({
+      filetypes = {
+        "css",
+        "eruby",
+        "html",
+        "javascript",
+        "javascriptreact",
+        "less",
+        "markdown",
+        "sass",
+        "scss",
+        "pug",
+        "typescriptreact"
+      },
+    })
+
     -- INFO: Fish
     lspconfig.fish_lsp.setup({ on_attach = on_attach, capabilities = capabilities, filetypes = { "fish" } })
 
