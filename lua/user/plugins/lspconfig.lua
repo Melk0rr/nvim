@@ -38,7 +38,7 @@ return {
 
     -- INFO: Emmet
     lspconfig.emmet_language_server.setup({
-      filetypes = { "css", "html", "javascript", "javascriptreact", "typescriptreact", "md", "php" },
+      filetypes = { "css", "html", "javascript", "javascriptreact", "typescriptreact", "php" },
       init_options = {
         includeLanguages = {
           md = "html",
