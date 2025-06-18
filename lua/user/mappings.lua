@@ -6,7 +6,6 @@ end
 -- NOTE: Common
 map('n', "<leader>h", "<cmd>noh<cr>", opts("No search highlight"))
 map('n', "<leader>qq", "<cmd>wqa!<cr>", opts("Save and quit"))
-map('n', "<leader>nf", "<cmd>enew<cr>", opts("New file"))
 
 -- NOTE: Yank
 map('n', 'Y', 'yy', opts("Yank whole line"))
@@ -60,11 +59,12 @@ map('v', "<A-j>", ":m '>+1<cr>gv=gv", opts("Move selection down"))
 map('v', "<A-k>", ":m '<-2<cr>gv=gv", opts("Move selection up"))
 
 -- NOTE: Debugging
+map('n', "<leader>db", "<cmd>lua require('dap').toggle_breakpoint()<cr>", opts("Debugger toggle breakpoint"))
 map('n', "<leader>dc", "<cmd>lua require('dap').continue()<cr>", opts("Debugger continue"))
 map('n', "<leader>dj", "<cmd>lua require('dap').step_over()<cr>", opts("Debugger step over"))
 map('n', "<leader>dk", "<cmd>lua require('dap').step_out()<cr>", opts("Debugger step out"))
 map('n', "<leader>dl", "<cmd>lua require('dap').step_into()<cr>", opts("Debugger step into"))
-map('n', "<leader>db", "<cmd>lua require('dap').toggle_breakpoint()<cr>", opts("Debugger toggle breakpoint"))
+map({ 'n', 't' }, "<leader>dm", "<cmd>lua require('snacks').terminal.open({'make'}, { win = { position = 'bottom' } })<cr>", opts("Debugger run C make"))
 map('n', "<leader>dt", "<cmd>lua vim.cmd('RustLsp testables')<cr>", opts("Debugger run rust tests"))
 map('n', "<leader>dx", "<cmd>lua require('dap').terminate()<cr><cmd>lua require('dapui').close()<cr>", opts("Debugger terminate"))
 
@@ -76,11 +76,33 @@ map('n', "<leader>gg", "<cmd>lua require('snacks').lazygit()<cr>", opts("Lazygit
 map('n', "<leader>gl", "<cmd>lua require('snacks').lazygit.log()<cr>", opts("Lazygit logs"))
 map('n', "<leader>gs", "<cmd>lua require('snacks').picker.git_status()<cr>", opts("Git status"))
 
+-- NOTE: Navigation
+-- NOTE: New file
+map('n', "<leader>nf", "<cmd>enew<cr>", opts("New file"))
+
 -- NOTE: Dashboard
-map('n', "<leader>a", "<cmd>lua require('snacks').dashboard()<cr>", opts("Snacks dashboard"))
+map('n', "<leader>nd", "<cmd>lua require('snacks').dashboard()<cr>", opts("Snacks dashboard"))
 
 -- NOTE: Explorer
-map('n', "<leader>e", "<cmd>lua require('snacks').picker.explorer()<cr>", opts("Snacks file explorer"))
+map('n', "<leader>ne", "<cmd>lua require('snacks').picker.explorer()<cr>", opts("Snacks file explorer"))
+
+-- NOTE: Yazi
+map({ 'n', 'v' }, "<leader>ny", "<cmd>Yazi cwd<cr>", opts("Open Yazi in current working directory"))
+
+-- NOTE: Terminal
+local function toggle_snacks_term(pos)
+  local ft = vim.bo.filetype
+  if ft == "snacks_terminal" then
+    vim.cmd([[close]])
+  else
+    require("snacks").terminal.toggle(nil, { win = { position = pos } })
+  end
+end
+
+map({ 'n', 't' }, "<leader>ntj", function () toggle_snacks_term("bottom") end, opts("Toggle terminal at bottom"))
+map({ 'n', 't' }, "<leader>ntk", function () toggle_snacks_term("top") end, opts("Toggle terminal at top"))
+map({ 'n', 't' }, "<leader>nth", function () toggle_snacks_term("left") end, opts("Toggle terminal at left"))
+map({ 'n', 't' }, "<leader>ntl", function () toggle_snacks_term("right") end, opts("Toggle terminal at right"))
 
 -- NOTE: Picker find
 map('n', "<leader>fa", "<cmd>lua require('snacks').picker.autocmds({ layout = 'vertical' })<cr>", opts("Find autocmds"))
@@ -111,24 +133,6 @@ map('n', "<leader>sn", "<cmd>lua require('snacks').notifier.show_history()<cr>",
 map('n', "<leader>su", "<cmd>lua require('snacks').picker.undo({ layout = 'vertical' })<cr>", opts("Search undo history"))
 map('n', "<leader>sq", "<cmd>lua require('snacks').picker.qflist()<cr>", opts("Quickfix list"))
 
--- NOTE: Yazi
-map({ 'n', 'v' }, "<leader>-", "<cmd>Yazi cwd<cr>", opts("Open Yazi in current working directory"))
-
--- NOTE: Terminal
-local function toggle_snacks_term(pos)
-  local ft = vim.bo.filetype
-  if ft == "snacks_terminal" then
-    vim.cmd([[close]])
-  else
-    require("snacks").terminal.toggle(nil, { win = { position = pos } })
-  end
-end
-
-map({ 'n', 't' }, "<leader>Tj", function () toggle_snacks_term("bottom") end, opts("Toggle terminal at bottom"))
-map({ 'n', 't' }, "<leader>Tk", function () toggle_snacks_term("top") end, opts("Toggle terminal at top"))
-map({ 'n', 't' }, "<leader>Th", function () toggle_snacks_term("left") end, opts("Toggle terminal at left"))
-map({ 'n', 't' }, "<leader>Tl", function () toggle_snacks_term("right") end, opts("Toggle terminal at right"))
-map({ 'n', 't' }, "<leader>Tm", "<cmd>lua require('snacks').terminal.open({'make'}, { win = { position = 'bottom' } })<cr>", opts("Open terminal and run C make"))
 
 -- NOTE: Words & LSP
 map('n', "<leader>ld", "<cmd>lua require('snacks').picker.diagnostics()<cr>", opts("Find LSP diagnostics"))

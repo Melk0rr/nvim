@@ -16,8 +16,8 @@ return {
       -- NOTE: Debug group
       { "<leader>d", group = "Debug", icon = { icon = "󰃤", color = "red" } },
 
-      -- NOTE: Debug group
-      { "<leader>e", group = "Explorer", icon = { icon = "", color = "yellow" } },
+      -- NOTE: Explorer group
+      -- { "<leader>e", group = "Explorer", icon = { icon = "", color = "yellow" } },
 
       -- NOTE: Fuzzy finder group
       { "<leader>f", group = "Fuzzy Finder", icon = { icon = "󰭎", color = "blue" } },
@@ -28,6 +28,9 @@ return {
       -- NOTE: LSP group
       { "<leader>l", group = "LSP", icon = { icon = "", color = "green" } },
 
+      -- NOTE: Navigation
+      { "<leader>n", group = "Navigation", icon = { icon = "󰎐", color = "yellow" } },
+
       -- NOTE: Quit group
       { "<leader>q", group = "Quit", icon = { icon = "󰈆", color = "red" } },
 
@@ -35,7 +38,7 @@ return {
       { "<leader>s", group = "Search", icon = { icon = "", color = "blue" } },
 
       -- NOTE: Terminal group
-      { "<leader>T", group = "Terminal", icon = { icon = "", color = "green" } },
+      -- { "<leader>T", group = "Terminal", icon = { icon = "", color = "green" } },
     }
   )
   end
