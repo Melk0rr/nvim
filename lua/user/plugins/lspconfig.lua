@@ -41,7 +41,6 @@ return {
       filetypes = { "css", "html", "javascript", "javascriptreact", "typescriptreact", "php" },
       init_options = {
         includeLanguages = {
-          md = "html",
           php = "html"
         },
         showAbbreviationSuggestions = true,
