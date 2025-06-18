@@ -38,20 +38,7 @@ return {
 
     -- INFO: Emmet
     lspconfig.emmet_language_server.setup({
-      filetypes = {
-        "css",
-        "eruby",
-        "html",
-        "javascript",
-        "javascriptreact",
-        "less",
-        "markdown",
-        "md",
-        "sass",
-        "scss",
-        "pug",
-        "typescriptreact"
-      },
+      includeLanguages = { markdown = "html" }
     })
 
     -- INFO: Fish
