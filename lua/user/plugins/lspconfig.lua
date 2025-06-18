@@ -38,7 +38,9 @@ return {
 
     -- INFO: Emmet
     lspconfig.emmet_language_server.setup({
-      includeLanguages = { markdown = "html" }
+      init_options = {
+        includeLanguages = { markdown = "html" }
+      }
     })
 
     -- INFO: Fish
