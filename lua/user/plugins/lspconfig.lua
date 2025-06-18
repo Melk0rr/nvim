@@ -38,7 +38,9 @@ return {
 
     -- INFO: Emmet
     lspconfig.emmet_language_server.setup({
-      filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "markdown", "sass", "scss", "pug", "typescriptreact" },
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = { "css", "html", "javascript", "javascriptreact", "less", "markdown", "md", "php", "sass", "scss", "typescript", "typescriptreact" },
       init_options = {
         includeLanguages = { markdown = "html" }
       }
