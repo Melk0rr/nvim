@@ -28,14 +28,20 @@ return {
       -- NOTE: Navigation
       { "<leader>n", group = "Navigation", icon = { icon = "󰎐", color = "yellow" } },
 
+      -- NOTE: Explorer subgroup
+      { "<leader>ne", group = "Explorer", icon = { icon = "", color = "yellow" } },
+
+      -- NOTE: Terminal subgroup
+      { "<leader>nt", group = "Terminal", icon = { icon = "", color = "green" } },
+
       -- NOTE: Quit group
       { "<leader>q", group = "Quit", icon = { icon = "󰈆", color = "red" } },
 
       -- NOTE: Search group
       { "<leader>s", group = "Search", icon = { icon = "", color = "blue" } },
 
-      -- NOTE: Terminal group
-      { "<leader>nt", group = "Terminal", icon = { icon = "", color = "green" } },
+      -- NOTE: Text insertion group
+      { "<leader>i", group = "Insertion", icon = { icon = "󰗧", color = "blue" } },
     }
   )
   end

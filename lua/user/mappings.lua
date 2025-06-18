@@ -4,18 +4,17 @@ local opts = function(desc)
 end
 
 -- NOTE: Common
-map('n', "<leader>h", "<cmd>noh<cr>", opts("No search highlight"))
 map('n', "<leader>qq", "<cmd>wqa!<cr>", opts("Save and quit"))
+map('n', "gA", "ggVG", { desc = "Select all" })
 
 -- NOTE: Yank
 map('n', 'Y', 'yy', opts("Yank whole line"))
 map({ 'n', 'v' }, "<C-c>", '"+y', opts("Yank to clipboard"))
 
--- NOTE: Text manipulation
-map('n', "gA", "ggVG", { desc = "Select all" })
-map('n', "gL", "i<cr><esc>", opts("Insert line break"))
-map('n', "<leader>p", "ma$p`a", opts("Prints at the end of the line"))
-map('n', "<leader>;", "mqA;<esc>`q", opts("Semicolon at end of line"))
+-- NOTE: Text insertion
+map('n', "<leader>iL", "i<cr><esc>", opts("Insert line break"))
+map('n', "<leader>ip", "ma$p`a", opts("Insert print at the end of the line"))
+map('n', "<leader>i;", "mqA;<esc>`q", opts("Insert semicolon at end of line"))
 
 -- NOTE: Add vi, ci, and di keymaps for custom characters
 for _, char in ipairs({ '/', '\\', '|', ':', ';', ',', '.', ' ' }) do
@@ -129,10 +128,10 @@ map('n', "<leader>fT", "<cmd>lua require('snacks').picker.todo_comments({ keywor
 map('n', '<leader>s"', "<cmd>lua require('snacks').picker.registers({ layout = 'dropdown', focus = 'list' })<cr>", opts("Search registers"))
 map('n', "<leader>s:", "<cmd>lua require('snacks').picker.command_history({ focus = 'list' })<cr>", opts("Search command history"))
 map('n', "<leader>s/", "<cmd>lua require('snacks').picker.search_history({ focus = 'list' })<cr>", opts("Search history"))
+map('n', "<leader>sh", "<cmd>noh<cr>", opts("No search highlight"))
 map('n', "<leader>sn", "<cmd>lua require('snacks').notifier.show_history()<cr>", opts("Search history"))
 map('n', "<leader>su", "<cmd>lua require('snacks').picker.undo({ layout = 'vertical' })<cr>", opts("Search undo history"))
 map('n', "<leader>sq", "<cmd>lua require('snacks').picker.qflist()<cr>", opts("Quickfix list"))
-
 
 -- NOTE: Words & LSP
 map('n', "<leader>ld", "<cmd>lua require('snacks').picker.diagnostics()<cr>", opts("Find LSP diagnostics"))
