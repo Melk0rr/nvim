@@ -3,6 +3,7 @@ bash-debug-adapter
 bash-language-server
 clangd
 cssls
+emmet-language-server
 gopls
 html
 hyprls
