@@ -46,6 +46,7 @@ return {
         "javascriptreact",
         "less",
         "markdown",
+        "md",
         "sass",
         "scss",
         "pug",

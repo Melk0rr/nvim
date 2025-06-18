@@ -39,7 +39,6 @@ But I also use
 - [Everblush](https://github.com/Everblush/everblush.nvim)
 - [Evergarden](https://github.com/comfysage/evergarden)
 
-
 ### OpenSUSE
 While using [OpenSUSE](https://github.com/Melk0rr/opensuse) Tumbleweed on my laptop, I mainly use [Gruvbox](https://github.com/ellisonleao/gruvbox.nvim) as I find it matches the most the OpenSUSE aesthetic
 
