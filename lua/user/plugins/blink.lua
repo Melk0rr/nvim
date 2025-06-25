@@ -26,11 +26,6 @@ return {
     },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
-      providers = {
-        path = {
-          opts = { get_cwd = vim.uv.cwd },
-        },
-      }
     },
     snippets = { preset = "luasnip" },
     signature = { enabled = true }
