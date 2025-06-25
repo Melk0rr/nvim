@@ -1,3 +1,5 @@
+-- TODO: use vim api
+-- local api = vim.api.nvim_set_keymap
 local map = vim.keymap.set
 local opts = function(desc)
   return { noremap = true, silent = true, desc = desc }
