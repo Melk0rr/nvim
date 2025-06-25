@@ -15,10 +15,10 @@ return {
 
   -- INFO: LSP / Linting / Completion / Language support
   require("user.plugins.blink"),
-  require("user.plugins.codedocs"),
   require("user.plugins.crates"),
   require("user.plugins.inlay-hint"),
   require("user.plugins.lspconfig"),
+  require("user.plugins.luasnip"),
   require("user.plugins.markdown"),
   require("user.plugins.mason"),
   require("user.plugins.mini"),
