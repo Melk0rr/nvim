@@ -26,6 +26,13 @@ return {
     },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
+      providers = {
+        snippets = {
+          opts = {
+            search_paths = { "~/.config/nvim/snippets" }
+          }
+        }
+      }
     },
     snippets = { preset = "luasnip" },
     signature = { enabled = true }
