@@ -1,6 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
-  ft = { "asm", "bash", "c", "cpp", "fish", "go", "javascript", "lua", "python", "rust", "yaml" },
+  ft = { "asm", "bash", "c", "cpp", "fish", "go", "html", "javascript", "lua", "markdown", "python", "rust", "typescript", "yaml" },
   config = function()
     local lspconfig = require("lspconfig")
 
