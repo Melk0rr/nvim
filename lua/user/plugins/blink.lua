@@ -26,6 +26,11 @@ return {
     },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
+      providers = {
+        lsp = {
+          fallbacks = { "snippets", "buffer" }
+        }
+      }
     },
     snippets = { preset = "luasnip" },
     signature = { enabled = true }
