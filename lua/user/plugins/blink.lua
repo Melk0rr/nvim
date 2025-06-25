@@ -35,6 +35,7 @@ return {
         },
       }
     },
+    snippets = { preset = "luasnip" },
     signature = { enabled = true }
   },
 }

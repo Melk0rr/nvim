@@ -5,10 +5,7 @@ return {
   },
   opts = function(_, opts)
     if opts then require("luasnip").config.setup(opts) end
-    vim.tbl_map(
-      function(type) require("luasnip.loaders.from_" .. type).lazy_load() end,
-      { "vscode", "snipmate", "lua" }
-    )
+    require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath('config') .. '/snippets' } })
 
     local ls = require("luasnip")
 
