@@ -27,11 +27,9 @@ return {
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
       providers = {
-        snippets = {
-          opts = {
-            search_paths = { "~/.config/nvim/snippets" }
-          }
-        }
+        path = {
+          opts = { get_cwd = vim.uv.cwd },
+        },
       }
     },
     snippets = { preset = "luasnip" },
