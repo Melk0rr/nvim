@@ -42,5 +42,5 @@
   "today (ISO date) *insert*": {
     "body": "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
     "prefix": "today ISO date INSERT"
-  },
+  }
 }
