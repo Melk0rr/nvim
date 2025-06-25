@@ -1,8 +1,2 @@
 {
-  "include library": {
-    "prefix": "#include",
-    "body": [
-      "#include <$1>"
-    ]
-  }
 }
