@@ -1,0 +1,46 @@
+{
+  "BUG": {
+    "body": "$LINE_COMMENT BUG: ",
+    "prefix": "BUG"
+  },
+  "HACK": {
+    "body": "$LINE_COMMENT HACK: ",
+    "prefix": "HACK"
+  },
+  "INFO": {
+    "body": "$LINE_COMMENT INFO: ",
+    "prefix": "INFO"
+  },
+  "NOTE": {
+    "body": "$LINE_COMMENT NOTE: ",
+    "prefix": "NOTE"
+  },
+  "PERF": {
+    "body": "$LINE_COMMENT PERF: ",
+    "prefix": "PERF"
+  },
+  "TEST": {
+    "body": "$LINE_COMMENT TEST: ",
+    "prefix": "TEST"
+  },
+  "FAILED": {
+    "body": "$LINE_COMMENT FAILED: ",
+    "prefix": "FAILED"
+  },
+  "PASSED": {
+    "body": "$LINE_COMMENT PASSED: ",
+    "prefix": "PASSED"
+  },
+  "TODO": {
+    "body": "$LINE_COMMENT TODO: ",
+    "prefix": "TODO"
+  },
+  "WARNING": {
+    "body": "$LINE_COMMENT WARNING: ",
+    "prefix": "WARNING"
+  },
+  "today (ISO date) *insert*": {
+    "body": "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+    "prefix": "today ISO date INSERT"
+  },
+}
