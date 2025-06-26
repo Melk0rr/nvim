@@ -9,8 +9,10 @@ return {
     local ls = require("luasnip")
     ls.config.setup({ enable_autosnippets = true })
 
-    -- Custom snippets
+    -- Friendly snippets
     require("luasnip.loaders.from_vscode").lazy_load()
+
+    -- Custom snippets
     require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath('config') .. '/snippets' } })
 
     -- Documentation snippets
