@@ -1,0 +1,6 @@
+{
+  "ternary": {
+    "body": "${1:value1} if ${2:condition} else ${3:value2}",
+    "prefix": "ternary"
+  }
+}
