@@ -23,16 +23,10 @@ return {
     },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
-      providers = {
-        snippets = {
-          opts = {
-            friendly_snippets = true,
-            search_paths = { vim.fn.stdpath('config') .. '/snippets' },
-          }
-        },
-      }
     },
     snippets = { preset = "luasnip" },
-    signature = { enabled = true }
+    signature = { enabled = true },
+    fuzzy = { implementation = "prefer_rust_with_warning" },
   },
+  opts_extend = { "sources.default" }
 }
