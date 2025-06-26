@@ -7,22 +7,6 @@
     ],
     "prefix": "bash (Codeblock)"
   },
-  "caution (callout)": {
-    "body": [
-      "> [!CAUTION]",
-      "> $0"
-    ],
-    "description": "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts",
-    "prefix": "caution (callout)"
-  },
-  "warning (callout)": {
-    "body": [
-      "> [!WARNING]",
-      "> $0"
-    ],
-    "description": "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts",
-    "prefix": "warning (callout)"
-  },
   "details & summary": {
     "body": [
       "<details>",
