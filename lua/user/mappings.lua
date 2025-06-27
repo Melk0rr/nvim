@@ -6,8 +6,11 @@ local opts = function(desc)
 end
 
 -- NOTE: Common
-map('n', "<leader>qq", "<cmd>wqa!<cr>", opts("Save and quit"))
 map('n', "gA", "ggVG", { desc = "Select all" })
+
+-- NOTE: Commands
+map('n', "<leader>:qq", "<cmd>qa!<cr>", opts("Flip the table quit"))
+map('n', "<leader>:wqq", "<cmd>wqa!<cr>", opts("Save and quit"))
 
 -- NOTE: Yank
 map('n', 'Y', 'yy', opts("Yank whole line"))

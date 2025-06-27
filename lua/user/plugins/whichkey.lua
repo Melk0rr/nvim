@@ -34,8 +34,10 @@ return {
       -- NOTE: Terminal subgroup
       { "<leader>nt", group = "Terminal", icon = { icon = "", color = "green" } },
 
-      -- NOTE: Quit group
-      { "<leader>q", group = "Quit", icon = { icon = "󰈆", color = "red" } },
+      -- NOTE: Command groups
+      { "<leader>:", group = "Commands", icon = { icon = "", color = "green" } },
+      { "<leader>:w", group = "Save", icon = { icon = "󰆓", color = "blue" } },
+      { "<leader>:q", group = "Quit", icon = { icon = "󰈆", color = "red" } },
 
       -- NOTE: Search group
       { "<leader>s", group = "Search", icon = { icon = "", color = "blue" } },
