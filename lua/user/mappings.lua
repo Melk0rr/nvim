@@ -125,7 +125,7 @@ map('n', "<leader>fm", "<cmd>lua require('snacks').picker.marks({ layout = 'vert
 map('n', "<leader>fM", "<cmd>lua require('snacks').picker.man()<cr>", opts("Find man pages"))
 map('n', "<leader>fp", "<cmd>lua require('snacks').picker.projects({ layout = 'select', focus = 'list' })<cr>", opts("Find projects"))
 map('n', "<leader>fr", "<cmd>lua require('snacks').picker.recent({ focus = 'list' })<cr>", opts("Find recent files"))
-map('n', "<leader>fs", "<cmd>lua require('snacks').picker.snippets({ layout = 'select' })<cr>", opts("Find snippets"))
+map('n', "<leader>fs", "<cmd>lua require('snacks').picker.snippets({ layout = 'vertical' })<cr>", opts("Find snippets"))
 map('n', "<leader>fS", "<cmd>lua require('snacks').picker.colorschemes({ layout = 'select', focus = 'input' })<cr>", opts("Find colorschemes"))
 map('n', "<leader>ft", "<cmd>lua require('snacks').picker.todo_comments()<cr>", opts("Find Todo comments"))
 map('n', "<leader>fT", "<cmd>lua require('snacks').picker.todo_comments({ keywords = { 'TODO', 'FIX', 'FIXME' } })<cr>", opts("Find Todo/Fix/Fixme"))
