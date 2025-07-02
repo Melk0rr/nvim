@@ -7,8 +7,8 @@
         "path": "./all.json"
       },
       {
-        "language": "shell",
-        "path": "./shell.json"
+        "language": "fish",
+        "path": "./fish.json"
       },
       {
         "language": "markdown",
