@@ -1,0 +1,20 @@
+{
+  "function": {
+    "body": [
+      "function ${1:my_function}",
+      "$0",
+      "end"
+    ],
+    "prefix": "function",
+    "scope": "fish"
+  },
+  "if": {
+    "body": [
+      "if [[ $1 ]]",
+      "$0",
+      "end"
+    ],
+    "prefix": "if",
+    "scope": "fish"
+  }
+}
