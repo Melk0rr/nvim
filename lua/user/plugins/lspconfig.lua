@@ -78,10 +78,55 @@ return {
     -- lspconfig.rust_analyzer.setup({ on_attach = on_attach, capabilities = capabilities, cmd = { "rustup", "run", "stable", "rust-analyzer" } })
 
     -- INFO: Go
-    lspconfig.gopls.setup({ on_attach = on_attach, capabilities = capabilities })
+    lspconfig.gopls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = {
+        gopls = {
+          hints = {
+            rangeVariableTypes = true,
+            parameterNames = true,
+            constantValues = true,
+            assignVariableTypes = true,
+            compositeLiteralFields = true,
+            compositeLiteralTypes = true,
+            functionTypeParameters = true,
+          }
+        }
+      }
+    })
 
     -- INFO: Javascript / Typescript
-    lspconfig.ts_ls.setup({ on_attach = on_attach, capabilities = capabilities })
+    lspconfig.ts_ls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = {
+        typescript = {
+          inlayHints = {
+            includeInlayParameterNameHints = "all",
+            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayVariableTypeHints = true,
+            includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
+          },
+        },
+        javascript = {
+          inlayHints = {
+            includeInlayParameterNameHints = "all",
+            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayVariableTypeHints = true,
+            includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
+          },
+        },
+      }
+    })
 
     -- INFO: JSON
     lspconfig.jsonls.setup({ on_attach = on_attach, capabilities = capabilities })
@@ -112,22 +157,32 @@ return {
         },
       },
     })
-    lspconfig.pylsp.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
+    -- lspconfig.pylsp.setup({
+    --   on_attach = on_attach,
+    --   capabilities = capabilities,
+    --   settings = {
+    --     pylsp = {
+    --       plugins = {
+    --         autopep8 = { enabled = false },
+    --         black = { enabled = false },
+    --         yapf = { enabled = false },
+    --         mccabe = { enabled = false },
+    --         pyflakes = { enabled = false },
+    --         flake8 = { enabled = false },
+    --         pycodestyle = { enabled = false, maxLineLength = 100 },
+    --       },
+    --     },
+    --   },
+    -- })
+    lspconfig.pylyzer.setup({
       settings = {
-        pylsp = {
-          plugins = {
-            autopep8 = { enabled = false },
-            black = { enabled = false },
-            yapf = { enabled = false },
-            mccabe = { enabled = false },
-            pyflakes = { enabled = false },
-            flake8 = { enabled = false },
-            pycodestyle = { enabled = false, maxLineLength = 100 },
-          },
-        },
-      },
+        python = {
+          checkOnType = true,
+          diagnostics = true,
+          inlayHints = true,
+          smartCompletion = true,
+        }
+      }
     })
 
     -- INFO: Lua
