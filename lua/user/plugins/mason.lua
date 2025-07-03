@@ -15,9 +15,10 @@ return {
       "lua_ls",
       "markdown_oxide",
       "marksman",
-      "pylsp",
+      "pylyzer",
       "ruff",
       "rust_analyzer",
+      "ts_ls",
     }
 
     -- INFO: Mason setup

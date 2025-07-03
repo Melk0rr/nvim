@@ -59,7 +59,20 @@ return {
     lspconfig.asm_lsp.setup({ on_attach = on_attach, capabilities = capabilities })
 
     -- INFO: C/C++
-    lspconfig.clangd.setup({ on_attach = on_attach, capabilities = capabilities })
+    lspconfig.clangd.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = {
+        clangd = {
+          InlayHints = {
+            Designators = true,
+            Enabled = true,
+            ParameterNames = true,
+            DeducedTypes = true,
+          },
+        }
+      }
+    })
 
     -- INFO: Rust
     -- lspconfig.rust_analyzer.setup({ on_attach = on_attach, capabilities = capabilities, cmd = { "rustup", "run", "stable", "rust-analyzer" } })
@@ -166,6 +179,7 @@ return {
               [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
             },
           },
+          hint = { enable = true },
         },
       },
     })
