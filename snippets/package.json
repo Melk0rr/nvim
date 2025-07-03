@@ -13,6 +13,10 @@
       {
         "language": "markdown",
         "path": "./markdown.json"
+      },
+      {
+        "language": "python",
+        "path": "./python.json"
       }
     ]
   }
