@@ -1,13 +1,18 @@
 return {
   "neovim/nvim-lspconfig",
   ft = { "asm", "bash", "c", "cpp", "fish", "go", "html", "javascript", "lua", "markdown", "python", "rust", "typescript", "yaml" },
+  opts = { inlay_hints = { enabled = true } },
   config = function()
     local lspconfig = require("lspconfig")
 
     -- INFO: On attach function
-    local on_attach = function(_, bufnr)
+    local on_attach = function(client, bufnr)
       local opts = function(desc)
         return { noremap = true, silent = true, desc = desc }
+      end
+
+      if client.server_capabilities.inlayHintProvider then
+        vim.lsp.inlay_hint.enable(true, bufnr)
       end
 
       local map = vim.keymap.set
@@ -21,6 +26,7 @@ return {
       map("n", "<leader>lk", function() vim.diagnostic.jump({ count = -1, float = true }) end,
         opts("Previous LSP diagnostic"))
       map("n", "<leader>lj", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts("Next LSP diagnostic"))
+      map('n', "<leader>l?", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, opts("LSP toggle inlay hints"))
     end
 
     -- INFO: Capabilities
