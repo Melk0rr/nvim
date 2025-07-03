@@ -157,32 +157,22 @@ return {
         },
       },
     })
-    -- lspconfig.pylsp.setup({
-    --   on_attach = on_attach,
-    --   capabilities = capabilities,
-    --   settings = {
-    --     pylsp = {
-    --       plugins = {
-    --         autopep8 = { enabled = false },
-    --         black = { enabled = false },
-    --         yapf = { enabled = false },
-    --         mccabe = { enabled = false },
-    --         pyflakes = { enabled = false },
-    --         flake8 = { enabled = false },
-    --         pycodestyle = { enabled = false, maxLineLength = 100 },
-    --       },
-    --     },
-    --   },
-    -- })
-    lspconfig.pylyzer.setup({
+    lspconfig.pylsp.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
       settings = {
-        python = {
-          checkOnType = true,
-          diagnostics = true,
-          inlayHints = true,
-          smartCompletion = true,
-        }
-      }
+        pylsp = {
+          plugins = {
+            autopep8 = { enabled = false },
+            black = { enabled = false },
+            yapf = { enabled = false },
+            mccabe = { enabled = false },
+            pyflakes = { enabled = false },
+            flake8 = { enabled = false },
+            pycodestyle = { enabled = false, maxLineLength = 100 },
+          },
+        },
+      },
     })
 
     -- INFO: Lua
