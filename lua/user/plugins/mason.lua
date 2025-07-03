@@ -15,7 +15,7 @@ return {
       "lua_ls",
       "markdown_oxide",
       "marksman",
-      "pylyzer",
+      "pylsp",
       "ruff",
       "rust_analyzer",
       "ts_ls",
