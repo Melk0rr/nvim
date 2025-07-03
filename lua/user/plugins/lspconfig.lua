@@ -12,7 +12,7 @@ return {
       end
 
       if client.server_capabilities.inlayHintProvider then
-        vim.lsp.inlay_hint.enable(true, bufnr)
+        vim.lsp.inlay_hint.enable(true)
       end
 
       local map = vim.keymap.set
