@@ -6,7 +6,7 @@ return {
     local lspconfig = require("lspconfig")
 
     -- INFO: On attach function
-    local on_attach = function(client, bufnr)
+    local on_attach = function(client, _)
       local opts = function(desc)
         return { noremap = true, silent = true, desc = desc }
       end
