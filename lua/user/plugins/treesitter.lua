@@ -68,10 +68,10 @@ return {
         swap = {
           enable = true,
           swap_next = {
-            ['gSj'] = '@parameter.inner',
+            ['gpj'] = '@parameter.inner',
           },
           swap_previous = {
-            ['gSk'] = '@parameter.inner',
+            ['gpk'] = '@parameter.inner',
           },
         },
       },
