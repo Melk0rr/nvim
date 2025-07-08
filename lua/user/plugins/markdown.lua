@@ -6,8 +6,5 @@ return {
   },
   opts = {
     checkbox = { enabled = true },
-    completions = {
-      blink = { enabled = true },
-    }
   }
 }
