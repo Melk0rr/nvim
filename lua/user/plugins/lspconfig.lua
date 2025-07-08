@@ -28,6 +28,18 @@ return {
       map("n", "<leader>lj", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts("Next LSP diagnostic"))
       map('n', "<leader>l?", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
         opts("LSP toggle inlay hints"))
+
+      if client.name == "markdown_oxide" then
+        vim.api.nvim_create_user_command(
+          "Daily",
+          function(args)
+            local input = args.args
+
+            client.exec_cmd({ command = "jump", arguments = { input } })
+          end,
+          { desc = 'Open daily note', nargs = "*" }
+        )
+      end
     end
 
     -- INFO: Capabilities
@@ -158,9 +170,26 @@ return {
         }
       ),
       on_attach = on_attach,
-      filetypes = { "markdown" },
-      single_file_support = true,
-      cmd = { "markdown-oxide" },
+      commands = {
+        Today = {
+          function(client)
+            client.exec_cmd({ command = "jump", arguments = { "today" } })
+          end,
+          description = "Open today's daily note"
+        },
+        Tomorrow = {
+          function(client)
+            client.exec_cmd({ command = "jump", arguments = { "tomorrow" } })
+          end,
+          description = "Open tomorrow's daily note"
+        },
+        Yesterday = {
+          function(client)
+            client.exec_cmd({ command = "jump", arguments = { "yesterday" } })
+          end,
+          description = "Open yesterday's daily note"
+        },
+      },
     })
     -- lspconfig.marksman.setup({ on_attach = on_attach, capabilities = capabilities })
 
