@@ -4,6 +4,7 @@ return {
   opts = { inlay_hints = { enabled = true } },
   config = function()
     local lspconfig = require("lspconfig")
+    local lsp_util = require('lspconfig.util')
 
     -- INFO: On attach function
     local on_attach = function(client, _)
@@ -157,41 +158,41 @@ return {
     lspconfig.hyprls.setup({ on_attach = on_attach, capabilities = capabilities })
 
     -- INFO: Markdown
-    lspconfig.markdown_oxide.setup({
-      capabilities = vim.tbl_deep_extend(
-        "force",
-        capabilities,
-        {
-          workspace = {
-            didChangeWatchedFiles = {
-              dynamicRegistration = true,
-            },
-          },
-        }
-      ),
-      on_attach = on_attach,
-      commands = {
-        Today = {
-          function(client)
-            client.exec_cmd({ command = "jump", arguments = { "today" } })
-          end,
-          description = "Open today's daily note"
-        },
-        Tomorrow = {
-          function(client)
-            client.exec_cmd({ command = "jump", arguments = { "tomorrow" } })
-          end,
-          description = "Open tomorrow's daily note"
-        },
-        Yesterday = {
-          function(client)
-            client.exec_cmd({ command = "jump", arguments = { "yesterday" } })
-          end,
-          description = "Open yesterday's daily note"
-        },
-      },
-    })
-    -- lspconfig.marksman.setup({ on_attach = on_attach, capabilities = capabilities })
+    -- lspconfig.markdown_oxide.setup({
+    --   capabilities = vim.tbl_deep_extend(
+    --     "force",
+    --     capabilities,
+    --     {
+    --       workspace = {
+    --         didChangeWatchedFiles = {
+    --           dynamicRegistration = true,
+    --         },
+    --       },
+    --     }
+    --   ),
+    --   on_attach = on_attach,
+    --   commands = {
+    --     Today = {
+    --       function(client)
+    --         client.exec_cmd({ command = "jump", arguments = { "today" } })
+    --       end,
+    --       description = "Open today's daily note"
+    --     },
+    --     Tomorrow = {
+    --       function(client)
+    --         client.exec_cmd({ command = "jump", arguments = { "tomorrow" } })
+    --       end,
+    --       description = "Open tomorrow's daily note"
+    --     },
+    --     Yesterday = {
+    --       function(client)
+    --         client.exec_cmd({ command = "jump", arguments = { "yesterday" } })
+    --       end,
+    --       description = "Open yesterday's daily note"
+    --     },
+    --   },
+    -- })
+    lspconfig.marksman.setup({ on_attach = on_attach, capabilities = capabilities })
 
     -- INFO: Python
     lspconfig.ruff.setup({
@@ -209,6 +210,8 @@ return {
         },
       },
     })
+
+    -- TODO: Replace with basedpyright
     lspconfig.pylsp.setup({
       on_attach = on_attach,
       capabilities = capabilities,
@@ -226,6 +229,29 @@ return {
         },
       },
     })
+
+    -- lspconfig.basedpyright.setup({
+    --   on_attach = function(client, bufnr) end,
+    --   capabilities = capabilities,
+    --   filetype = { 'python' },
+    --   root_dir = function(fname)
+    --     return lsp_util.root_pattern('.git')(fname) or vim.fn.getcwd()
+    --   end,
+    --   settings = {                   -- see https://docs.basedpyright.com/latest/configuration/language-server-settings/
+    --     basedpyright = {
+    --       disableOrganizeImports = true, -- use ruff instead of it
+    --       analysis = {
+    --         autoImportCompletions = true,
+    --         autoSearchPaths = true, -- auto serach command paths like 'src'
+    --         diagnosticMode = 'openFilesOnly',
+    --         useLibraryCodeForTypes = true,
+    --       }
+    --     },
+    --   },
+    --   -- handlers = {
+    --   -- 	['textDocument/publishDiagnostics'] = create_custom_handler(sign_priority.rank1)
+    --   -- }
+    -- })
 
     -- INFO: Lua
     lspconfig.lua_ls.setup({
