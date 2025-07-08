@@ -146,17 +146,7 @@ return {
 
     -- INFO: Markdown
     lspconfig.markdown_oxide.setup({
-      capabilities = vim.tbl_deep_extend(
-        "force",
-        capabilities,
-        {
-          workspace = {
-            didChangeWatchedFiles = {
-              dynamicRegistration = true,
-            },
-          },
-        }
-      ),
+      capabilities = capabilities,
       on_attach = on_attach
     })
     -- lspconfig.marksman.setup({ on_attach = on_attach, capabilities = capabilities })

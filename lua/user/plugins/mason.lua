@@ -14,7 +14,7 @@ return {
       "jsonls",
       "lua_ls",
       "markdown_oxide",
-      "marksman",
+      -- "marksman",
       "pylsp",
       "ruff",
       "rust_analyzer",
