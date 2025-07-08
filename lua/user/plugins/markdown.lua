@@ -4,5 +4,9 @@ return {
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons"
   },
-	opts = {},
+  config = function()
+    require("render-markdown").setup({
+      completions = { blink = { enabled = true } }
+    })
+  end
 }
