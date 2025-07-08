@@ -4,9 +4,10 @@ return {
   lazy = false,
   opts = {
     keymap = {
-      preset = "default",
+      preset       = "default",
       -- ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
       -- ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+      ["<CR>"]     = { "accept", "fallback" },
       ["<Tab>"]    = { "snippet_forward", "fallback_to_mappings" },
       ["<S-Tab>"]  = { "snippet_backward", "fallback_to_mappings" },
       ["<C-p>"]    = { "select_prev", "fallback" },
