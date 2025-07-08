@@ -22,6 +22,14 @@ return {
     },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
+      providers = {
+        lsp = {
+          -- Configure markdown_oxide for better keyword matching
+          markdown_oxide = {
+            keyword_pattern = [[\(\k\| \|\/\|#\)\+]],
+          },
+        },
+      }
     },
     snippets = { preset = "luasnip" },
     signature = { enabled = true },
