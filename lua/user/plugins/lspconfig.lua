@@ -26,7 +26,8 @@ return {
       map("n", "<leader>lk", function() vim.diagnostic.jump({ count = -1, float = true }) end,
         opts("Previous LSP diagnostic"))
       map("n", "<leader>lj", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts("Next LSP diagnostic"))
-      map('n', "<leader>l?", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, opts("LSP toggle inlay hints"))
+      map('n', "<leader>l?", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
+        opts("LSP toggle inlay hints"))
     end
 
     -- INFO: Capabilities
@@ -144,7 +145,21 @@ return {
     lspconfig.hyprls.setup({ on_attach = on_attach, capabilities = capabilities })
 
     -- INFO: Markdown
-    lspconfig.markdown_oxide.setup({ on_attach = on_attach, capabilities = capabilities })
+    lspconfig.markdown_oxide.setup({
+      capabilities = vim.tbl_deep_extend(
+        "force",
+        capabilities,
+        {
+          workspace = {
+            didChangeWatchedFiles = {
+              dynamicRegistration = true,
+            }
+          }
+        }
+
+      ),
+      on_attach = on_attach,
+    })
     lspconfig.marksman.setup({ on_attach = on_attach, capabilities = capabilities })
 
     -- INFO: Python
