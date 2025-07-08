@@ -1,12 +1,13 @@
 return {
-	"MeanderingProgrammer/render-markdown.nvim",
+  "MeanderingProgrammer/render-markdown.nvim",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons"
   },
-  config = function()
-    require("render-markdown").setup({
-      completions = { blink = { enabled = true } }
-    })
-  end
+  opts = {
+    checkbox = { enabled = true },
+    completions = {
+      blink = { enabled = true },
+    }
+  }
 }
