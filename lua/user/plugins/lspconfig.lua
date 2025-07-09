@@ -236,6 +236,7 @@ return {
       filetype = { "python" },
       settings = {                       -- see https://docs.basedpyright.com/latest/configuration/language-server-settings/
         basedpyright = {
+          disableLanguageServices = false,
           disableOrganizeImports = true, -- use ruff instead of it
           analysis = {
             autoImportCompletions = true,
