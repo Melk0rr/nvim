@@ -6,5 +6,6 @@ return {
   },
   opts = {
     checkbox = { enabled = true },
+    completions = { lsp = { enabled = true } },
   }
 }

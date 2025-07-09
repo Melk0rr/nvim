@@ -158,41 +158,41 @@ return {
     lspconfig.hyprls.setup({ on_attach = on_attach, capabilities = capabilities })
 
     -- INFO: Markdown
-    -- lspconfig.markdown_oxide.setup({
-    --   capabilities = vim.tbl_deep_extend(
-    --     "force",
-    --     capabilities,
-    --     {
-    --       workspace = {
-    --         didChangeWatchedFiles = {
-    --           dynamicRegistration = true,
-    --         },
-    --       },
-    --     }
-    --   ),
-    --   on_attach = on_attach,
-    --   commands = {
-    --     Today = {
-    --       function(client)
-    --         client.exec_cmd({ command = "jump", arguments = { "today" } })
-    --       end,
-    --       description = "Open today's daily note"
-    --     },
-    --     Tomorrow = {
-    --       function(client)
-    --         client.exec_cmd({ command = "jump", arguments = { "tomorrow" } })
-    --       end,
-    --       description = "Open tomorrow's daily note"
-    --     },
-    --     Yesterday = {
-    --       function(client)
-    --         client.exec_cmd({ command = "jump", arguments = { "yesterday" } })
-    --       end,
-    --       description = "Open yesterday's daily note"
-    --     },
-    --   },
-    -- })
-    lspconfig.marksman.setup({ on_attach = on_attach, capabilities = capabilities, filetypes = { "markdown" }})
+    lspconfig.markdown_oxide.setup({
+      capabilities = vim.tbl_deep_extend(
+        "force",
+        capabilities,
+        {
+          workspace = {
+            didChangeWatchedFiles = {
+              dynamicRegistration = true,
+            },
+          },
+        }
+      ),
+      on_attach = on_attach,
+      commands = {
+        Today = {
+          function(client)
+            client.exec_cmd({ command = "jump", arguments = { "today" } })
+          end,
+          description = "Open today's daily note"
+        },
+        Tomorrow = {
+          function(client)
+            client.exec_cmd({ command = "jump", arguments = { "tomorrow" } })
+          end,
+          description = "Open tomorrow's daily note"
+        },
+        Yesterday = {
+          function(client)
+            client.exec_cmd({ command = "jump", arguments = { "yesterday" } })
+          end,
+          description = "Open yesterday's daily note"
+        },
+      },
+    })
+    -- lspconfig.marksman.setup({ on_attach = on_attach, capabilities = capabilities, filetypes = { "markdown" }})
 
     -- INFO: Python
     lspconfig.ruff.setup({
