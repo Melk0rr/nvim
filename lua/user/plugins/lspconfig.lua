@@ -211,7 +211,6 @@ return {
       },
     })
 
-    -- TODO: Replace with basedpyright
     -- lspconfig.pylsp.setup({
     --   on_attach = on_attach,
     --   capabilities = capabilities,
@@ -243,7 +242,9 @@ return {
             autoSearchPaths = true, -- auto serach command paths like 'src'
             diagnosticMode = 'openFilesOnly',
             useLibraryCodeForTypes = true,
-            reportUnknownMemberType = false,
+            diagnosticSeverityOverrides = {
+              reportUnknownMemberType = false,
+            }
           }
         },
       },
