@@ -243,6 +243,7 @@ return {
             autoSearchPaths = true, -- auto serach command paths like 'src'
             diagnosticMode = 'openFilesOnly',
             useLibraryCodeForTypes = true,
+            typeCheckingMode = "recommended",
           }
         },
       },
