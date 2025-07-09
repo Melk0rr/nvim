@@ -243,6 +243,7 @@ return {
             diagnosticMode = 'openFilesOnly',
             useLibraryCodeForTypes = true,
             diagnosticSeverityOverrides = {
+              reportMissingTypeArgument = false,
               reportUnknownArgumentType = false,
               reportUnknownMemberType = false,
               reportUnknownVariableType = false,
