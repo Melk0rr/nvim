@@ -212,46 +212,43 @@ return {
     })
 
     -- TODO: Replace with basedpyright
-    lspconfig.pylsp.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-      settings = {
-        pylsp = {
-          plugins = {
-            autopep8 = { enabled = false },
-            black = { enabled = false },
-            yapf = { enabled = false },
-            mccabe = { enabled = false },
-            pyflakes = { enabled = false },
-            flake8 = { enabled = false },
-            pycodestyle = { enabled = false, maxLineLength = 100 },
-          },
-        },
-      },
-    })
-
-    -- lspconfig.basedpyright.setup({
-    --   on_attach = function(client, bufnr) end,
+    -- lspconfig.pylsp.setup({
+    --   on_attach = on_attach,
     --   capabilities = capabilities,
-    --   filetype = { 'python' },
-    --   root_dir = function(fname)
-    --     return lsp_util.root_pattern('.git')(fname) or vim.fn.getcwd()
-    --   end,
-    --   settings = {                   -- see https://docs.basedpyright.com/latest/configuration/language-server-settings/
-    --     basedpyright = {
-    --       disableOrganizeImports = true, -- use ruff instead of it
-    --       analysis = {
-    --         autoImportCompletions = true,
-    --         autoSearchPaths = true, -- auto serach command paths like 'src'
-    --         diagnosticMode = 'openFilesOnly',
-    --         useLibraryCodeForTypes = true,
-    --       }
+    --   settings = {
+    --     pylsp = {
+    --       plugins = {
+    --         autopep8 = { enabled = false },
+    --         black = { enabled = false },
+    --         yapf = { enabled = false },
+    --         mccabe = { enabled = false },
+    --         pyflakes = { enabled = false },
+    --         flake8 = { enabled = false },
+    --         pycodestyle = { enabled = false, maxLineLength = 100 },
+    --       },
     --     },
     --   },
-    --   -- handlers = {
-    --   -- 	['textDocument/publishDiagnostics'] = create_custom_handler(sign_priority.rank1)
-    --   -- }
     -- })
+
+    lspconfig.basedpyright.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetype = { "python" },
+      settings = {                       -- see https://docs.basedpyright.com/latest/configuration/language-server-settings/
+        basedpyright = {
+          disableOrganizeImports = true, -- use ruff instead of it
+          analysis = {
+            autoImportCompletions = true,
+            autoSearchPaths = true, -- auto serach command paths like 'src'
+            diagnosticMode = 'openFilesOnly',
+            useLibraryCodeForTypes = true,
+          }
+        },
+      },
+      -- handlers = {
+      -- 	['textDocument/publishDiagnostics'] = create_custom_handler(sign_priority.rank1)
+      -- }
+    })
 
     -- INFO: Lua
     lspconfig.lua_ls.setup({
