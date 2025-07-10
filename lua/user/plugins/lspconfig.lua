@@ -247,6 +247,7 @@ return {
               reportExplicitAny = false,
               reportMissingTypeArgument = false,
               reportUnknownArgumentType = false,
+              reportUnknownParameterType = false,
               reportUnknownMemberType = false,
               reportUnknownVariableType = false,
             }
