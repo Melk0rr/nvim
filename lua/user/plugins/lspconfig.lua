@@ -250,7 +250,10 @@ return {
               reportUnknownParameterType = false,
               reportUnknownMemberType = false,
               reportUnknownVariableType = false,
-              reportUnusedVariable = false, -- handled by Ruff
+
+              -- NOTE: Stuff handled by Ruff
+              reportUnusedImport = false,
+              reportUnusedVariable = false,
             }
           }
         },
