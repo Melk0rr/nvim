@@ -244,6 +244,7 @@ return {
             useLibraryCodeForTypes = true,
             diagnosticSeverityOverrides = {
               reportAny = false,
+              reportExplicitAny = false,
               reportMissingTypeArgument = false,
               reportUnknownArgumentType = false,
               reportUnknownMemberType = false,
