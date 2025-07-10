@@ -250,6 +250,7 @@ return {
               reportUnknownParameterType = false,
               reportUnknownMemberType = false,
               reportUnknownVariableType = false,
+              reportUnusedVariable = false, -- handled by Ruff
             }
           }
         },
