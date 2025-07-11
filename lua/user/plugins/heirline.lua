@@ -3,6 +3,6 @@ return {
   event = "BufEnter",
   enabled = true,
   config = function()
-    require("heirline").setup()
+    require("heirline")
   end,
 }
