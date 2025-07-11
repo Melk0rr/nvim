@@ -5,6 +5,6 @@ return {
   event = "BufEnter",
   enabled = true,
   config = function()
-    require("plugins.heirline").setup()
+    require("heirline").setup()
   end,
 }
