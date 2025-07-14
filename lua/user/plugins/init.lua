@@ -3,8 +3,8 @@ return {
   require("user.plugins.bufferline"),
   require("user.plugins.ccc"),
   require("user.plugins.illuminate"),
-  -- require("user.plugins.lualine"),
-  require("user.plugins.heirline"),
+  require("user.plugins.lualine"),
+  -- require("user.plugins.heirline"),
   require("user.plugins.noice"),
 
   -- INFO: QoL
