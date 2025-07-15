@@ -1,4 +1,8 @@
 local conditions = require("heirline.conditions")
+local utils = require("heirline.utils")
+
+local separators = require("user.plugins.heirline.common").separators
+local icons = require("user.plugins.heirline.common").icons
 
 local Mode = {
   init = function(self)
@@ -43,7 +47,7 @@ local Mode = {
     },
   },
   provider = function(self)
-    return "  %2(" .. self.mode_names[self.mode] .. "%)"
+    return icons.vim .. "%2(" .. self.mode_names[self.mode] .. "%)"
   end,
   hl = function(self)
     local color = self:mode_color()
@@ -57,6 +61,8 @@ local Mode = {
     end),
   },
 }
+
+Mode = utils.surround({ separators.rounded_left, separators.rounded_right }, "bright_bg", {Mode})
 
 local DefaultStatusline = {
     Mode,
@@ -121,7 +127,6 @@ local StatusLines = {
     -- InactiveStatusline,
     DefaultStatusline,
 }
-
 
 return {
   statusline = StatusLines
