@@ -99,7 +99,7 @@ local function toggle_snacks_term(pos)
   if ft == "snacks_terminal" then
     vim.cmd([[close]])
   else
-    require("snacks").terminal.toggle(nil, { win = { position = pos } })
+    vim.cmd([[lua require('snacks').terminal.toggle(nil, { win = { position = pos } })]])
   end
 end
 
