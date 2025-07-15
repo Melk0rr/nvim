@@ -101,7 +101,7 @@ local StatusLines = {
     end,
     static = {
         mode_colors = {
-            n = "red",
+            n = "blue",
             i = "green",
             v = "cyan",
             V = "cyan",
