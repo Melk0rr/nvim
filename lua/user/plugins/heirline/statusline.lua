@@ -151,6 +151,41 @@ local FileNameBlock = {
   unpack(FileFlags),
 }
 
+local WorkDir = {
+  init = function(self)
+    self.icon = (vim.fn.haslocaldir(0) == 1 and "l" or "g") .. " " .. icons.dir
+    local cwd = vim.fn.getcwd(0)
+    self.cwd = vim.fn.fnamemodify(cwd, ":~")
+    if not conditions.width_percent_below(#self.cwd, 0.27) then
+      self.cwd = vim.fn.pathshorten(self.cwd)
+    end
+  end,
+  hl = { fg = "blue", bold = true },
+  on_click = {
+    callback = function()
+      vim.cmd("Neotree toggle")
+    end,
+    name = "heirline_workdir",
+  },
+  flexible = 1,
+  {
+    provider = function(self)
+      local trail = self.cwd:sub(-1) == "/" and "" or "/"
+      return self.icon .. self.cwd .. trail .. " "
+    end,
+  },
+  {
+    provider = function(self)
+      local cwd = vim.fn.pathshorten(self.cwd)
+      local trail = self.cwd:sub(-1) == "/" and "" or "/"
+      return self.icon .. cwd .. trail .. " "
+    end,
+  },
+  {
+    provider = "",
+  },
+}
+
 -- ===========================================================================
 -- INFO: Wrap up default status line
 -- ===========================================================================
@@ -164,7 +199,7 @@ local DefaultStatusline = {
   Mode,
   Space,
   -- Spell,
-  -- WorkDir,
+  WorkDir,
   FileNameBlock,
   -- { provider = "%<" },
   -- Space,
