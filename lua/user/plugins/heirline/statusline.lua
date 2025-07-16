@@ -258,7 +258,7 @@ local Diagnostics = {
     name = "heirline_diagnostics",
   },
   init = function(self)
-    self.diagnostics = vim.diagnostic.config()["signs"]["text"]
+    self.diagnostics = vim.diagnostic.count()
   end,
   {
     provider = function(self)
