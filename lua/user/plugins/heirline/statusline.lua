@@ -112,23 +112,57 @@ local FileName = {
   },
 }
 
-local FileNameBlock = {
-    init = function(self)
-        self.filename = vim.api.nvim_buf_get_name(0)
+-- INFO: File flag (modified/readonly)
+local FileFlags = {
+  {
+    condition = function()
+      return vim.bo.modified
     end,
-    FileIcon,
-    FileName,
-    -- unpack(FileFlags),
+    provider = " " .. icons.modified,
+    hl = { fg = "green" },
+    on_click = {
+      callback = function(_, minwid)
+        local buf = vim.api.nvim_win_get_buf(minwid)
+        local bufname = vim.api.nvim_buf_get_name(buf)
+        vim.cmd.write(bufname)
+      end,
+      minwid = function()
+        return vim.api.nvim_get_current_win()
+      end,
+      name = "heirline_write_buf",
+    },
+
+  },
+  {
+    condition = function()
+      return not vim.bo.modifiable or vim.bo.readonly
+    end,
+    provider = icons.readonly,
+    hl = { fg = "orange" },
+  },
+}
+
+local FileNameBlock = {
+  init = function(self)
+    self.filename = vim.api.nvim_buf_get_name(0)
+  end,
+  FileIcon,
+  FileName,
+  unpack(FileFlags),
 }
 
 -- ===========================================================================
 -- INFO: Wrap up default status line
 -- ===========================================================================
+
+local Align = { provider = "%=" }
+local Space = { provider = " " }
+
 Mode = utils.surround({ separators.rounded_left, separators.rounded_right }, "bright_bg", { Mode })
 
 local DefaultStatusline = {
   Mode,
-  -- Space,
+  Space,
   -- Spell,
   -- WorkDir,
   FileNameBlock,
