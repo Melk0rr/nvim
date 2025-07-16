@@ -262,25 +262,25 @@ local Diagnostics = {
   end,
   {
     provider = function(self)
-      return self.diagnostics[1] and (icons.err .. self.diagnostics[1] .. " ")
+      return self.diagnostics[vim.diagnostic.severity.ERROR] and (icons.err .. self.diagnostics[1] .. " ")
     end,
     hl = "DiagnosticError",
   },
   {
     provider = function(self)
-      return self.diagnostics[2] and (icons.warn .. self.diagnostics[2] .. " ")
+      return self.diagnostics[vim.diagnostic.severity.WARN] and (icons.warn .. self.diagnostics[2] .. " ")
     end,
     hl = "DiagnosticWarn",
   },
   {
     provider = function(self)
-      return self.diagnostics[3] and (icons.info .. self.diagnostics[3] .. " ")
+      return self.diagnostics[vim.diagnostic.severity.INFO] and (icons.info .. self.diagnostics[3] .. " ")
     end,
     hl = "DiagnosticInfo",
   },
   {
     provider = function(self)
-      return self.diagnostics[4] and (icons.hint .. self.diagnostics[4] .. " ")
+      return self.diagnostics[vim.diagnostic.severity.HINT] and (icons.hint .. self.diagnostics[4] .. " ")
     end,
     hl = "DiagnosticHint",
   },
