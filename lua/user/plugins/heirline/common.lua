@@ -9,10 +9,10 @@ local icons = {
   modified = "● ",
   readonly = " ",
   terminal = "  ",
-  err = vim.diagnostic.config()['signs']['text'][vim.diagnostic.severity.ERROR],
-  war = vim.diagnostic.config()['signs']['text'][vim.diagnostic.severity.WARN],
-  info = vim.diagnostic.config()['signs']['text'][vim.diagnostic.severity.INFO],
-  hint = vim.diagnostic.config()['signs']['text'][vim.diagnostic.severity.HINT],
+  err = vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.ERROR],
+  warn = vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.WARN],
+  info = vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.INFO],
+  hint = vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.HINT],
 }
 
 local separators = {
