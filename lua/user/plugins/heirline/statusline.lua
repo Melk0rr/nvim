@@ -131,7 +131,6 @@ local FileFlags = {
       end,
       name = "heirline_write_buf",
     },
-
   },
   {
     condition = function()
@@ -245,6 +244,48 @@ local Git = {
     provider = ")",
   },
 }
+
+-- ===========================================================================
+-- INFO: Diagnostics
+-- ===========================================================================
+local Diagnostics = {
+  condition = conditions.has_diagnostics,
+  update = { "DiagnosticChanged", "BufEnter" },
+  on_click = {
+    callback = function()
+      require("trouble").toggle("diagnostics")
+    end,
+    name = "heirline_diagnostics",
+  },
+  init = function(self)
+    self.diagnostics = vim.diagnostic.config()["signs"]["text"]
+  end,
+  {
+    provider = function(self)
+      return self.diagnostics[1] and (icons.err .. self.diagnostics[1] .. " ")
+    end,
+    hl = "DiagnosticError",
+  },
+  {
+    provider = function(self)
+      return self.diagnostics[2] and (icons.warn .. self.diagnostics[2] .. " ")
+    end,
+    hl = "DiagnosticWarn",
+  },
+  {
+    provider = function(self)
+      return self.diagnostics[3] and (icons.info .. self.diagnostics[3] .. " ")
+    end,
+    hl = "DiagnosticInfo",
+  },
+  {
+    provider = function(self)
+      return self.diagnostics[4] and (icons.hint .. self.diagnostics[4] .. " ")
+    end,
+    hl = "DiagnosticHint",
+  },
+}
+
 -- ===========================================================================
 -- INFO: Wrap up default status line
 -- ===========================================================================
@@ -261,11 +302,11 @@ local DefaultStatusline = {
   WorkDir,
   FileNameBlock,
   -- { provider = "%<" },
-  -- Space,
-  -- Git,
-  -- Space,
-  -- Diagnostics,
-  -- Align,
+  Space,
+  Git,
+  Space,
+  Diagnostics,
+  Align,
   -- -- { flexible = 3,   { Navic, Space }, { provider = "" } },
   -- Align,
   -- DAPMessages,
