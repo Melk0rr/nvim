@@ -162,7 +162,7 @@ local WorkDir = {
   hl = { fg = "blue", bold = true },
   on_click = {
     callback = function()
-      vim.cmd([[lua require("snacks").picker.explorer()]])
+      vim.cmd([[lua Snacks.picker.explorer()]])
     end,
     name = "heirline_workdir",
   },
