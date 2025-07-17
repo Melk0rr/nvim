@@ -25,10 +25,24 @@ return {
           return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
         end,
         cwd = "${workspaceFolder}",
+        runInTerminal = true,
+        terminal = "integrated",
       }
 
       dap.configurations.c = c_cpp_config
       dap.configurations.cpp = c_cpp_config
+
+      local py_config = {
+        {
+          name = "attach PID",
+          type = "python",
+          request = "attach",
+          processId = "${command:pickProcess}",
+          console = "integratedTerminal",
+        },
+      }
+
+      dap.configurations.python = py_config
 
       dap.listeners.before.attach.dapui_config = function() dapui.open() end
       dap.listeners.before.launch.dapui_config = function() dapui.open() end
@@ -40,8 +54,22 @@ return {
   {
     "rcarriga/nvim-dap-ui",
     dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-    config = function()
-      require("dapui").setup()
-    end
+    lazy = true,
+    opts = {
+      controls = {
+        enabled = true,
+        element = "repl",
+        icons = {
+          pause = "",
+          play = "",
+          step_into = "",
+          step_over = "",
+          step_out = "",
+          step_back = "",
+          run_last = "",
+          terminate = "",
+        },
+      },
+    },
   }
 }
