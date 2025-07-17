@@ -197,7 +197,7 @@ local Git = {
   on_click = {
     callback = function(self, minwid, nclicks, button)
       vim.defer_fn(function()
-        vim.cmd("Lazygit %:p:h")
+        vim.cmd([[lua require("snacks").lazygit()]])
       end, 100)
     end,
     name = "heirline_git",
