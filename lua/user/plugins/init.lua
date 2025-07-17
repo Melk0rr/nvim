@@ -17,7 +17,7 @@ return {
   -- INFO: Syntax, Completion & Snippets
   require("user.plugins.completion"),
   require("user.plugins.snippets"),
-  require("user.plugins.treesitter"),
+  require("user.plugins.syntax"),
 
   -- INFO: Debug
   require("user.plugins.debug"),
