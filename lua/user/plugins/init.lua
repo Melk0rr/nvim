@@ -10,16 +10,15 @@ return {
   -- INFO: Dev tools
   require("user.plugins.dev"),
 
-  -- INFO: LSP / Linting / Language support
+  -- INFO: LSP & Language support
   require("user.plugins.lspconfig"),
-  require("user.plugins.markdown"),
   require("user.plugins.mason"),
-  require("user.plugins.mini"),
-  require("user.plugins.treesitter"),
 
-  -- INFO: Completion & Snippets
+  -- INFO: Syntax, Completion & Snippets
   require("user.plugins.completion"),
+  require("user.plugins.mini"),
   require("user.plugins.snippets"),
+  require("user.plugins.treesitter"),
 
   -- INFO: Debug
   require("user.plugins.debug"),
