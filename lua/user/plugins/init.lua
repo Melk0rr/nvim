@@ -10,8 +10,6 @@ return {
   require("user.plugins.yazi"),
 
   -- INFO: LSP / Linting / Language support
-  require("user.plugins.crates"),
-  require("user.plugins.inlay-hint"),
   require("user.plugins.lspconfig"),
   require("user.plugins.markdown"),
   require("user.plugins.mason"),
@@ -20,8 +18,8 @@ return {
   require("user.plugins.treesitter"),
 
   -- INFO: Completion & Snippets
-  require("user.plugins.blink"),
-  require("user.plugins.luasnip"),
+  require("user.plugins.completion"),
+  require("user.plugins.snippets"),
 
   -- INFO: Debug
   require("user.plugins.debug"),

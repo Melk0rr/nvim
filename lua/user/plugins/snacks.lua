@@ -191,11 +191,11 @@ return {
           end,
           finder = function(_, ctx)
             local snippets = {}
-            for _, snip in ipairs(require('luasnip').get_snippets().all) do
+            for _, snip in ipairs(require("user.plugins.snippets").get_snippets().all) do
               snip.ft = ''
               table.insert(snippets, snip)
             end
-            for _, snip in ipairs(require('luasnip').get_snippets(vim.bo.ft)) do
+            for _, snip in ipairs(require("user.plugins.snippets").get_snippets(vim.bo.ft)) do
               snip.ft = vim.bo.ft
               table.insert(snippets, snip)
             end
@@ -231,7 +231,7 @@ return {
             picker:close()
             --
             local expand = {}
-            require('luasnip').available(function(snippet)
+            require("user.plugins.snippets").available(function(snippet)
               if snippet.trigger == item.trigger then
                 table.insert(expand, snippet)
               end
@@ -240,7 +240,7 @@ return {
             if #expand > 0 then
               vim.cmd ':startinsert!'
               vim.defer_fn(function()
-                require('luasnip').snip_expand(expand[1])
+                require("user.plugins.snippets").snip_expand(expand[1])
               end, 50)
             else
               Snacks.notify.warn 'No snippet to expand'
