@@ -377,5 +377,18 @@ return {
     config = function()
       require("illuminate").configure({ delay = 200 })
     end
+  },
+  {
+    "saecki/crates.nvim",
+    ft = { "toml" },
+    config = function()
+      require("crates").setup({
+        completion = {
+          cmp = {
+            enable = true
+          }
+        }
+      })
+    end
   }
 }
