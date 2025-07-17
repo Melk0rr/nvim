@@ -355,6 +355,24 @@ local DAPMessages = {
 }
 
 -- ===========================================================================
+-- INFO: LSPActive
+-- ===========================================================================
+local LSPActive = {
+  condition = conditions.lsp_attached,
+  update = { "LspAttach", "LspDetach", "WinEnter" },
+  provider = icons.lsp .. "LSP",
+  hl = { fg = "green", bold = true },
+  on_click = {
+    name = "heirline_LSP",
+    callback = function()
+      vim.schedule(function()
+        vim.cmd("LspInfo")
+      end)
+    end,
+  },
+}
+
+-- ===========================================================================
 -- INFO: Wrap up default status line
 -- ===========================================================================
 
@@ -376,9 +394,9 @@ local DefaultStatusline = {
   Align,
   Align,
   DAPMessages,
-  -- LSPActive,
+  LSPActive,
   -- -- VirtualEnv,
-  -- Space,
+  Space,
   -- FileType,
   -- { flexible = 3,   { FileEncoding, Space }, { provider = "" } },
   -- Space,
