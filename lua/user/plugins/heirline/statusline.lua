@@ -287,6 +287,74 @@ local Diagnostics = {
 }
 
 -- ===========================================================================
+-- INFO: DAP
+-- ===========================================================================
+local DAPMessages = {
+    condition = function()
+        local session = require("dap").session()
+        return session ~= nil
+    end,
+    provider = function()
+        return icons.debug .. require("dap").status() .. " "
+    end,
+    hl = "Debug",
+    {
+        provider = " ",
+        on_click = {
+            callback = function()
+                require("dap").step_into()
+            end,
+            name = "heirline_dap_step_into",
+        },
+    },
+    { provider = " " },
+    {
+        provider = " ",
+        on_click = {
+            callback = function()
+                require("dap").step_out()
+            end,
+            name = "heirline_dap_step_out",
+        },
+    },
+    { provider = " " },
+    {
+        provider = " ",
+        on_click = {
+            callback = function()
+                require("dap").step_over()
+            end,
+            name = "heirline_dap_step_over",
+        },
+    },
+    { provider = " " },
+    {
+        provider = " ",
+        hl = { fg = "green" },
+        on_click = {
+            callback = function()
+                require("dap").run_last()
+            end,
+            name = "heirline_dap_run_last",
+        },
+    },
+    { provider = " " },
+    {
+        provider = " ",
+        hl = { fg = "red" },
+        on_click = {
+            callback = function()
+                require("dap").terminate()
+                require("dapui").close({})
+            end,
+            name = "heirline_dap_close",
+        },
+    },
+    { provider = " " },
+    --       ﰇ  
+}
+
+-- ===========================================================================
 -- INFO: Wrap up default status line
 -- ===========================================================================
 
@@ -298,7 +366,6 @@ Mode = utils.surround({ separators.rounded_left, separators.rounded_right }, "br
 local DefaultStatusline = {
   Mode,
   Space,
-  -- Spell,
   WorkDir,
   FileNameBlock,
   -- { provider = "%<" },
@@ -307,9 +374,8 @@ local DefaultStatusline = {
   Space,
   Diagnostics,
   Align,
-  -- -- { flexible = 3,   { Navic, Space }, { provider = "" } },
-  -- Align,
-  -- DAPMessages,
+  Align,
+  DAPMessages,
   -- LSPActive,
   -- -- VirtualEnv,
   -- Space,
