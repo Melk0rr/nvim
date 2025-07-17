@@ -1,5 +1,6 @@
 -- INFO: Multiple plugins for dev QoL
 return {
+  -- NOTE: Gitsigns
   {
     "lewis6991/gitsigns.nvim",
     event = "BufReadPre",
@@ -8,6 +9,21 @@ return {
       preview_config = {},
     },
   },
+
+  -- NOTE: Render Markdown
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons"
+    },
+    opts = {
+      checkbox = { enabled = true },
+      completions = { lsp = { enabled = true } },
+    }
+  },
+
+  -- NOTE: TODO comments
   {
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
@@ -15,6 +31,8 @@ return {
       require("todo-comments").setup({})
     end,
   },
+
+  -- NOTE: Trouble
   {
     "folke/trouble.nvim",
     cmd = { "Trouble" },
@@ -54,6 +72,8 @@ return {
       },
     },
   },
+
+  -- NOTE: Rainbow CSV
   {
     "cameron-wags/rainbow_csv.nvim",
     config = true,
@@ -73,6 +93,8 @@ return {
       "RainbowMultiDelim",
     },
   },
+
+  -- NOTE: Image
   {
     "3rd/image.nvim",
     build = false, -- so that it doesn't build the rock https://github.com/3rd/image.nvim/issues/91#issuecomment-2453430239
