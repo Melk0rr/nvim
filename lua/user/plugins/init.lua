@@ -16,7 +16,6 @@ return {
 
   -- INFO: Syntax, Completion & Snippets
   require("user.plugins.completion"),
-  require("user.plugins.mini"),
   require("user.plugins.snippets"),
   require("user.plugins.treesitter"),
 
