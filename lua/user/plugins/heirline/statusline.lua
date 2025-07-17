@@ -290,68 +290,68 @@ local Diagnostics = {
 -- INFO: DAP
 -- ===========================================================================
 local DAPMessages = {
-    condition = function()
-        local session = require("dap").session()
-        return session ~= nil
-    end,
-    provider = function()
-        return icons.debug .. require("dap").status() .. " "
-    end,
-    hl = "Debug",
-    {
-        provider = " ",
-        on_click = {
-            callback = function()
-                require("dap").step_into()
-            end,
-            name = "heirline_dap_step_into",
-        },
+  condition = function()
+    local session = require("dap").session()
+    return session ~= nil
+  end,
+  provider = function()
+    return icons.debug .. require("dap").status() .. " "
+  end,
+  hl = "Debug",
+  {
+    provider = " ",
+    on_click = {
+      callback = function()
+        require("dap").step_into()
+      end,
+      name = "heirline_dap_step_into",
     },
-    { provider = " " },
-    {
-        provider = " ",
-        on_click = {
-            callback = function()
-                require("dap").step_out()
-            end,
-            name = "heirline_dap_step_out",
-        },
+  },
+  { provider = " " },
+  {
+    provider = " ",
+    on_click = {
+      callback = function()
+        require("dap").step_out()
+      end,
+      name = "heirline_dap_step_out",
     },
-    { provider = " " },
-    {
-        provider = " ",
-        on_click = {
-            callback = function()
-                require("dap").step_over()
-            end,
-            name = "heirline_dap_step_over",
-        },
+  },
+  { provider = " " },
+  {
+    provider = " ",
+    on_click = {
+      callback = function()
+        require("dap").step_over()
+      end,
+      name = "heirline_dap_step_over",
     },
-    { provider = " " },
-    {
-        provider = " ",
-        hl = { fg = "green" },
-        on_click = {
-            callback = function()
-                require("dap").run_last()
-            end,
-            name = "heirline_dap_run_last",
-        },
+  },
+  { provider = " " },
+  {
+    provider = " ",
+    hl = { fg = "green" },
+    on_click = {
+      callback = function()
+        require("dap").run_last()
+      end,
+      name = "heirline_dap_run_last",
     },
-    { provider = " " },
-    {
-        provider = " ",
-        hl = { fg = "red" },
-        on_click = {
-            callback = function()
-                require("dap").terminate()
-                require("dapui").close({})
-            end,
-            name = "heirline_dap_close",
-        },
+  },
+  { provider = " " },
+  {
+    provider = " ",
+    hl = { fg = "red" },
+    on_click = {
+      callback = function()
+        require("dap").terminate()
+        require("dapui").close({})
+      end,
+      name = "heirline_dap_close",
     },
-    { provider = " " },
-    --       ﰇ  
+  },
+  { provider = " " },
+  --       ﰇ  
 }
 
 -- ===========================================================================
@@ -359,14 +359,20 @@ local DAPMessages = {
 -- ===========================================================================
 local LSPActive = {
   condition = conditions.lsp_attached,
-  update = { "LspAttach", "LspDetach", "WinEnter" },
-  provider = icons.lsp .. "LSP",
-  hl = { fg = "green", bold = true },
-  on_click = {
+  update    = { "LspAttach", "LspDetach", "WinEnter" },
+  provider  = function()
+    local names = {}
+    for _, server in pairs(vim.lsp.buf_get_active_clients({ bufnr = 0 })) do
+      table.insert(names, server.name)
+    end
+    return icons.lsp .. "[" .. table.concat(names, " ") .. "]"
+  end,
+  hl        = { fg = "green", bold = true },
+  on_click  = {
     name = "heirline_LSP",
     callback = function()
       vim.schedule(function()
-        vim.cmd("LspInfo")
+        vim.cmd([[LspInfo]])
       end)
     end,
   },
