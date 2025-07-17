@@ -362,7 +362,7 @@ local LSPActive = {
   update    = { "LspAttach", "LspDetach", "WinEnter" },
   provider  = function()
     local names = {}
-    for _, server in pairs(vim.lsp.buf_get_active_clients({ bufnr = 0 })) do
+    for _, server in pairs(vim.lsp.get_clients({ bufnr = 0 })) do
       table.insert(names, server.name)
     end
     return icons.lsp .. "[" .. table.concat(names, " ") .. "]"
