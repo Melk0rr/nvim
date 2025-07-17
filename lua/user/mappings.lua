@@ -14,9 +14,10 @@ map('n', "<leader>:wqq", "<cmd>wqa!<cr>", opts("Save and quit"))
 -- ===========================================================================
 -- NOTE: Yank
 -- ===========================================================================
-map('n', "vA", "ggVG", { desc = "Select all" })
+map('n', "gA", "ggVG", { desc = "Select all" })
 map('n', 'Y', 'yy', opts("Yank whole line"))
 map({ 'n', 'v' }, "<C-c>", '"+y', opts("Yank to clipboard"))
+map({ 'n', 'v' }, "<C-a>", 'ggVG"+y', opts("Yank to clipboard"))
 
 -- ===========================================================================
 -- NOTE: Text insertion
