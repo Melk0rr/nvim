@@ -34,7 +34,7 @@ require("heirline").setup({
   -- statuscolumn = require("plugins.heirline.statuscolumn"),
   opts = {
     disable_winbar_cb = function(args)
-      if vim.bo[args.buf].filetype == "neo-tree" then
+      if vim.bo[args.buf].filetype == "snacks_layout_box" then
         return
       end
       return conditions.buffer_matches({
