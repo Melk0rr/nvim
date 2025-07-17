@@ -25,9 +25,6 @@ return {
       keys = {
         ["<Tab>"] = "fold_toggle",
       },
-      icons = {
-        kinds = require("lsp.init").symbol_icons,
-      },
       modes = {
         symbols = {
           win = {
