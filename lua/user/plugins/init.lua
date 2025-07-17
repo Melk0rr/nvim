@@ -3,18 +3,18 @@ return {
   require("user.plugins.ui"),
 
   -- INFO: QoL
-  require("user.plugins.image"),
   require("user.plugins.snacks"),
-  require("user.plugins.todo-comments"),
   require("user.plugins.whichkey"),
   require("user.plugins.yazi"),
+
+  -- INFO: Dev tools
+  require("user.plugins.dev"),
 
   -- INFO: LSP / Linting / Language support
   require("user.plugins.lspconfig"),
   require("user.plugins.markdown"),
   require("user.plugins.mason"),
   require("user.plugins.mini"),
-  require("user.plugins.rainbowcsv"),
   require("user.plugins.treesitter"),
 
   -- INFO: Completion & Snippets
