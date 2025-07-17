@@ -17,7 +17,7 @@ return {
       { "<leader>d", group = "Debug", icon = { icon = "󰃤 ", color = "red" } },
 
       -- NOTE: Trouble group
-      { "<leader>t", group = "Trouble", icon = { icon = " ", color = "red" } },
+      { "<leader>t", group = "Trouble", icon = { icon = " ", color = "yellow" } },
 
       -- NOTE: Fuzzy finder group
       { "<leader>f", group = "Fuzzy Finder", icon = { icon = "󰭎 ", color = "blue" } },
