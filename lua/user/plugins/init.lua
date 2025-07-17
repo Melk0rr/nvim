@@ -24,7 +24,7 @@ return {
   require("user.plugins.luasnip"),
 
   -- INFO: Debug
-  require("user.plugins.dap"),
+  require("user.plugins.debug"),
 
   -- INFO: Colorschemes
   require("user.plugins.colorschemes"),
