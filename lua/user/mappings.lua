@@ -15,9 +15,9 @@ map('n', "<leader>:wqq", "<cmd>wqa!<cr>", opts("Save and quit"))
 -- NOTE: Yank
 -- ===========================================================================
 map('n', "gA", "ggVG", { desc = "Select all" })
-map('n', 'Y', 'yy', opts("Yank whole line"))
-map({ 'n', 'v' }, "<C-c>", '"+y', opts("Yank to clipboard"))
-map({ 'n', 'v' }, "<C-a>", 'ggVG"+y', opts("Yank to clipboard"))
+map('n', 'Y', "yy", opts("Yank whole line"))
+map({ 'n', 'v' }, "<C-c>", "<cmd>y+<cr>", opts("Yank to clipboard"))
+map({ 'n', 'v' }, "<C-a>", "<cmd>%y+<cr>", opts("Yank to clipboard"))
 
 -- ===========================================================================
 -- NOTE: Text insertion
@@ -182,10 +182,10 @@ map('n', '<leader>s"', "<cmd>lua require('snacks').picker.registers({ layout = '
 map('n', "<leader>s:", "<cmd>lua require('snacks').picker.command_history({ focus = 'list' })<cr>",
   opts("Search command history"))
 map('n', "<leader>s/", "<cmd>lua require('snacks').picker.search_history({ focus = 'list' })<cr>", opts("Search history"))
-map('n', "<leader>sh", "<cmd>noh<cr>", opts("No search highlight"))
 map('n', "<leader>sn", "<cmd>lua require('snacks').notifier.show_history()<cr>", opts("Search history"))
 map('n', "<leader>su", "<cmd>lua require('snacks').picker.undo({ layout = 'vertical' })<cr>", opts("Search undo history"))
 map('n', "<leader>sq", "<cmd>lua require('snacks').picker.qflist()<cr>", opts("Quickfix list"))
+map('n', "<leader>sx", "<cmd>noh<cr>", opts("Search clear"))
 
 -- ===========================================================================
 -- NOTE: Words & LSP
