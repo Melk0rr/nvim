@@ -8,7 +8,7 @@ local components = require("user.plugins.heirline.components")
 -- INFO: Wrap up default status line
 -- ===========================================================================
 
-Mode = utils.surround({ separators.rounded_left, separators.rounded_right }, "bright_bg", { Mode })
+Mode = utils.surround({ separators.rounded_left, separators.rounded_right }, "bright_bg", { components.Mode })
 
 local DefaultStatusline = {
   components.Mode,
