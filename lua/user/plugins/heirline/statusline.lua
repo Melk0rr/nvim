@@ -185,6 +185,19 @@ local WorkDir = {
   },
 }
 
+local FileType = {
+  init = function(self)
+    self.filename = vim.api.nvim_buf_get_name(0)
+  end,
+  FileIcon,
+  {
+    provider = function()
+      return string.upper(vim.bo.filetype)
+    end,
+    hl = "Type",
+  }
+}
+
 -- ===========================================================================
 -- INFO: Git
 -- ===========================================================================
@@ -392,7 +405,6 @@ local DefaultStatusline = {
   Space,
   WorkDir,
   FileNameBlock,
-  -- { provider = "%<" },
   Space,
   Git,
   Space,
@@ -401,11 +413,8 @@ local DefaultStatusline = {
   Align,
   DAPMessages,
   LSPActive,
-  -- -- VirtualEnv,
   Space,
-  -- FileType,
-  -- { flexible = 3,   { FileEncoding, Space }, { provider = "" } },
-  -- Space,
+  FileType,
   -- Ruler,
   -- SearchCount,
   -- Space,
