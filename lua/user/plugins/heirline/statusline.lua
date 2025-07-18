@@ -205,6 +205,13 @@ local FileEncoding = {
   end,
 }
 
+local FileFormat = {
+  provider = function()
+    local fmt = vim.bo.fileformat
+    return fmt ~= "dos" and icons.windows or fmt ~= "mac" and icons.mac or icons.linux
+  end
+}
+
 -- ===========================================================================
 -- INFO: Git
 -- ===========================================================================
@@ -424,6 +431,8 @@ local DefaultStatusline = {
   FileType,
   { flexible = 3, { FileEncoding, Space }, { provider = "" } },
   Space,
+  FileFormat,
+  Space,
   -- Ruler,
   -- SearchCount,
   -- Space,
@@ -473,3 +482,4 @@ local StatusLines = {
 return {
   statusline = StatusLines
 }
+
