@@ -35,6 +35,18 @@ local DefaultStatusline = {
   cmp.ScrollBar,
 }
 
+local TerminalStatusline = {
+  condition = function()
+    return conditions.buffer_matches({ buftype = { "terminal" } })
+  end,
+  hl = { bg = "dark_red" },
+  { condition = conditions.is_active, Mode, cmp.Space },
+  cmp.FileType,
+  cmp.Space,
+  cmp.TerminalName,
+  cmp.Align,
+}
+
 -- ===========================================================================
 -- INFO: Final status lines
 -- ===========================================================================
