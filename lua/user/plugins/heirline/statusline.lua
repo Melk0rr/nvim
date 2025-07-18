@@ -189,6 +189,7 @@ local FileType = {
   init = function(self)
     self.filename = vim.api.nvim_buf_get_name(0)
   end,
+
   { provider = " " },
   FileIcon,
   {
@@ -483,10 +484,10 @@ local DefaultStatusline = {
   Space,
   FileFormat,
   Space,
-  -- Ruler,
-  -- SearchCount,
-  -- Space,
-  -- ScrollBar,
+  Ruler,
+  SearchCount,
+  Space,
+  ScrollBar,
 }
 
 -- ===========================================================================
@@ -502,18 +503,18 @@ local StatusLines = {
   end,
   static = {
     mode_colors = {
-      n = "cyan",
+      n = "red",
       i = "green",
-      v = "blue",
-      V = "blue",
-      ["\22"] = "blue", -- this is an actual ^V, type <C-v><C-v> in insert mode
+      v = "cyan",
+      V = "cyan",
+      ["\22"] = "cyan", -- this is an actual ^V, type <C-v><C-v> in insert mode
       c = "orange",
       s = "pure",
       S = "purple",
       ["\19"] = "purple", -- this is an actual ^S, type <C-v><C-s> in insert mode
       R = "orange",
       r = "orange",
-      ["!"] = "red",
+      ["!"] = "blue",
       t = "green",
     },
     mode_color = function(self)
