@@ -208,7 +208,7 @@ local FileEncoding = {
 local FileFormat = {
   provider = function()
     local fmt = vim.bo.fileformat
-    return fmt ~= "dos" and icons.windows or fmt ~= "mac" and icons.mac or icons.linux
+    return fmt == "dos" and icons.windows or fmt == "mac" and icons.mac or icons.linux
   end
 }
 
