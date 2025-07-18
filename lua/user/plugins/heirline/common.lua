@@ -3,12 +3,15 @@ local icons = {
   close = "󰅙 ",
   dir = "󰉋 ",
   lsp = " ", --   
-  vim = " ", --       
+  vim = " ", --           
   debug = " ",
   rec = " ",
   modified = "● ",
   readonly = " ",
   terminal = "  ",
+  linux = " ",
+  windows = " ",
+  mac = " ",
   err = vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.ERROR],
   warn = vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.WARN],
   info = vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.INFO],
@@ -38,3 +41,4 @@ local separators = {
 }
 
 return { separators = separators, icons = icons }
+
