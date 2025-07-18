@@ -462,6 +462,29 @@ local ScrollBar = {
   hl = { fg = "blue", bg = "bright_bg" },
 }
 
+-- ===========================================================================
+-- INFO: Terminal
+-- ===========================================================================
+local TerminalName = {
+  -- icon = ' ', -- 
+  {
+    provider = function()
+      local tname, _ = vim.api.nvim_buf_get_name(0):gsub(".*:", "")
+      return " " .. tname
+    end,
+    hl = { fg = "blue", bold = true },
+  },
+  { provider = " - " },
+  {
+    provider = function()
+      return vim.b.term_title
+    end,
+  },
+}
+
+-- ===========================================================================
+-- INFO: Export
+-- ===========================================================================
 return {
   Space = Space,
   Align = Align,
@@ -481,4 +504,5 @@ return {
   Ruler = Ruler,
   SearchCount = SearchCount,
   ScrollBar = ScrollBar,
+  TerminalName = TerminalName,
 }
