@@ -82,7 +82,7 @@ local StatusLines = {
   fallthrough = false,
   -- GitStatusline,
   -- SpecialStatusline,
-  -- TerminalStatusline,
+  TerminalStatusline,
   -- InactiveStatusline,
   DefaultStatusline,
 }
