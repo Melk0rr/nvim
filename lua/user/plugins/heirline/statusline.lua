@@ -2,37 +2,37 @@ local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 
 local separators = require("user.plugins.heirline.common").separators
-local components = require("user.plugins.heirline.components")
+local cmp = require("user.plugins.heirline.components")
 
 -- ===========================================================================
 -- INFO: Wrap up default status line
 -- ===========================================================================
 
-Mode = utils.surround({ separators.rounded_left, separators.rounded_right }, "bright_bg", { components.Mode })
+Mode = utils.surround({ separators.rounded_left, separators.rounded_right }, "bright_bg", { cmp.Mode })
 
 local DefaultStatusline = {
-  components.Mode,
-  components.Space,
-  components.WorkDir,
-  components.FileNameBlock,
-  components.Space,
-  components.Git,
-  components.Space,
-  components.Diagnostics,
-  components.Align,
-  components.Align,
-  components.DAPMessages,
-  components.LSPActive,
-  components.Space,
-  components.FileType,
-  { flexible = 3, { components.FileEncoding, components.Space }, { provider = "" } },
-  components.Space,
-  components.FileFormat,
-  components.Space,
-  components.Ruler,
-  components.SearchCount,
-  components.Space,
-  components.ScrollBar,
+  Mode,
+  cmp.Space,
+  cmp.WorkDir,
+  cmp.FileNameBlock,
+  cmp.Space,
+  cmp.Git,
+  cmp.Space,
+  cmp.Diagnostics,
+  cmp.Align,
+  cmp.Align,
+  cmp.DAPMessages,
+  cmp.LSPActive,
+  cmp.Space,
+  cmp.FileType,
+  { flexible = 3, { cmp.FileEncoding, cmp.Space }, { provider = "" } },
+  cmp.Space,
+  cmp.FileFormat,
+  cmp.Space,
+  cmp.Ruler,
+  cmp.SearchCount,
+  cmp.Space,
+  cmp.ScrollBar,
 }
 
 -- ===========================================================================
