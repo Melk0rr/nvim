@@ -87,7 +87,4 @@ local StatusLines = {
   DefaultStatusline,
 }
 
-return {
-  statusline = StatusLines
-}
-
+return StatusLines
