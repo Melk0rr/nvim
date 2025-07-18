@@ -189,6 +189,7 @@ local FileType = {
   init = function(self)
     self.filename = vim.api.nvim_buf_get_name(0)
   end,
+  { provider = " " },
   FileIcon,
   {
     provider = function()
