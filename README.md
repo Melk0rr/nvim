@@ -5,6 +5,7 @@
 # My neovim config
 ## Plugins I use
 
+TODO: remake categories + update plugin list
 | UI | QoL | LSP | Debug |
 | --------------- | --------------- | --------------- | --------------- |
 | [bufferline](https://github.com/akinsho/bufferline.nvim) | snacks | treesitter | dap |
