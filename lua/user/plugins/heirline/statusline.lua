@@ -47,6 +47,14 @@ local TerminalStatusline = {
   cmp.Align,
 }
 
+local InactiveStatusline = {
+  condition = conditions.is_not_active,
+  { hl = { fg = "gray", force = true }, cmp.WorkDir },
+  cmp.FileNameBlock,
+  { provider = "%<" },
+  cmp.Align,
+}
+
 -- ===========================================================================
 -- INFO: Final status lines
 -- ===========================================================================
@@ -83,7 +91,7 @@ local StatusLines = {
   -- GitStatusline,
   -- SpecialStatusline,
   TerminalStatusline,
-  -- InactiveStatusline,
+  InactiveStatusline,
   DefaultStatusline,
 }
 
