@@ -5,19 +5,17 @@
 # My neovim config
 ## Plugins I use
 
-TODO: remake categories + update plugin list
-| UI | QoL | LSP | Debug |
-| --------------- | --------------- | --------------- | --------------- |
-| [bufferline](https://github.com/akinsho/bufferline.nvim) | snacks | treesitter | dap |
-| ccc | todo-comments | blink | |
-| illuminate | whichkey | crates | |
-| [heirline](https://github.com/rebelot/heirline.nvim) | image | inlay-hint | |
-| noice | yazi | lspconfig | |
-| | | markdown | |
-| | | mason | |
-| | | mini | |
-| | | rainbowcsv | |
-| | | rustaceanvim | |
+- [ ]: link pluings
+
+| UI | QoL | LSP | Debug | Completion | Snippets | Syntax | 
+| --------------- | --------------- | --------------- | --------------- | --------------- | --------------- | --------------- |
+| [bufferline](https://github.com/akinsho/bufferline.nvim) | snacks | lspconfig | dap | blink  | luasnip | treesitter |
+| ccc | todo-comments | mason | | inlay-hint | | |
+| | whichkey | crates | | mini.pairs | | |
+| [heirline](https://github.com/rebelot/heirline.nvim) | image | illuminate | | mini.comment| | |
+| noice | yazi | rustaceanvim | | mini.surround | | |
+| | rainbowcsv | | | | | |
+
 
 ## Colorschemes
 I can use many different colorschemes depending on which distro I'm on
