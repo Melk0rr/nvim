@@ -5,12 +5,13 @@
 # My neovim config
 ## Plugins I use
 
+TODO: remake categories + update plugin list
 | UI | QoL | LSP | Debug |
 | --------------- | --------------- | --------------- | --------------- |
-| bufferline | snacks | treesitter | dap |
+| [bufferline](https://github.com/akinsho/bufferline.nvim) | snacks | treesitter | dap |
 | ccc | todo-comments | blink | |
 | illuminate | whichkey | crates | |
-| lualine | image | inlay-hint | |
+| [heirline](https://github.com/rebelot/heirline.nvim) | image | inlay-hint | |
 | noice | yazi | lspconfig | |
 | | | markdown | |
 | | | mason | |
