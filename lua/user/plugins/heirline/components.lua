@@ -2,6 +2,8 @@ local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 
 local icons = require("user.plugins.heirline.common").icons
+local dim = require("user.plugins.heirline.common").dim
+
 
 -- ===========================================================================
 -- INFO: Utility components
@@ -59,7 +61,7 @@ local Mode = {
   end,
   hl = function(self)
     local color = self:mode_color()
-    return { fg = "black", bg = color, bold = true }
+    return { fg = dim(color), bg = color, bold = true }
   end,
   update = {
     "ModeChanged",
