@@ -72,7 +72,7 @@ local StatusLines = {
   end,
   static = {
     mode_colors = {
-      n = "red",
+      n = "blue",
       i = "green",
       v = "cyan",
       V = "cyan",
@@ -83,7 +83,7 @@ local StatusLines = {
       ["\19"] = "purple", -- this is an actual ^S, type <C-v><C-s> in insert mode
       R = "orange",
       r = "orange",
-      ["!"] = "blue",
+      ["!"] = "red",
       t = "green",
     },
     mode_color = function(self)
