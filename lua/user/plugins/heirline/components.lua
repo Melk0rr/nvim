@@ -61,7 +61,8 @@ local Mode = {
   end,
   hl = function(self)
     local color = self:mode_color()
-    return { fg = dim(color, 0.5), bg = color, bold = true }
+    print(color)
+    return { fg = "black", bg = color, bold = true }
   end,
   update = {
     "ModeChanged",
