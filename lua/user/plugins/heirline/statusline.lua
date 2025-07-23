@@ -8,7 +8,11 @@ local cmp = require("user.plugins.heirline.components")
 -- INFO: Wrap up default status line
 -- ===========================================================================
 
-Mode = utils.surround({ separators.rounded_left, separators.rounded_right }, "bright_bg", { cmp.Mode })
+Mode = utils.surround(
+  { separators.rounded_left, separators.rounded_right },
+  function(self) return self:mode_color() end,
+  { cmp.Mode }
+)
 
 local DefaultStatusline = {
   Mode,
