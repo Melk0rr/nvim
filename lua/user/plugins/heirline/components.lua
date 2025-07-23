@@ -59,7 +59,7 @@ local Mode = {
   end,
   hl = function(self)
     local color = self:mode_color()
-    return { fg = "none", bg = color, bold = true }
+    return { fg = "transparent", bg = color, bold = true }
   end,
   update = {
     "ModeChanged",
