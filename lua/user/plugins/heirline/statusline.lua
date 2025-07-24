@@ -1,23 +1,21 @@
 local conditions = require("heirline.conditions")
-local utils = require("heirline.utils")
 
-local separators = require("user.plugins.heirline.common").separators
+local colors = require("user.plugins.heirline.common").colors
+local icons = require("user.plugins.heirline.common").icons
 local cmp = require("user.plugins.heirline.components")
 
 -- ===========================================================================
 -- INFO: Wrap up default status line
 -- ===========================================================================
 
-Mode = utils.surround(
-  { separators.rounded_left, separators.rounded_right },
-  function(self) return self:mode_color() end,
-  { cmp.Mode }
-)
+local Mode = cmp.PillWrapper(icons.vim, function(self) return colors[self:mode_color()] end, cmp.Mode)
+local WorkDir = cmp.PillWrapper(icons.dir, colors["yellow"], { cmp.WorkDir, hl = { fg = "yellow" } })
 
 local DefaultStatusline = {
   Mode,
   cmp.Space,
-  cmp.WorkDir,
+  WorkDir,
+  cmp.Space,
   cmp.FileNameBlock,
   cmp.Space,
   cmp.Git,
@@ -100,3 +98,4 @@ local StatusLines = {
 }
 
 return StatusLines
+
