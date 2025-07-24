@@ -2,6 +2,7 @@ local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 
 local icons = require("user.plugins.heirline.common").icons
+local sep = require("user.plugins.heirline.common").separators
 local dim = require("user.plugins.heirline.common").dim
 
 
@@ -10,6 +11,36 @@ local dim = require("user.plugins.heirline.common").dim
 -- ===========================================================================
 local Align = { provider = "%=" }
 local Space = { provider = " " }
+
+local function PillWrapper(icon, color, component)
+  return {
+    init = function(self)
+      self.icon = icon
+      self.color = (type(color)) == "function" and color(self) or color
+      self.dimmed = dim(self.color, .4)
+    end,
+    utils.surround(
+      { sep.rounded_left, "" },
+      function(self) return self.color end,
+      {
+        provider = function(self) return self.icon end,
+        hl = function(self)
+          return {
+            fg = dim(self.color, .4),
+            bg = self
+                .color
+          }
+        end
+      }
+    ),
+    { provider = sep.rounded_right, hl = function(self) return { fg = self.color, bg = self.dimmed } end },
+    utils.surround(
+      { "", sep.rounded_right },
+      function(self) return self.dimmed end,
+      component
+    ),
+  }
+end
 
 -- ===========================================================================
 -- INFO: Mode
