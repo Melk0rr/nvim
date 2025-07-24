@@ -82,6 +82,8 @@ local separators = {
   block = "█",
   double_vert = "║",
   dotted_vert = "┊",
+  bracket_left = "[",
+  bracket_right = "]",
 }
 
 return { colors = colors, separators = separators, icons = icons, dim = dim }
