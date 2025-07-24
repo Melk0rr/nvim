@@ -44,11 +44,10 @@ local function dim(color, n)
 end
 
 local icons = {
-  -- ✗   󰅖 󰅘 󰅚 󰅙 󱎘 
-  close = "󰅙 ",
-  dir = "󰉋 ",
+  close = "󰅙 ", -- ✗   󰅖 󰅘 󰅚 󰅙 󱎘 
+  dir = " ", --   󰉋
   lsp = " ", --   
-  vim = " ", --           
+  vim = " ", --           
   debug = " ",
   rec = " ",
   modified = "● ",
