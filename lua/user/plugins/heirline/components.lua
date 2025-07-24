@@ -87,14 +87,6 @@ local Mode = {
       t = "T",
     },
   },
-  provider = function(self)
-    return icons.vim .. "%2(" .. self.mode_names[self.mode] .. "%)"
-  end,
-  hl = function(self)
-    local color = self:mode_color()
-    print(color)
-    return { fg = "black", bg = color, bold = true }
-  end,
   update = {
     "ModeChanged",
     pattern = "*:*",
@@ -102,6 +94,13 @@ local Mode = {
       vim.cmd("redrawstatus")
     end),
   },
+  provider = function(self)
+    return "%2(" .. self.mode_names[self.mode] .. "%)"
+  end,
+  hl = function(self)
+    local color = self:mode_color()
+    return { fg = color, bold = true }
+  end
 }
 
 -- ===========================================================================
@@ -191,14 +190,14 @@ local FileNameBlock = {
 
 local WorkDir = {
   init = function(self)
-    self.icon = (vim.fn.haslocaldir(0) == 1 and "l" or "g") .. " " .. icons.dir
+    self.icon = " " .. (vim.fn.haslocaldir(0) == 1 and "l" or "g") .. " "
     local cwd = vim.fn.getcwd(0)
     self.cwd = vim.fn.fnamemodify(cwd, ":~")
     if not conditions.width_percent_below(#self.cwd, 0.27) then
       self.cwd = vim.fn.pathshorten(self.cwd)
     end
   end,
-  hl = { fg = "blue", bold = true },
+  hl = { bold = true },
   on_click = {
     callback = function()
       vim.cmd([[lua Snacks.picker.explorer()]])
@@ -209,19 +208,16 @@ local WorkDir = {
   {
     provider = function(self)
       local trail = self.cwd:sub(-1) == "/" and "" or "/"
-      return self.icon .. self.cwd .. trail .. " "
+      return self.icon .. self.cwd .. trail
     end,
   },
   {
     provider = function(self)
       local cwd = vim.fn.pathshorten(self.cwd)
       local trail = self.cwd:sub(-1) == "/" and "" or "/"
-      return self.icon .. cwd .. trail .. " "
+      return self.icon .. cwd .. trail
     end,
-  },
-  {
-    provider = "",
-  },
+  }
 }
 
 local FileType = {
@@ -522,6 +518,7 @@ local TerminalName = {
 return {
   Space = Space,
   Align = Align,
+  PillWrapper = PillWrapper,
   Mode = Mode,
   FileIcon = FileIcon,
   FileName = FileName,
@@ -540,3 +537,4 @@ return {
   ScrollBar = ScrollBar,
   TerminalName = TerminalName,
 }
+
