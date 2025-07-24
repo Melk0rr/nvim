@@ -11,6 +11,7 @@ local colors = {
   orange = utils.get_highlight("Constant").fg,
   purple = utils.get_highlight("Statement").fg,
   cyan = utils.get_highlight("Special").fg,
+  yellow = utils.get_highlight("DiagnosticWarn").fg,
   diag_warn = utils.get_highlight("DiagnosticWarn").fg,
   diag_error = utils.get_highlight("DiagnosticError").fg,
   diag_hint = utils.get_highlight("DiagnosticHint").fg,
@@ -87,3 +88,4 @@ local separators = {
 }
 
 return { colors = colors, separators = separators, icons = icons, dim = dim }
+
