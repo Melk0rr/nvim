@@ -184,7 +184,6 @@ local FileNameBlock = {
   init = function(self)
     self.filename = vim.api.nvim_buf_get_name(0)
   end,
-  FileIcon,
   FileName,
   unpack(FileFlags),
 }
@@ -538,4 +537,3 @@ return {
   ScrollBar = ScrollBar,
   TerminalName = TerminalName,
 }
-
