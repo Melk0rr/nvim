@@ -65,6 +65,15 @@ local TerminalStatusline = {
   cmp.TerminalName,
   cmp.Align,
 }
+local ExplorerStatusline = {
+  condition = function()
+    local ft = vim.bo.filetype
+    return ft == "snacks_picker_list" or ft == "snacks_picker_input"
+  end,
+  Mode,
+  cmp.Space,
+  WorkDir,
+}
 
 local InactiveStatusline = {
   condition = conditions.is_not_active,
@@ -110,6 +119,7 @@ local StatusLines = {
   -- GitStatusline,
   -- SpecialStatusline,
   TerminalStatusline,
+  ExplorerStatusline,
   InactiveStatusline,
   DefaultStatusline,
 }
