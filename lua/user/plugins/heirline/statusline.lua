@@ -2,6 +2,8 @@ local conditions = require("heirline.conditions")
 
 local colors = require("user.plugins.heirline.common").colors
 local icons = require("user.plugins.heirline.common").icons
+local dim = require("user.plugins.heirline.common").dim
+local file_style = require("user.plugins.heirline.common").file_style
 local cmp = require("user.plugins.heirline.components")
 
 -- ===========================================================================
@@ -11,12 +13,26 @@ local cmp = require("user.plugins.heirline.components")
 local Mode = cmp.PillWrapper(icons.vim, function(self) return colors[self:mode_color()] end, cmp.Mode)
 local WorkDir = cmp.PillWrapper(icons.dir, colors["yellow"], { cmp.WorkDir, hl = { fg = "yellow" } })
 
+local FileNameBlock = cmp.PillWrapper(
+  {
+    init = function(self)
+      local fstyle = file_style()
+
+      self.filename = fstyle.filename
+      self.icon_color = dim(fstyle.icon_color, .4)
+    end,
+    cmp.FileIcon
+  },
+  function() return file_style().icon_color end,
+  { cmp.Space, { cmp.FileNameBlock, hl = function(self) return { fg = self.color } end } }
+)
+
 local DefaultStatusline = {
   Mode,
   cmp.Space,
   WorkDir,
   cmp.Space,
-  cmp.FileNameBlock,
+  FileNameBlock,
   cmp.Space,
   cmp.Git,
   cmp.Space,
