@@ -44,7 +44,6 @@ local DefaultStatusline = {
   cmp.DAPMessages,
   cmp.LSPActive,
   cmp.Space,
-  cmp.FileType,
   { flexible = 3, { cmp.FileEncoding, cmp.Space }, { provider = "" } },
   cmp.Space,
   cmp.FileFormat,
