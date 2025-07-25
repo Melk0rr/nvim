@@ -135,9 +135,10 @@ local FileName = {
   end,
   hl = function()
     if vim.bo.modified then
-      return { fg = utils.get_highlight("Directory").fg, bold = true, italic = true }
+      return { bold = true, italic = true }
     end
-    return "Directory"
+
+    return { bold = false, italic = false }
   end,
   flexible = 2,
   {
