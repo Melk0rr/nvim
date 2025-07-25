@@ -4,6 +4,7 @@ local utils = require("heirline.utils")
 local icons = require("user.plugins.heirline.common").icons
 local sep = require("user.plugins.heirline.common").separators
 local dim = require("user.plugins.heirline.common").dim
+local file_style = require("user.plugins.heirline.common").file_style
 
 
 -- ===========================================================================
@@ -109,10 +110,10 @@ local Mode = {
 -- ===========================================================================
 local FileIcon = {
   init = function(self)
-    local filename = self.filename
-    local extension = vim.fn.fnamemodify(filename, ":e")
-    self.icon, self.icon_color =
-        require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
+    local fstyle = file_style()
+
+    self.icon = fstyle.icon
+    self.icon_color = self.icon_color and self.icon_color or fstyle.icon_color
   end,
   provider = function(self)
     return self.icon and (self.icon .. " ")
