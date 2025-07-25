@@ -22,6 +22,16 @@ local colors = {
 }
 
 --- Blend two rgb colors using alpha
+---@return table style style elements based on the file type
+local function file_style()
+  local filename = vim.api.nvim_buf_get_name(0)
+  local extension = vim.fn.fnamemodify(filename, ":e")
+  local icon, icon_color = require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
+
+  return { filename = filename, icon = icon, icon_color = icon_color }
+end
+
+--- Blend two rgb colors using alpha
 ---@param color1 string | number first color
 ---@param color2 string | number second color
 ---@param alpha number (0, 1) float determining the weighted average
@@ -87,5 +97,5 @@ local separators = {
   bracket_right = "]",
 }
 
-return { colors = colors, separators = separators, icons = icons, dim = dim }
+return { colors = colors, separators = separators, icons = icons, dim = dim, file_style = file_style }
 
