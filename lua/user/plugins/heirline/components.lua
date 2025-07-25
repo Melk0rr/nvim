@@ -29,7 +29,7 @@ local function PillWrapper(icon, color, component)
 	}
 
   for _, item in ipairs(component) do
-    if not item.condition or item.condition() then
+    if not item.condition or item.condition() ~= false then
       result:insert(item)
     end
   end
