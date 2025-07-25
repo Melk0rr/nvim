@@ -13,8 +13,31 @@ local file_style = require("user.plugins.heirline.common").file_style
 local Align = { provider = "%=" }
 local Space = { provider = " " }
 
+--- Wrap the provided components with a pill icon
+--- @param icon string | function the icon of the pill.
+--- @param color number | string | function the main color (bg color of the pill and font color of the content).
+--- @param component table the components to wrap.
+--- @return table PillWrap the returned object.
 local function PillWrapper(icon, color, component)
   local icon_cmp = (type(icon)) == "string" and { provider = icon } or icon
+
+  local result = {
+		insert = function(self, item)
+			table.insert(self.content, item)
+		end,
+		content = {},
+	}
+
+  for _, item in ipairs(component) do
+    if not item.condition or item.condition() then
+      result:insert(item)
+    end
+  end
+
+  if #result.content == 0 then
+      return {}
+  end
+
   return {
     init = function(self)
       self.color = (type(color)) == "function" and color(self) or color
@@ -37,7 +60,7 @@ local function PillWrapper(icon, color, component)
     utils.surround(
       { "", sep.rounded_right },
       function(self) return self.dimmed end,
-      component
+      result.content
     ),
   }
 end
