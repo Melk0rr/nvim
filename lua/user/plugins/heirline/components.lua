@@ -13,9 +13,9 @@ local Align = { provider = "%=" }
 local Space = { provider = " " }
 
 local function PillWrapper(icon, color, component)
+  local icon_cmp = (type(icon)) == "string" and { provider = icon } or icon
   return {
     init = function(self)
-      self.icon = icon
       self.color = (type(color)) == "function" and color(self) or color
       self.dimmed = dim(self.color, .4)
     end,
@@ -24,6 +24,7 @@ local function PillWrapper(icon, color, component)
       function(self) return self.color end,
       {
         provider = function(self) return self.icon end,
+        icon_cmp,
         hl = function(self)
           return {
             fg = dim(self.color, .4),
