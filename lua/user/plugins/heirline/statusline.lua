@@ -7,7 +7,7 @@ local file_style = require("user.plugins.heirline.common").file_style
 local cmp = require("user.plugins.heirline.components")
 
 -- ===========================================================================
--- INFO: Wrap up default status line
+-- INFO: Wrap up status line
 -- ===========================================================================
 
 local Mode = cmp.PillWrapper(icons.vim, function(self) return colors[self:mode_color()] end, cmp.Mode)
@@ -27,6 +27,8 @@ local FileNameBlock = cmp.PillWrapper(
   { cmp.Space, { cmp.FileNameBlock, hl = function(self) return { fg = self.color } end } }
 )
 
+local Git = cmp.PillWrapper(icons.git, colors["orange"], cmp.Git)
+
 local DefaultStatusline = {
   Mode,
   cmp.Space,
@@ -34,7 +36,7 @@ local DefaultStatusline = {
   cmp.Space,
   FileNameBlock,
   cmp.Space,
-  cmp.Git,
+  Git,
   cmp.Space,
   cmp.Diagnostics,
   cmp.Align,
