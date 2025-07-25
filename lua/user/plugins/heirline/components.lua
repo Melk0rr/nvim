@@ -272,7 +272,7 @@ local Git = {
   hl = { fg = "orange" },
   {
     provider = function(self)
-      return " " .. self.status_dict.head
+      return "  " .. self.status_dict.head
     end,
     hl = { bold = true },
   },
@@ -287,21 +287,21 @@ local Git = {
       local count = self.status_dict.added or 0
       return count > 0 and ("+" .. count)
     end,
-    hl = "diffAdded",
+    hl = { fg = utils.get_highlight("diffAdded").fg },
   },
   {
     provider = function(self)
       local count = self.status_dict.removed or 0
       return count > 0 and ("-" .. count)
     end,
-    hl = "diffDeleted",
+    hl = { fg = utils.get_highlight("diffDeleted").fg },
   },
   {
     provider = function(self)
       local count = self.status_dict.changed or 0
       return count > 0 and ("~" .. count)
     end,
-    hl = "diffChanged",
+    hl = { fg = utils.get_highlight("diffChanged").fg },
   },
   {
     condition = function(self)
@@ -537,3 +537,4 @@ return {
   ScrollBar = ScrollBar,
   TerminalName = TerminalName,
 }
+
