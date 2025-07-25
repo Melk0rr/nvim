@@ -47,10 +47,6 @@ return {
 
       -- NOTE: Text insertion group
       { "<leader>i", group = "Insertion", icon = { icon = "󰗧", color = "blue" } },
-
-      -- NOTE: Yank group
-      { "<leader>y", group = "Yank", icon = { icon = " ", color = "blue" } },
-    }
-    )
+    })
   end
 }
