@@ -14,7 +14,7 @@ local Align = { provider = "%=" }
 local Space = { provider = " " }
 
 --- Wrap the provided components with a pill icon
---- @param icon string | function the icon of the pill.
+--- @param icon string | table the icon of the pill.
 --- @param color number | string | function the main color (bg color of the pill and font color of the content).
 --- @param component table the components to wrap.
 --- @return table PillWrap the returned object.
