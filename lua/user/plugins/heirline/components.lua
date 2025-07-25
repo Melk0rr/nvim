@@ -24,13 +24,11 @@ local function PillWrapper(icon, color, component)
       { sep.rounded_left, "" },
       function(self) return self.color end,
       {
-        provider = function(self) return self.icon end,
         icon_cmp,
         hl = function(self)
           return {
-            fg = dim(self.color, .4),
-            bg = self
-                .color
+            fg = self.dimmed,
+            bg = self.color
           }
         end
       }
