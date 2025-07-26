@@ -115,6 +115,7 @@ vim.lsp.inlay_hint.enable(true)
 -- NOTE: QOL
 -- ===========================================================================
 vim.o.undofile = true
+vim.opt.clipboard = "unnamedplus"
 
 -- ===========================================================================
 -- HACK: Change diagnostics symbols
