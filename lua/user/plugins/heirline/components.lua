@@ -3,9 +3,17 @@ local utils = require("heirline.utils")
 
 local icons = require("user.plugins.heirline.common").icons
 local sep = require("user.plugins.heirline.common").separators
+local colors = require("user.plugins.heirline.common").colors
 local dim = require("user.plugins.heirline.common").dim
 local file_style = require("user.plugins.heirline.common").file_style
 
+local function fmt(color)
+  if type(color) == "string" then
+    return color
+  elseif type(color) == "number" then
+    return string.format("#%06x", color)
+  end
+end
 
 -- ===========================================================================
 -- INFO: Utility components
@@ -14,55 +22,84 @@ local Align = { provider = "%=" }
 local Space = { provider = " " }
 
 --- Wrap the provided components with a pill icon
---- @param icon string | table the icon of the pill.
---- @param color number | string | function the main color (bg color of the pill and font color of the content).
---- @param component table the components to wrap.
+--- @param left table the icon of the pill.
+--- @param right table the components to wrap.
+--- @param reversed boolean wheither to mirror the component or not
 --- @return table PillWrap the returned object.
-local function PillWrapper(icon, color, component)
-  local icon_cmp = (type(icon)) == "string" and { provider = icon } or icon
-
+local function PillWrapper(left, right, reversed)
   local result = {
-		insert = function(self, item)
-			table.insert(self.content, item)
-		end,
-		content = {},
-	}
+    insert = function(self, item)
+      table.insert(self.content, item)
+    end,
+    content = {},
+  }
 
-  for _, item in ipairs(component) do
+  local function bg(color, self)
+    if not color then
+      color = {}
+    end
+
+    if (type(color)) == "function" then
+      local color_func = color
+      color = color_func(self)
+      print(color.bg)
+    end
+
+    if not color.bg then
+      local fg = color.fg
+      if not fg then
+        fg = "bright_bg"
+      end
+
+      if colors[fg] ~= nil then
+        fg = colors[fg]
+      end
+
+      color.bg = dim(fmt(fg), .4)
+    end
+
+    return fmt(color.bg)
+  end
+
+  local prev_color = {}
+  for i, item in ipairs(left) do
     if not item.condition or item.condition() ~= false then
+      if i == 1 then
+        result:insert({
+          provider = sep.rounded_left,
+          hl = function(self)
+            return { fg = bg(item.hl, self) }
+          end
+        })
+      end
       result:insert(item)
+      prev_color = item.hl
     end
   end
 
-  if #result.content == 0 then
-      return {}
+  for i, item in ipairs(right) do
+    if not item.condition or item.condition() ~= false then
+      -- if i == 1 then
+      --   result:insert({
+      --     provider = function() return reversed and sep.rounded_left or sep.rounded_right end,
+      --     hl = function(self)
+      --       return { fg = bg(prev_color, self), bg = bg(item.hl, self) }
+      --     end
+      --   })
+      -- end
+      result:insert(item)
+      prev_color = item.hl
+    end
   end
 
-  return {
-    init = function(self)
-      self.color = (type(color)) == "function" and color(self) or color
-      self.dimmed = dim(self.color, .4)
-    end,
-    utils.surround(
-      { sep.rounded_left, "" },
-      function(self) return self.color end,
-      {
-        icon_cmp,
-        hl = function(self)
-          return {
-            fg = self.dimmed,
-            bg = self.color
-          }
-        end
-      }
-    ),
-    { provider = sep.rounded_right, hl = function(self) return { fg = self.color, bg = self.dimmed } end },
-    utils.surround(
-      { "", sep.rounded_right },
-      function(self) return self.dimmed end,
-      result.content
-    ),
-  }
+  -- result:insert({
+  --   provider = sep.rounded_right,
+  --   hl = function(self)
+  --     return { fg = bg(prev_color, self) }
+  --   end
+  -- })
+
+  return result.content
 end
 
 -- ===========================================================================
