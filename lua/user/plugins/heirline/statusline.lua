@@ -10,24 +10,61 @@ local cmp = require("user.plugins.heirline.components")
 -- INFO: Wrap up status line
 -- ===========================================================================
 
-local Mode = cmp.PillWrapper(icons.vim, function(self) return colors[self:mode_color()] end, { cmp.Mode })
-local WorkDir = cmp.PillWrapper(icons.dir, colors["yellow"], { { cmp.WorkDir, hl = { fg = "yellow" } } })
+local Mode = cmp.PillWrapper(
+  { {
+    provider = icons.vim,
+    hl = function(self)
+      return {
+        bg = colors[self:mode_color()],
+        fg = dim(
+          colors[self:mode_color()], .4)
+      }
+    end
+  } },
+  { { cmp.Mode, hl = function(self) return { bg = dim(colors[self:mode_color()], .4), fg = colors[self:mode_color()] } end } },
+  false
+)
+
+local WorkDir = cmp.PillWrapper(
+  { { provider = icons.dir, hl = { fg = dim(colors["yellow"], .4), bg = colors["yellow"] } } },
+  { { cmp.WorkDir, hl = { fg = colors["yellow"], bg = dim(colors["yellow"], .4) } } },
+  false
+)
 
 local FileNameBlock = cmp.PillWrapper(
   {
-    init = function(self)
-      local fstyle = file_style()
+    {
+      init = function(self)
+        local fstyle = file_style()
 
-      self.filename = fstyle.filename
-      self.icon_color = dim(fstyle.icon_color, .4)
-    end,
-    cmp.FileIcon
+        self.filename = fstyle.filename
+        self.icon_color = dim(fstyle.icon_color, .4)
+      end,
+      cmp.FileIcon,
+      hl = function() return { bg = file_style().icon_color } end
+    }
   },
-  function() return file_style().icon_color end,
-  { cmp.Space, { cmp.FileNameBlock, hl = function(self) return { fg = self.color } end } }
+  {
+    { cmp.Space, hl = function() return { bg = dim(file_style().icon_color, .4) } end },
+    {
+      cmp.FileNameBlock,
+      hl = function()
+        return {
+          fg = file_style().icon_color,
+          bg = dim(file_style().icon_color, .4)
+        }
+      end
+    }
+  },
+  false
+)
+--
+local Git = cmp.PillWrapper(
+  { { provider = icons.git, hl = { fg = dim(colors["orange"], .4), bg = colors["orange"] } } },
+  { { cmp.Git, hl = { fg = colors["orange"], bg = dim(colors["orange"], .4) } } },
+  false
 )
 
-local Git = cmp.PillWrapper(icons.git, colors["orange"], { cmp.Git })
 
 local DefaultStatusline = {
   Mode,
@@ -37,7 +74,6 @@ local DefaultStatusline = {
   FileNameBlock,
   cmp.Space,
   Git,
-  cmp.Space,
   cmp.Diagnostics,
   cmp.Align,
   cmp.Align,
