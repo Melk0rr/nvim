@@ -27,6 +27,10 @@ local Space = { provider = " " }
 --- @param reversed boolean wheither to mirror the component or not
 --- @return table PillWrap the returned object.
 local function PillWrapper(left, right, reversed)
+  if reversed == nil then
+    reversed = false
+  end
+
   local result = {
     insert = function(self, item)
       table.insert(self.content, item)
