@@ -80,6 +80,8 @@ local function PillWrapper(left, right, reversed)
     end
   end
 
+  local last_left_color = prev_color
+
   for i, item in ipairs(right) do
     if not item.condition or item.condition() ~= false then
       if i == 1 then
