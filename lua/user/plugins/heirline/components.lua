@@ -314,8 +314,8 @@ local FileEncoding = {
 local FileFormat = {
   hl = { fg = "red", bold = true },
   provider = function()
-    local fmt = vim.bo.fileformat
-    return fmt == "dos" and icons.windows or fmt == "mac" and icons.mac or icons.linux
+    local format = vim.bo.fileformat
+    return format == "dos" and icons.windows or format == "mac" and icons.mac or icons.linux
   end
 }
 
