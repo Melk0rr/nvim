@@ -502,7 +502,6 @@ local LSPActive = {
     end
     return table.concat(names, " ")
   end,
-  hl        = { fg = "green", bold = true },
   on_click  = {
     name = "heirline_LSP",
     callback = function()
