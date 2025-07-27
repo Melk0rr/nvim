@@ -46,7 +46,6 @@ local function PillWrapper(left, right, reversed)
     if (type(color)) == "function" then
       local color_func = color
       color = color_func(self)
-      print(color.bg)
     end
 
     if not color.bg then
@@ -83,25 +82,29 @@ local function PillWrapper(left, right, reversed)
 
   for i, item in ipairs(right) do
     if not item.condition or item.condition() ~= false then
-      -- if i == 1 then
-      --   result:insert({
-      --     provider = function() return reversed and sep.rounded_left or sep.rounded_right end,
-      --     hl = function(self)
-      --       return { fg = bg(prev_color, self), bg = bg(item.hl, self) }
-      --     end
-      --   })
-      -- end
+      if i == 1 then
+        result:insert({
+          provider = function() return reversed and sep.rounded_left or sep.rounded_right end,
+          hl = function(self)
+            if reversed then
+              return { fg = bg(item.hl, self), bg = bg(last_left_color, self) }
+            end
+
+            return { fg = bg(last_left_color, self), bg = bg(item.hl, self) }
+          end
+        })
+      end
       result:insert(item)
       prev_color = item.hl
     end
   end
 
-  -- result:insert({
-  --   provider = sep.rounded_right,
-  --   hl = function(self)
-  --     return { fg = bg(prev_color, self) }
-  --   end
-  -- })
+  result:insert({
+    provider = sep.rounded_right,
+    hl = function(self)
+      return { fg = bg(prev_color, self) }
+    end
+  })
 
   return result.content
 end
