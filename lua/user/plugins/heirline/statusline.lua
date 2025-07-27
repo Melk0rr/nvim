@@ -65,6 +65,14 @@ local Git = cmp.PillWrapper(
   false
 )
 
+local LspDiag = cmp.PillWrapper(
+  { { cmp.Diagnostics, hl = function() return conditions.has_diagnostics() and { bg = "bright_bg" } or { bg = "normal_bg" } end } },
+  {
+    { cmp.LSPActive,        hl = { fg = dim(colors["green"], .4), bg = colors["green"] } },
+    { provider = " " .. icons.lsp, hl = { fg = dim(colors["green"], .4), bg = colors["green"] } }
+  },
+  true
+)
 
 local DefaultStatusline = {
   Mode,
@@ -74,11 +82,10 @@ local DefaultStatusline = {
   FileNameBlock,
   cmp.Space,
   Git,
-  cmp.Diagnostics,
   cmp.Align,
   cmp.Align,
   cmp.DAPMessages,
-  cmp.LSPActive,
+  LspDiag,
   cmp.Space,
   { flexible = 3, { cmp.FileEncoding, cmp.Space }, { provider = "" } },
   cmp.Space,
