@@ -67,7 +67,8 @@ return {
         init_options = {
           includeLanguages = {
             md = "html",
-            php = "html"
+            php = "html",
+            svg = "html"
           },
           showAbbreviationSuggestions = true,
           showExpandedAbbreviation = "always",
