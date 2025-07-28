@@ -23,7 +23,7 @@ local function extend_cmp_opts(component, opts)
   return component
 end
 -- ===========================================================================
--- INFO: Wrap up status line
+-- INFO: Wrappers
 -- ===========================================================================
 
 local Mode = cmp.PillWrapper(
@@ -110,7 +110,7 @@ local FileFmtEnc = cmp.PillWrapper(
     {
       cmp.FileEncoding,
       { condition = function() return file_enc() ~= "utf-8" end, provider = " " },
-      hl = function ()
+      hl = function()
         if file_enc() == "utf-8" then
           return { bg = "dimmed_bg" }
         end
@@ -153,6 +153,9 @@ local TerminalName = cmp.PillWrapper(
   false
 )
 
+-- ===========================================================================
+-- INFO: Status lines
+-- ===========================================================================
 local DefaultStatusline = {
   hl = { bg = "dimmed_bg" },
   Mode,
@@ -185,6 +188,7 @@ local TerminalStatusline = {
   TerminalName,
   cmp.Align,
 }
+
 local ExplorerStatusline = {
   hl = { bg = "dimmed_bg" },
   condition = function()
