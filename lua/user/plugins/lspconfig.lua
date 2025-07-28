@@ -46,6 +46,8 @@ return {
         end
       end
 
+      -- TODO: Implement Navic
+
       -- INFO: Capabilities
       local capabilities = require("blink.cmp").get_lsp_capabilities()
 
