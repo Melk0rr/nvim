@@ -5,6 +5,7 @@ local dim = require("lua.user.plugins.heirline.color_utils").dim
 local colors = {
   normal_bg = utils.get_highlight("Normal").bg,
   normal_fg = utils.get_highlight("Normal").fg,
+  dimmed_bg = dim(utils.get_highlight("Normal").bg, .9),
   bright_bg = utils.get_highlight("Folded").bg,
   bright_fg = utils.get_highlight("Folded").fg,
   red = utils.get_highlight("DiagnosticError").fg,
