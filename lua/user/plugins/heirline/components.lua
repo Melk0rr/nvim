@@ -1,11 +1,13 @@
 local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 
-local icons = require("user.plugins.heirline.common").icons
-local sep = require("user.plugins.heirline.common").separators
-local colors = require("user.plugins.heirline.common").colors
-local dim = require("user.plugins.heirline.common").dim
-local file_style = require("user.plugins.heirline.common").file_style
+local common = require("user.plugins.heirline.common")
+local icons = common.icons
+local sep = common.separators
+local colors = common.colors
+
+local dim = require("lua.user.plugins.heirline.color_utils").dim
+local file_style = require("lua.user.plugins.heirline.color_utils").file_style
 
 local function fmt(color)
   if type(color) == "string" then

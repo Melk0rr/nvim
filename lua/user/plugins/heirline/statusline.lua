@@ -2,8 +2,12 @@ local conditions = require("heirline.conditions")
 
 local colors = require("user.plugins.heirline.common").colors
 local icons = require("user.plugins.heirline.common").icons
-local dim = require("user.plugins.heirline.common").dim
-local file_style = require("user.plugins.heirline.common").file_style
+
+local color_helpers = require("lua.user.plugins.heirline.color_utils")
+local dim = color_helpers.dim
+local file_style = color_helpers.file_style
+local diag_color = color_helpers.diag_color
+
 local cmp = require("user.plugins.heirline.components")
 
 -- ===========================================================================
