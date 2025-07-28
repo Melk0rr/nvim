@@ -106,7 +106,18 @@ local LspDiag = cmp.PillWrapper(
 )
 
 local FileFmtEnc = cmp.PillWrapper(
-  { { cmp.FileEncoding, cmp.Space, hl = { fg = "purple", bg = dim(colors["purple"], .4) } } },
+  {
+    {
+      cmp.FileEncoding,
+      { condition = function() return file_enc() ~= "utf-8" end, provider = " " },
+      hl = function ()
+        if file_enc() == "utf-8" then
+          return { bg = "dimmed_bg" }
+        end
+        return { fg = "purple", bg = dim(colors["purple"], .4) }
+      end
+    }
+  },
   { { cmp.FileFormat, hl = { fg = dim(colors["purple"], .4), bg = colors["purple"] } } },
   true
 )
