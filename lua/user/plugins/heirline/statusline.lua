@@ -109,6 +109,22 @@ local FileFmtEnc = cmp.PillWrapper(
   { { cmp.FileFormat, hl = { fg = dim(colors["purple"], .4), bg = colors["purple"] } } },
   true
 )
+
+local Ruler = cmp.PillWrapper(
+  {
+    {
+      cmp.Ruler,
+      cmp.Space,
+      hl = { fg = "cyan", bg = dim(colors["cyan"], .4) }
+    }
+  },
+  {
+    {
+      cmp.FilePerc,
+      cmp.Space,
+      { provider = " " },
+      hl = { fg = dim(colors["cyan"], .4), bg = "cyan" }
+    }
   },
   true
 )
@@ -128,8 +144,7 @@ local DefaultStatusline = {
   cmp.Space,
   FileFmtEnc,
   cmp.Space,
-  cmp.Ruler,
-  cmp.SearchCount,
+  Ruler,
   cmp.Space,
   cmp.ScrollBar,
 }
