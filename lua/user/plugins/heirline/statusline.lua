@@ -10,6 +10,17 @@ local diag_color = color_helpers.diag_color
 
 local cmp = require("user.plugins.heirline.components")
 
+--- Extend component with provided options.
+--- @param component table component to extend
+--- @param opts table options that will extend the component
+--- @return table extended component
+local function extend_cmp_opts(component, opts)
+  for k, v in pairs(opts) do
+    component[k] = v
+  end
+
+  return component
+end
 -- ===========================================================================
 -- INFO: Wrap up status line
 -- ===========================================================================
