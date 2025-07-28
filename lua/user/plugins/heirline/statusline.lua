@@ -130,6 +130,7 @@ local Ruler = cmp.PillWrapper(
 )
 
 local DefaultStatusline = {
+  hl = { bg = "dimmed_bg" },
   Mode,
   cmp.Space,
   WorkDir,
@@ -161,6 +162,7 @@ local TerminalStatusline = {
   cmp.Align,
 }
 local ExplorerStatusline = {
+  hl = { bg = "dimmed_bg" },
   condition = function()
     local ft = vim.bo.filetype
     return ft == "snacks_picker_list" or ft == "snacks_picker_input"
