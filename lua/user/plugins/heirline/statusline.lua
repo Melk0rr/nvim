@@ -81,10 +81,29 @@ local Git = cmp.PillWrapper(
 )
 
 local LspDiag = cmp.PillWrapper(
-  { { cmp.Diagnostics, hl = function() return conditions.has_diagnostics() and { bg = "bright_bg" } or { bg = "normal_bg" } end } },
+  { {
+    cmp.Diagnostics,
+    hl = function()
+      return conditions.has_diagnostics() and { bg = "bright_bg" } or { bg = "dimmed_bg" }
+    end
+  } },
   {
-    { cmp.LSPActive,        hl = { fg = dim(colors["green"], .4), bg = colors["green"] } },
-    { provider = " " .. icons.lsp, hl = { fg = dim(colors["green"], .4), bg = colors["green"] } }
+    {
+      extend_cmp_opts(cmp.LSPActive, { update = { "DiagnosticChanged", "LspAttach", "LspDetach", "WinEnter" } }),
+      hl = function()
+        return {
+          fg =
+              dim(diag_color(), .4),
+          bg = diag_color()
+        }
+      end
+    },
+
+    { provider = " " .. icons.lsp, hl = function() return { fg = dim(diag_color(), .4), bg = diag_color() } end }
+  },
+  true
+)
+
   },
   true
 )
