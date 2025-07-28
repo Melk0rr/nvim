@@ -6,8 +6,9 @@ local icons = common.icons
 local sep = common.separators
 local colors = common.colors
 
-local dim = require("lua.user.plugins.heirline.color_utils").dim
-local file_style = require("lua.user.plugins.heirline.color_utils").file_style
+local dim = require("lua.user.plugins.heirline.heirline_utils").dim
+local file_style = require("lua.user.plugins.heirline.heirline_utils").file_style
+local file_enc = require("lua.user.plugins.heirline.heirline_utils").file_enc
 
 local function fmt(color)
   if type(color) == "string" then
