@@ -10,7 +10,7 @@ vim.o.showcmdloc = "statusline"
 
 require("heirline").setup({
   statusline = require("user.plugins.heirline.statusline"),
-  -- winbar = require("plugins.heirline.statusline").winbar,
+  winbar = require("user.plugins.heirline.winbar"),
   -- tabline = require("plugins.heirline.tabline"),
   -- statuscolumn = require("plugins.heirline.statuscolumn"),
   opts = {
