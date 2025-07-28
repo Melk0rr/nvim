@@ -571,9 +571,9 @@ local TerminalName = {
   {
     provider = function()
       local tname, _ = vim.api.nvim_buf_get_name(0):gsub(".*:", "")
-      return " " .. tname
+      return vim.bo.filetype ~= "yazi" and tname or "yazi"
     end,
-    hl = { fg = "blue", bold = true },
+    hl = { bold = true },
   },
   { provider = " - " },
   {
