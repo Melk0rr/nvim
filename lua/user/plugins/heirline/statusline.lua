@@ -104,6 +104,11 @@ local LspDiag = cmp.PillWrapper(
   true
 )
 
+local FileFmtEnc = cmp.PillWrapper(
+  { { cmp.FileEncoding, cmp.Space, hl = { fg = "purple", bg = dim(colors["purple"], .4) } } },
+  { { cmp.FileFormat, hl = { fg = dim(colors["purple"], .4), bg = colors["purple"] } } },
+  true
+)
   },
   true
 )
@@ -121,9 +126,7 @@ local DefaultStatusline = {
   cmp.DAPMessages,
   LspDiag,
   cmp.Space,
-  { flexible = 3, { cmp.FileEncoding, cmp.Space }, { provider = "" } },
-  cmp.Space,
-  cmp.FileFormat,
+  FileFmtEnc,
   cmp.Space,
   cmp.Ruler,
   cmp.SearchCount,
