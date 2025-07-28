@@ -143,6 +143,16 @@ local Ruler = cmp.PillWrapper(
   true
 )
 
+local TerminalName = cmp.PillWrapper(
+  {
+    { provider = icons.terminal, hl = { fg = dim(colors["term_fg"], .4), bg = "term_fg" } }
+  },
+  {
+    { cmp.Space, cmp.TerminalName, hl = { fg = "term_fg", bg = dim(colors["term_fg"], .4) } }
+  },
+  false
+)
+
 local DefaultStatusline = {
   hl = { bg = "dimmed_bg" },
   Mode,
@@ -170,9 +180,9 @@ local TerminalStatusline = {
   end,
   hl = { bg = "dark_red" },
   { condition = conditions.is_active, Mode, cmp.Space },
-  cmp.FileType,
+  WorkDir,
   cmp.Space,
-  cmp.TerminalName,
+  TerminalName,
   cmp.Align,
 }
 local ExplorerStatusline = {
