@@ -32,3 +32,28 @@ end
 local function dim(color, n)
   return blend(color, "#000000", n)
 end
+
+local function diag_color()
+  local diagnostics = vim.diagnostic.count()
+  local severities = {
+    error = diagnostics[vim.diagnostic.severity.ERROR],
+    warn = diagnostics[vim.diagnostic.severity.WARN],
+    info = diagnostics[vim.diagnostic.severity.INFO],
+    hint = diagnostics[vim.diagnostic.severity.HINT],
+  }
+
+  if severities.error and severities.error >= 1 then
+    return utils.get_highlight("DiagnosticError").fg
+  elseif severities.warn and severities.warn >= 1 then
+    return utils.get_highlight("DiagnosticWarn").fg
+  elseif severities.info and severities.info >= 1 then
+    return utils.get_highlight("DiagnosticInfo").fg
+  elseif severities.hint and severities.hint >= 1 then
+    return utils.get_highlight("DiagnosticHint").fg
+  else
+    return utils.get_highlight("String").fg
+  end
+end
+
+return { dim = dim, file_style = file_style, diag_color = diag_color }
+
