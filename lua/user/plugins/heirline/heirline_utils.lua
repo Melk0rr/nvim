@@ -55,5 +55,9 @@ local function diag_color()
   end
 end
 
-return { dim = dim, file_style = file_style, diag_color = diag_color }
+local function file_enc()
+  return (vim.bo.fenc ~= "" and vim.bo.fenc) or vim.o.enc
+end
+
+return { dim = dim, file_style = file_style, diag_color = diag_color, file_enc = file_enc }
 
