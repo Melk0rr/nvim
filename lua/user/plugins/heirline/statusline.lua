@@ -118,7 +118,9 @@ local FileFmtEnc = cmp.PillWrapper(
       end
     }
   },
-  { { cmp.FileFormat, hl = { fg = dim(colors["purple"], .4), bg = colors["purple"] } } },
+  {
+    { cmp.FileType, cmp.Space, cmp.FileFormat, hl = { fg = dim(colors["purple"], .4), bg = colors["purple"], force = true } }
+  },
   true
 )
 
