@@ -206,9 +206,10 @@ local ExplorerStatusline = {
 }
 
 local InactiveStatusline = {
+  hl = { bg = "dimmed_bg" },
   condition = conditions.is_not_active,
-  { hl = { fg = "gray", force = true }, cmp.WorkDir },
-  cmp.FileNameBlock,
+  { hl = { fg = "gray", force = true }, WorkDir },
+  FileNameBlock,
   { provider = "%<" },
   cmp.Align,
 }

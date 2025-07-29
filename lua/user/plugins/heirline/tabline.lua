@@ -10,7 +10,7 @@ local colors = common.colors
 local dim = require("user.plugins.heirline.heirline_utils").dim
 
 -- ===========================================================================
--- INFO: TabLine
+-- INFO: BufferLine
 -- ===========================================================================
 local TablineBufnr = {
   provider = function(self)
@@ -151,43 +151,6 @@ local TablineBufferBlock = utils.surround({ sep.slant_left, sep.slant_right }, f
   end
 end, { TablinePicker, TablineFileNameBlock, TablineCloseButton })
 
-local Tabpage = {
-  {
-    provider = function(self)
-      return " %" .. self.tabnr .. "T" .. self.tabnr .. " "
-    end,
-    hl = { bold = true },
-  },
-  {
-    provider = function(self)
-      local n = #vim.api.nvim_tabpage_list_wins(self.tabpage)
-      return n .. "%T "
-    end,
-    hl = { fg = "gray" },
-  },
-  hl = function(self)
-    if not self.is_active then
-      return "TabLine"
-    else
-      return "TabLineSel"
-    end
-  end,
-  update = { "TabNew", "TabClosed", "TabEnter", "TabLeave", "WinNew", "WinClosed" },
-}
-
-local TabpageClose = {
-  provider = " %999X" .. icons.close .. "%X",
-  hl = "TabLine",
-}
-
-local TabPages = {
-  condition = function()
-    return #vim.api.nvim_list_tabpages() >= 2
-  end,
-  cmp.Align,
-  utils.make_tablist(Tabpage),
-  TabpageClose,
-}
 
 local TabLineOffset = {
   condition = function(self)
@@ -207,12 +170,13 @@ local TabLineOffset = {
     local pad = math.ceil((width - #title) / 2)
     return string.rep(" ", pad) .. title .. string.rep(" ", pad)
   end,
-  hl = function(self)
-    if vim.api.nvim_get_current_win() == self.winid then
-      return "TablineSel"
-    else
-      return "Tabline"
-    end
+  hl = function(_)
+    -- if vim.api.nvim_get_current_win() == self.winid then
+    --   return "TablineSel"
+    -- else
+    --   return "Tabline"
+    -- end
+    return { fg = utils.get_highlight("TabLineSel").bg }
   end,
 }
 
@@ -257,7 +221,49 @@ local BufferLine = utils.make_buflist(
   false
 )
 
+-- ===========================================================================
+-- INFO: TabPages
+-- ===========================================================================
+local Tabpage = {
+  {
+    provider = function(self)
+      return " %" .. self.tabnr .. "T" .. self.tabnr .. " "
+    end,
+    hl = { bold = true },
+  },
+  {
+    provider = function(self)
+      local n = #vim.api.nvim_tabpage_list_wins(self.tabpage)
+      return n .. "%T "
+    end,
+    hl = { fg = "gray" },
+  },
+  hl = function(self)
+    if not self.is_active then
+      return "TabLine"
+    else
+      return "TabLineSel"
+    end
+  end,
+  update = { "TabNew", "TabClosed", "TabEnter", "TabLeave", "WinNew", "WinClosed" },
+}
+
+local TabpageClose = {
+  provider = " %999X" .. icons.close .. "%X",
+  hl = "TabLine",
+}
+
+local TabPages = {
+  condition = function()
+    return #vim.api.nvim_list_tabpages() >= 2
+  end,
+  cmp.Align,
+  utils.make_tablist(Tabpage),
+  TabpageClose,
+}
+
 return {
+  hl = { bg = "darken_bg" },
   TabLineOffset,
   BufferLine,
   TabPages,
