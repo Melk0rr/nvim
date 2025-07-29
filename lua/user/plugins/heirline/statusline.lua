@@ -203,6 +203,7 @@ local ExplorerStatusline = {
   Mode,
   cmp.Space,
   WorkDir,
+  cmp.Align,
 }
 
 local InactiveStatusline = {
