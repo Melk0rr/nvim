@@ -145,7 +145,7 @@ map({ 'n', 'v' }, "<leader>ny", "<cmd>Yazi cwd<cr>", opts("Open Yazi in current 
 
 -- NOTE: Terminal
 local function toggle_snacks_term(pos)
-  vim.cmd([[lua require('snacks').terminal.toggle(nil, { win = { position = pos } })]])
+  require("snacks").terminal.toggle(nil, { win = { position = pos } })
 end
 
 map({ 'n', 't' }, "<leader>ntj", function() toggle_snacks_term("bottom") end, opts("Toggle terminal at bottom"))
