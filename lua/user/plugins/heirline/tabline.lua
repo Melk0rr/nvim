@@ -207,10 +207,40 @@ local TabLineOffset = {
   end,
 }
 
+local get_bufs = function()
+  return vim.tbl_filter(function(bufnr)
+    return vim.api.nvim_get_option_value("buflisted", { buf = bufnr })
+  end, vim.api.nvim_list_bufs())
+end
+
+local buflist_cache = {}
+
+vim.api.nvim_create_autocmd({ "VimEnter", "UIEnter", "BufAdd", "BufDelete" }, {
+  callback = function(args)
+    vim.schedule(function()
+      local buffers = get_bufs()
+      for i, v in ipairs(buffers) do
+        buflist_cache[i] = v
+      end
+      for i = #buffers + 1, #buflist_cache do
+        buflist_cache[i] = nil
+      end
+
+      if #buflist_cache > 1 then
+        vim.o.showtabline = 2
+      elseif vim.o.showtabline ~= 1 then       --otheriwise it breaks startup screen
+        vim.o.showtabline = 1
+      end
+    end)
+  end,
+})
+
 local BufferLine = utils.make_buflist(
   TablineBufferBlock,
   { provider = "", hl = { fg = "gray" } },
-  { provider = "", hl = { fg = "gray" } }
+  { provider = "", hl = { fg = "gray" } },
+  function () return buflist_cache end,
+  false
 )
 
 return {
