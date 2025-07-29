@@ -37,7 +37,7 @@ local TablineFileFlags = {
     condition = function(self)
       return vim.api.nvim_get_option_value("modified", { buf = self.bufnr })
     end,
-    provider = "[+]",
+    provider = icons.modified,
     hl = { fg = "green" },
   },
   {
@@ -220,6 +220,7 @@ local BufferLine = utils.make_buflist(
   function() return buflist_cache end,
   false
 )
+
 
 -- ===========================================================================
 -- INFO: TabPages
