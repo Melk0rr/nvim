@@ -268,4 +268,5 @@ return {
   TabLineOffset,
   BufferLine,
   TabPages,
+  cmp.Align
 }
