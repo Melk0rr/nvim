@@ -145,7 +145,7 @@ local TablinePicker = {
 
 local TablineBufferBlock = utils.surround({ sep.slant_left, sep.slant_right }, function(self)
   if self.is_active then
-    return colors["absel_bg"]
+    return colors["tabsel_bg"]
   else
     return utils.get_highlight("TabLine").bg
   end
