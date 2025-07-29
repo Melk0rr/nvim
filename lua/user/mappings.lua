@@ -51,6 +51,20 @@ map('n', "<S-Tab>", "<cmd>bprevious<cr>", opts("Previous buffer"))
 map('n', "<leader>bd", "<cmd>lua require('snacks').bufdelete()<cr>", opts("Delete current buffer"))
 map('n', "<leader>bo", "<cmd>lua require('snacks').bufdelete.other()<cr>", opts("Delete other buffers"))
 map('n', "<leader>ba", "<cmd>lua require('snacks').bufdelete.all()<cr>", opts("Delete all buffers"))
+map("n", "<leader>bp", function()
+  local tabline = require("heirline").tabline
+  local buflist = tabline._buflist[1]
+  buflist._picker_labels = {}
+  buflist._show_picker = true
+  vim.cmd.redrawtabline()
+  local char = vim.fn.getcharstr()
+  local bufnr = buflist._picker_labels[char]
+  if bufnr then
+    vim.api.nvim_win_set_buf(0, bufnr)
+  end
+  buflist._show_picker = false
+  vim.cmd.redrawtabline()
+end, { desc = "Buffer - picker" })
 
 -- ===========================================================================
 -- NOTE: Stay in indent mode
