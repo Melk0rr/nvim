@@ -1,4 +1,5 @@
 return {
+  { "SmiteshP/nvim-navic" },
   -- INFO: General LSP config
   {
     "neovim/nvim-lspconfig",
@@ -7,9 +8,10 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
       local lsp_util = require('lspconfig.util')
+      local navic = require("nvim-navic")
 
       -- INFO: On attach function
-      local on_attach = function(client, _)
+      local on_attach = function(client, bufnr)
         local opts = function(desc)
           return { noremap = true, silent = true, desc = desc }
         end
@@ -43,6 +45,10 @@ return {
             end,
             { desc = 'Open daily note', nargs = "*" }
           )
+        end
+
+        if client.server_capabilities.documentSymbolProvider then
+          navic.attach(client, bufnr)
         end
       end
 
