@@ -118,7 +118,7 @@ local FileFmtEnc = cmp.PillWrapper(
       end
     }
   },
-    {
+  {
     {
       cmp.FileType,
       cmp.Space,
@@ -255,4 +255,3 @@ local StatusLines = {
 }
 
 return StatusLines
-
