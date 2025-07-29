@@ -46,11 +46,11 @@ map('i', "kj", "<ESC>", opts("kj to exit insert mode"))
 -- ===========================================================================
 -- NOTE: Buffer navigation
 -- ===========================================================================
-map('n', "<Tab>", "<cmd>bnext<cr>", opts("Next buffer"))
-map('n', "<S-Tab>", "<cmd>bprevious<cr>", opts("Previous buffer"))
-map('n', "<leader>bd", "<cmd>lua require('snacks').bufdelete()<cr>", opts("Delete current buffer"))
-map('n', "<leader>bo", "<cmd>lua require('snacks').bufdelete.other()<cr>", opts("Delete other buffers"))
-map('n', "<leader>ba", "<cmd>lua require('snacks').bufdelete.all()<cr>", opts("Delete all buffers"))
+map('n', "<leader>bh", "<cmd>bprevious<cr>", opts("Buffer - previous"))
+map('n', "<leader>bl", "<cmd>bnext<cr>", opts("Buffer - next"))
+map('n', "<leader>bd", "<cmd>lua require('snacks').bufdelete()<cr>", opts("Buffer - delete current"))
+map('n', "<leader>bo", "<cmd>lua require('snacks').bufdelete.other()<cr>", opts("Buffer - delete others"))
+map('n', "<leader>ba", "<cmd>lua require('snacks').bufdelete.all()<cr>", opts("Buffer - delete all"))
 map("n", "<leader>bp", function()
   local tabline = require("heirline").tabline
   local buflist = tabline._buflist[1]
@@ -190,10 +190,10 @@ map('n', '<leader>s"', "<cmd>lua require('snacks').picker.registers({ layout = '
   opts("Search registers"))
 map('n', "<leader>s:", "<cmd>lua require('snacks').picker.command_history({ focus = 'list' })<cr>",
   opts("Search command history"))
-map('n', "<leader>s/", "<cmd>lua require('snacks').picker.search_history({ focus = 'list' })<cr>", opts("Search history"))
+map('n', "<leader>s/", "<cmd>lua require('snacks').picker.search_history({ focus = 'list' })<cr>", opts("Search notification history"))
 map('n', "<leader>sn", "<cmd>lua require('snacks').notifier.show_history()<cr>", opts("Search history"))
 map('n', "<leader>su", "<cmd>lua require('snacks').picker.undo({ layout = 'vertical' })<cr>", opts("Search undo history"))
-map('n', "<leader>sq", "<cmd>lua require('snacks').picker.qflist()<cr>", opts("Quickfix list"))
+map('n', "<leader>sq", "<cmd>lua require('snacks').picker.qflist()<cr>", opts("Search quickfix list"))
 map('n', "<leader>sx", "<cmd>noh<cr>", opts("Search clear"))
 
 -- ===========================================================================
