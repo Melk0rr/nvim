@@ -8,6 +8,7 @@ local colors = {
   dimmed_bg = dim(utils.get_highlight("Normal").bg, .9),
   bright_bg = utils.get_highlight("Folded").bg,
   bright_fg = utils.get_highlight("Folded").fg,
+  term_bg = utils.get_highlight("Added").fg,
   red = utils.get_highlight("DiagnosticError").fg,
   dark_red = utils.get_highlight("DiffDelete").bg,
   green = utils.get_highlight("String").fg,
