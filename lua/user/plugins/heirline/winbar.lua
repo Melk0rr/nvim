@@ -1,7 +1,7 @@
 local utils = require("heirline.utils")
 
 local cmp = require("user.plugins.heirline.components")
-local dim = require("user.plugins.heirline.heirline_utils")
+local dim = require("user.plugins.heirline.heirline_utils").dim
 
 -- ===========================================================================
 -- INFO: Navic
