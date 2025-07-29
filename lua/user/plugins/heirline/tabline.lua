@@ -4,6 +4,8 @@ local cmp = require("user.plugins.heirline.components")
 local sep = require("user.plugins.heirline.common").separators
 local icons = require("user.plugins.heirline.common").icons
 
+local dim = require("user.plugins.heirline.heirline_utils").dim
+
 -- ===========================================================================
 -- INFO: TabLine
 -- ===========================================================================
@@ -57,12 +59,17 @@ local TablineFileNameBlock = {
   end,
   hl = function(self)
     if self.is_active then
-      return "TabLineSel"
-      -- why not?
-      -- elseif not vim.api.nvim_buf_is_loaded(self.bufnr) then
-      --     return { fg = "gray" }
+      local hl_sel = utils.get_highlight("TabLineSel")
+      local hl_sel_bg = hl_sel.bg
+      hl_sel.fg = dim(hl_sel_bg, .4)
+      hl_sel.bg = dim(hl_sel_bg, .8)
+
+      return hl_sel
     else
-      return "TabLine"
+      local hl = utils.get_highlight("TabLine")
+      hl.fg = utils.get_highlight("TabLineSel").bg
+
+      return hl
     end
   end,
   on_click = {
@@ -92,7 +99,7 @@ local TablineCloseButton = {
   end,
   { provider = " " },
   {
-    provider = "",
+    provider = icons.close,
     hl = { fg = "gray" },
     on_click = {
       callback = function(_, minwid)
@@ -216,7 +223,7 @@ end
 local buflist_cache = {}
 
 vim.api.nvim_create_autocmd({ "VimEnter", "UIEnter", "BufAdd", "BufDelete" }, {
-  callback = function(args)
+  callback = function(_)
     vim.schedule(function()
       local buffers = get_bufs()
       for i, v in ipairs(buffers) do
@@ -226,11 +233,12 @@ vim.api.nvim_create_autocmd({ "VimEnter", "UIEnter", "BufAdd", "BufDelete" }, {
         buflist_cache[i] = nil
       end
 
-      if #buflist_cache > 1 then
-        vim.o.showtabline = 2
-      elseif vim.o.showtabline ~= 1 then       --otheriwise it breaks startup screen
-        vim.o.showtabline = 1
-      end
+      -- if #buflist_cache > 1 then
+      --   vim.o.showtabline = 2
+      -- elseif vim.o.showtabline ~= 1 then       --otheriwise it breaks startup screen
+      --   vim.o.showtabline = 1
+      -- end
+      vim.o.showtabline = 2 -- always show tabline
     end)
   end,
 })
