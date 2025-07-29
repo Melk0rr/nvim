@@ -3,7 +3,7 @@ local conditions = require("heirline.conditions")
 local colors = require("user.plugins.heirline.common").colors
 local icons = require("user.plugins.heirline.common").icons
 
-local helpers = require("lua.user.plugins.heirline.heirline_utils")
+local helpers = require("user.plugins.heirline.heirline_utils")
 local dim = helpers.dim
 local file_style = helpers.file_style
 local diag_color = helpers.diag_color

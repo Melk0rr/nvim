@@ -1,6 +1,6 @@
 local utils = require("heirline.utils")
 
-local dim = require("lua.user.plugins.heirline.heirline_utils").dim
+local dim = require("user.plugins.heirline.heirline_utils").dim
 
 local colors = {
   normal_bg = utils.get_highlight("Normal").bg,
