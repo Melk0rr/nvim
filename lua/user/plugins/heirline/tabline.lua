@@ -63,8 +63,8 @@ local TablineFileNameBlock = {
   hl = function(self)
     if self.is_active then
       local hl_sel = utils.get_highlight("TabLineSel")
-      hl_sel.fg = colors["absel_fg"]
-      hl_sel.bg = colors["absel_bg"]
+      hl_sel.fg = colors["tabsel_fg"]
+      hl_sel.bg = colors["tabsel_bg"]
 
       return hl_sel
     else
