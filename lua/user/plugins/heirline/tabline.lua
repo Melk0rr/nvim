@@ -1,8 +1,11 @@
 local utils = require("heirline.utils")
 
 local cmp = require("user.plugins.heirline.components")
-local sep = require("user.plugins.heirline.common").separators
-local icons = require("user.plugins.heirline.common").icons
+
+local common = require("user.plugins.heirline.common")
+local sep = common.separators
+local icons = common.icons
+local colors = common.colors
 
 local dim = require("user.plugins.heirline.heirline_utils").dim
 
@@ -60,9 +63,8 @@ local TablineFileNameBlock = {
   hl = function(self)
     if self.is_active then
       local hl_sel = utils.get_highlight("TabLineSel")
-      local hl_sel_bg = hl_sel.bg
-      hl_sel.fg = dim(hl_sel_bg, .4)
-      hl_sel.bg = dim(hl_sel_bg, .8)
+      hl_sel.fg = colors["absel_fg"]
+      hl_sel.bg = colors["absel_bg"]
 
       return hl_sel
     else
@@ -143,7 +145,7 @@ local TablinePicker = {
 
 local TablineBufferBlock = utils.surround({ sep.slant_left, sep.slant_right }, function(self)
   if self.is_active then
-    return utils.get_highlight("TabLineSel").bg
+    return colors["absel_bg"]
   else
     return utils.get_highlight("TabLine").bg
   end
@@ -238,7 +240,11 @@ vim.api.nvim_create_autocmd({ "VimEnter", "UIEnter", "BufAdd", "BufDelete" }, {
       -- elseif vim.o.showtabline ~= 1 then       --otheriwise it breaks startup screen
       --   vim.o.showtabline = 1
       -- end
-      vim.o.showtabline = 2 -- always show tabline
+
+      -- always show tabline as long as there is at least 1 buffer
+      if #buflist_cache > 0 then
+        vim.o.showtabline = 2
+      end
     end)
   end,
 })
@@ -247,7 +253,7 @@ local BufferLine = utils.make_buflist(
   TablineBufferBlock,
   { provider = "", hl = { fg = "gray" } },
   { provider = "", hl = { fg = "gray" } },
-  function () return buflist_cache end,
+  function() return buflist_cache end,
   false
 )
 
