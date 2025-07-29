@@ -104,9 +104,9 @@ local TablineCloseButton = {
     provider = icons.close,
     hl = function (self)
       if self.is_active then
-        return { fg = "tabsel_bg" }
+        return { fg = "tabsel_fg" }
       end
-      return { fg = "tabsel_fg" }
+      return { fg = "tabsel_bg" }
     end,
     on_click = {
       callback = function(_, minwid)
