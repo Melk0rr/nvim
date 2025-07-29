@@ -102,7 +102,12 @@ local TablineCloseButton = {
   { provider = " " },
   {
     provider = icons.close,
-    hl = { fg = "gray" },
+    hl = function (self)
+      if self.is_active then
+        return { fg = "tabsel_bg" }
+      end
+      return { fg = "tabsel_fg" }
+    end,
     on_click = {
       callback = function(_, minwid)
         vim.schedule(function()
