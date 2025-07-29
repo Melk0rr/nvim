@@ -7,8 +7,6 @@ local sep = common.separators
 local icons = common.icons
 local colors = common.colors
 
-local dim = require("user.plugins.heirline.heirline_utils").dim
-
 -- ===========================================================================
 -- INFO: BufferLine
 -- ===========================================================================
