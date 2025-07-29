@@ -191,7 +191,7 @@ map('n', '<leader>s"', "<cmd>lua require('snacks').picker.registers({ layout = '
 map('n', "<leader>s:", "<cmd>lua require('snacks').picker.command_history({ focus = 'list' })<cr>",
   opts("Search command history"))
 map('n', "<leader>s/", "<cmd>lua require('snacks').picker.search_history({ focus = 'list' })<cr>", opts("Search notification history"))
-map('n', "<leader>sn", "<cmd>lua require('snacks').notifier.show_history()<cr>", opts("Search history"))
+map('n', "<leader>sn", "<cmd>lua require('snacks').notifier.show_history()<cr>", opts("Search notifications history"))
 map('n', "<leader>su", "<cmd>lua require('snacks').picker.undo({ layout = 'vertical' })<cr>", opts("Search undo history"))
 map('n', "<leader>sq", "<cmd>lua require('snacks').picker.qflist()<cr>", opts("Search quickfix list"))
 map('n', "<leader>sx", "<cmd>noh<cr>", opts("Search clear"))
