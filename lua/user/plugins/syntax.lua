@@ -12,6 +12,7 @@ return {
         "fish",
         "go",
         "html",
+        "hyprlang",
         "javascript",
         "json",
         "lua",
