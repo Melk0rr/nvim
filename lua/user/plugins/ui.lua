@@ -77,7 +77,7 @@ return {
     event = "BufEnter",
     enabled = true,
     config = function()
-      require("user.plugins.heirline")
+      require("heirline")
     end,
   },
 }
