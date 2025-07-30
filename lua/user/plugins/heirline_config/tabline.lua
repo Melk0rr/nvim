@@ -1,8 +1,8 @@
 local utils = require("heirline.utils")
 
-local cmp = require("user.plugins.heirline.components")
+local cmp = require("user.plugins.heirline_config.components")
 
-local common = require("user.plugins.heirline.common")
+local common = require("user.plugins.heirline_config.common")
 local sep = common.separators
 local icons = common.icons
 local colors = common.colors
@@ -76,7 +76,8 @@ local TablineFileNameBlock = {
     callback = function(_, minwid, _, button)
       if (button == "m") then -- close on mouse middle click
         vim.schedule(function()
-          vim.api.nvim_buf_delete(minwid, { force = false })
+          require("snacks").bufdelete(minwid)
+          -- vim.api.nvim_buf_delete(minwid, { force = false })
         end)
       else
         vim.api.nvim_win_set_buf(0, minwid)
@@ -109,7 +110,8 @@ local TablineCloseButton = {
     on_click = {
       callback = function(_, minwid)
         vim.schedule(function()
-          vim.api.nvim_buf_delete(minwid, { force = false })
+          require("snacks").bufdelete(minwid)
+          -- vim.api.nvim_buf_delete(minwid, { force = false })
           vim.cmd.redrawtabline()
         end)
       end,

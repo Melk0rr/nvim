@@ -1,15 +1,15 @@
 local conditions = require("heirline.conditions")
 
-local colors = require("user.plugins.heirline.common").colors
-local icons = require("user.plugins.heirline.common").icons
+local common = require("user.plugins.heirline_config.common")
+local colors = common.colors
+local icons = common.icons
 
-local helpers = require("user.plugins.heirline.heirline_utils")
-local dim = helpers.dim
-local file_style = helpers.file_style
-local diag_color = helpers.diag_color
-local file_enc = helpers.file_enc
+local dim = common.dim
+local file_style = common.file_style
+local diag_color = common.diag_color
+local file_enc = common.file_enc
 
-local cmp = require("user.plugins.heirline.components")
+local cmp = require("user.plugins.heirline_config.components")
 
 --- Extend component with provided options.
 --- @param component table component to extend

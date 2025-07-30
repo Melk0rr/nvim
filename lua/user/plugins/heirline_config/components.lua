@@ -1,14 +1,14 @@
 local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 
-local common = require("user.plugins.heirline.common")
+local common = require("user.plugins.heirline_config.common")
 local icons = common.icons
 local sep = common.separators
 local colors = common.colors
 
-local dim = require("user.plugins.heirline.heirline_utils").dim
-local file_style = require("user.plugins.heirline.heirline_utils").file_style
-local file_enc = require("user.plugins.heirline.heirline_utils").file_enc
+local dim = common.dim
+local file_style = common.file_style
+local file_enc = common.file_enc
 
 local function fmt(color)
   if type(color) == "string" then

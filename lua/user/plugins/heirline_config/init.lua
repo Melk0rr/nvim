@@ -1,5 +1,6 @@
 local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
+
 local colors = require("user.plugins.heirline.common").colors
 
 local function setup_colors() return colors end
