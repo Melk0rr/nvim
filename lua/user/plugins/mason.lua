@@ -8,6 +8,7 @@ return {
       "clangd",
       "cssls",
       "emmet_language_server",
+      "fish_lsp",
       "gopls",
       "html",
       "hyprls",
