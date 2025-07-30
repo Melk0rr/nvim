@@ -10,9 +10,9 @@ vim.o.showcmdloc = "statusline"
 -- vim.o.showtabline = 2
 
 require("heirline").setup({
-  statusline = require("user.plugins.heirline.statusline"),
-  winbar = require("user.plugins.heirline.winbar"),
-  tabline = require("user.plugins.heirline.tabline"),
+  statusline = require("user.plugins.heirline_config.statusline"),
+  winbar = require("user.plugins.heirline_config.winbar"),
+  tabline = require("user.plugins.heirline_config.tabline"),
   opts = {
     disable_winbar_cb = function(args)
       if vim.bo[args.buf].filetype == "snacks_picker_list" then
