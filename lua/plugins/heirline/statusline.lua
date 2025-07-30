@@ -47,7 +47,6 @@ local WorkDir = cmp.PillWrapper(
   false
 )
 
--- BUG: Fix icon color for other files than first opened
 local FileNameBlock = cmp.PillWrapper(
   {
     {
