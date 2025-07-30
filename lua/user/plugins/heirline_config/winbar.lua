@@ -1,6 +1,6 @@
 local utils = require("heirline.utils")
 
-local dim = require("user.plugins.heirline_config.heirline_utils").dim
+local dim = require("user.plugins.heirline_config.common").dim
 
 local cmp = require("user.plugins.heirline_config.components")
 
