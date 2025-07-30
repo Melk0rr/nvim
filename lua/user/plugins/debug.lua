@@ -9,8 +9,6 @@ return {
     config = function()
       local dap, dapui = require("dap"), require("dapui")
 
-      require("dap-python").setup()
-
       dap.adapters.gdb = {
         type = "executable",
         command = "gdb",
@@ -43,6 +41,7 @@ return {
       }
 
       dap.configurations.python = py_config
+      require("dap-python").setup()
 
       dap.listeners.before.attach.dapui_config = function() dapui.open() end
       dap.listeners.before.launch.dapui_config = function() dapui.open() end

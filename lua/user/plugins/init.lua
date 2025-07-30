@@ -3,9 +3,7 @@ return {
   require("user.plugins.ui"),
 
   -- INFO: QoL
-  require("user.plugins.snacks"),
-  require("user.plugins.whichkey"),
-  require("user.plugins.yazi"),
+  require("user.plugins.snacks_config"),
 
   -- INFO: Dev tools
   require("user.plugins.dev"),
