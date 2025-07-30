@@ -1,6 +1,6 @@
 local conditions = require("heirline.conditions")
 
-local common = require("user.plugins.heirline_config.common")
+local common = require("plugins.heirline.common")
 local colors = common.colors
 local icons = common.icons
 
@@ -9,7 +9,7 @@ local file_style = common.file_style
 local diag_color = common.diag_color
 local file_enc = common.file_enc
 
-local cmp = require("user.plugins.heirline_config.components")
+local cmp = require("plugins.heirline.components")
 
 --- Extend component with provided options.
 --- @param component table component to extend

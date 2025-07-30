@@ -1,8 +1,8 @@
 local utils = require("heirline.utils")
 
-local cmp = require("user.plugins.heirline_config.components")
+local cmp = require("plugins.heirline.components")
 
-local common = require("user.plugins.heirline_config.common")
+local common = require("plugins.heirline.common")
 local sep = common.separators
 local icons = common.icons
 local colors = common.colors
@@ -101,7 +101,7 @@ local TablineCloseButton = {
   { provider = " " },
   {
     provider = icons.close,
-    hl = function (self)
+    hl = function(self)
       if self.is_active then
         return { fg = "tabsel_fg" }
       end

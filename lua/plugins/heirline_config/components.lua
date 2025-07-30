@@ -1,7 +1,7 @@
 local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 
-local common = require("user.plugins.heirline_config.common")
+local common = require("plugins.heirline.common")
 local icons = common.icons
 local sep = common.separators
 local colors = common.colors

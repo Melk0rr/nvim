@@ -1,8 +1,8 @@
 local utils = require("heirline.utils")
 
-local dim = require("user.plugins.heirline_config.common").dim
+local dim = require("plugins.heirline.common").dim
 
-local cmp = require("user.plugins.heirline_config.components")
+local cmp = require("plugins.heirline.components")
 
 -- ===========================================================================
 -- INFO: Navic
@@ -94,3 +94,4 @@ return {
   Navic,
   cmp.Align
 }
+

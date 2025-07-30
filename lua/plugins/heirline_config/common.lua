@@ -140,3 +140,4 @@ return {
   diag_color = diag_color,
   file_enc = file_enc,
 }
+
