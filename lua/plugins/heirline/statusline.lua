@@ -47,6 +47,7 @@ local WorkDir = cmp.PillWrapper(
   false
 )
 
+-- BUG: Fix icon color for other files than first opened
 local FileNameBlock = cmp.PillWrapper(
   {
     {
@@ -55,7 +56,10 @@ local FileNameBlock = cmp.PillWrapper(
         self.icon_color = dim(file_style(self.filename).icon_color, .4)
       end,
       cmp.FileIcon,
-      hl = function() return { bg = file_style(vim.api.nvim_buf_get_name(0)).icon_color } end
+      hl = function()
+        local fstyle = file_style(vim.api.nvim_buf_get_name(0))
+        return { fg = dim(fstyle.icon_color, .4), bg = fstyle.icon_color, bold = true, force = true }
+      end
     }
   },
   {
