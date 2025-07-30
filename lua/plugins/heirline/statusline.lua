@@ -55,17 +55,18 @@ local FileNameBlock = cmp.PillWrapper(
         self.icon_color = dim(file_style(self.filename).icon_color, .4)
       end,
       cmp.FileIcon,
-      hl = function() return { bg = file_style().icon_color } end
+      hl = function(self) return { bg = file_style(self.filename).icon_color } end
     }
   },
   {
-    { cmp.Space, hl = function() return { bg = dim(file_style().icon_color, .4) } end },
+    { cmp.Space, hl = function() return { bg = dim(file_style(vim.api.nvim_buf_get_name(0)).icon_color, .4) } end },
     {
       cmp.FileNameBlock,
       hl = function()
+        local fstyle = file_style(vim.api.nvim_buf_get_name(0))
         return {
-          fg = file_style().icon_color,
-          bg = dim(file_style().icon_color, .4)
+          fg = fstyle.icon_color,
+          bg = dim(fstyle.icon_color, .4)
         }
       end
     }
