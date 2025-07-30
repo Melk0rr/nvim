@@ -2,12 +2,11 @@ local utils = require("heirline.utils")
 
 --- Blend two rgb colors using alpha
 ---@return table style style elements based on the file type
-local function file_style()
-  local filename = vim.api.nvim_buf_get_name(0)
+local function file_style(filename)
   local extension = vim.fn.fnamemodify(filename, ":e")
   local icon, icon_color = require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
 
-  return { filename = filename, icon = icon, icon_color = icon_color }
+  return { icon = icon, icon_color = icon_color }
 end
 
 --- Blend two rgb colors using alpha

@@ -180,7 +180,7 @@ local Mode = {
 -- ===========================================================================
 local FileIcon = {
   init = function(self)
-    local fstyle = file_style()
+    local fstyle = file_style(self.filename)
 
     self.icon = fstyle.icon
     self.icon_color = self.icon_color and self.icon_color or fstyle.icon_color

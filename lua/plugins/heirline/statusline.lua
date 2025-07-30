@@ -51,10 +51,8 @@ local FileNameBlock = cmp.PillWrapper(
   {
     {
       init = function(self)
-        local fstyle = file_style()
-
-        self.filename = fstyle.filename
-        self.icon_color = dim(fstyle.icon_color, .4)
+        self.filename = vim.api.nvim_buf_get_name(0)
+        self.icon_color = dim(file_style(self.filename).icon_color, .4)
       end,
       cmp.FileIcon,
       hl = function() return { bg = file_style().icon_color } end
@@ -74,7 +72,7 @@ local FileNameBlock = cmp.PillWrapper(
   },
   false
 )
---
+
 local Git = cmp.PillWrapper(
   { { provider = icons.git, hl = { fg = dim(colors["orange"], .4), bg = colors["orange"] } } },
   { { cmp.Git, hl = { fg = colors["orange"], bg = dim(colors["orange"], .4) } } },
