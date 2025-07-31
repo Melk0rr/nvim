@@ -171,7 +171,7 @@ local DefaultStatusline = {
   cmp.Space,
   FileNameBlock,
   cmp.Space,
-  Git,
+  { Git, condition = conditions.is_git_repo },
   cmp.Align,
   cmp.Align,
   cmp.DAPMessages,
