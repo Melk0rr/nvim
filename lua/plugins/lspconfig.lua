@@ -3,11 +3,11 @@ return {
   -- INFO: General LSP config
   {
     "neovim/nvim-lspconfig",
-    ft = { "asm", "bash", "c", "cpp", "fish", "go", "html", "javascript", "lua", "markdown", "python", "rust", "typescript", "yaml" },
+    ft = { "asm", "bash", "c", "cpp", "fish", "go", "html", "hyprlang", "javascript", "lua", "markdown", "python", "rust", "typescript", "yaml" },
     opts = { inlay_hints = { enabled = true } },
     config = function()
       local lspconfig = require("lspconfig")
-      local lsp_util = require('lspconfig.util')
+      -- local lsp_util = require('lspconfig.util')
       local navic = require("nvim-navic")
 
       -- INFO: On attach function
