@@ -3,7 +3,7 @@ return {
   -- INFO: General LSP config
   {
     "neovim/nvim-lspconfig",
-    ft = { "asm", "bash", "c", "cpp", "fish", "go", "html", "hyprlang", "javascript", "lua", "markdown", "python", "rust", "typescript", "yaml" },
+    ft = { "asm", "bash", "c", "cpp", "fish", "go", "html", "hyprlang", "javascript", "json", "lua", "markdown", "nix", "python", "rust", "typescript", "yaml" },
     opts = { inlay_hints = { enabled = true } },
     config = function()
       local lspconfig = require("lspconfig")
@@ -74,7 +74,7 @@ return {
         filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact", "php" },
         init_options = {
           includeLanguages = {
-            md = "html",
+            markdown = "html",
             php = "html",
             svg = "html"
           },
