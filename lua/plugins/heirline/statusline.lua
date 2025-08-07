@@ -39,6 +39,18 @@ local Mode = cmp.PillWrapper(
       end
     }
   },
+  {
+    {
+      cmp.Mode,
+      cmp.Snippets,
+      hl = function(self)
+        return {
+          bg = dim(colors[self:mode_color()], .4),
+          fg = colors[self:mode_color()]
+        }
+      end
+    }
+  },
   false
 )
 
