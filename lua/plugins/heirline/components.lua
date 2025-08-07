@@ -185,8 +185,9 @@ local Snippets = {
   provider = function()
     local forward = require("luasnip").jumpable(1) and icons.jump_fw or ""
     local backward = require("luasnip").jumpable(-1) and icons.jump_bw or ""
+    local fw_bw_sep = forward ~= "" and backward ~= "" and " " or ""
 
-    return backward .. forward
+    return backward .. fw_bw_sep .. forward
   end,
   hl = { bold = true },
 }
