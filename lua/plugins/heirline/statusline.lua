@@ -27,17 +27,18 @@ end
 -- ===========================================================================
 
 local Mode = cmp.PillWrapper(
-  { {
-    provider = icons.vim,
-    hl = function(self)
-      return {
-        bg = colors[self:mode_color()],
-        fg = dim(
-          colors[self:mode_color()], .4)
-      }
-    end
-  } },
-  { { cmp.Mode, hl = function(self) return { bg = dim(colors[self:mode_color()], .4), fg = colors[self:mode_color()] } end } },
+  {
+    {
+      provider = icons.vim,
+      hl = function(self)
+        return {
+          bg = colors[self:mode_color()],
+          fg = dim(
+            colors[self:mode_color()], .4)
+        }
+      end
+    }
+  },
   false
 )
 
