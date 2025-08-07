@@ -183,8 +183,8 @@ local Snippets = {
     return vim.tbl_contains({ "s", "i" }, vim.fn.mode())
   end,
   provider = function()
-    local forward = vim.snippet.active({ direction = 1 }) and icons.jump_fw or ""
-    local backward = vim.snippet.active({ direction = -1 }) and icons.jump_bw or ""
+    local forward = require("luasnip").jumpable(1) and icons.jump_fw or ""
+    local backward = require("luasnip").jumpable(-1) and icons.jump_bw or ""
 
     return backward .. forward
   end,
