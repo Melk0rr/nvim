@@ -102,19 +102,19 @@ map({ 'i', 's' }, "<A-k>", function()
   if ls.jumpable(-1) then
     ls.jump(-1)
   end
-end, { silent = true })
+end, { silent = true, desc = "Snippet jump backward" })
 
 map({ 'i', 's' }, "<A-j>", function()
   if ls.expand_or_locally_jumpable() then
     ls.expand_or_jump()
   end
-end, { silent = true })
+end, { silent = true, desc = "Snippet jump forward" })
 
 map({ 'i', 's' }, '<C-e>', function()
   if ls.session.current_nodes[vim.api.nvim_get_current_buf()] then
     ls.unlink_current()
   end
-end, { expr = true })
+end, { expr = true, desc = "Snippet unlink" })
 
 -- ===========================================================================
 -- NOTE: Trouble
