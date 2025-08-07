@@ -9,25 +9,6 @@ return {
     local ls = require("luasnip")
     ls.config.setup({ enable_autosnippets = true })
 
-    local map = vim.keymap.set
-    map({ 'i', 's' }, "<A-k>", function()
-      if ls.expand_or_jumpable() then
-        ls.expand_or_jump()
-      end
-    end, { silent = true })
-
-    map({ 'i', 's' }, "<A-j>", function()
-      if ls.jumpable(-1) then
-        ls.jump(-1)
-      end
-    end, { silent = true })
-
-    map({ 'i', 's' }, '<C-e>', function()
-      if ls.active() then
-        ls.unlink_current()
-      end
-    end, { expr = true })
-
     -- Friendly snippets
     require("luasnip.loaders.from_vscode").lazy_load()
 

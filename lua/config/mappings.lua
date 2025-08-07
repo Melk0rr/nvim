@@ -96,6 +96,28 @@ map('n', "<leader>dx", "<cmd>lua require('dap').terminate()<cr><cmd>lua require(
   opts("Debugger terminate"))
 
 -- ===========================================================================
+-- NOTE: Snippets
+-- ===========================================================================
+local ls = require("luasnip")
+map({ 'i', 's' }, "<A-k>", function()
+  if ls.expand_or_jumpable() then
+    ls.expand_or_jump()
+  end
+end, { silent = true })
+
+map({ 'i', 's' }, "<A-j>", function()
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end, { silent = true })
+
+map({ 'i', 's' }, '<C-e>', function()
+  if ls.active() then
+    ls.unlink_current()
+  end
+end, { expr = true })
+
+-- ===========================================================================
 -- NOTE: Trouble
 -- ===========================================================================
 map("n", "<leader>tt", "<cmd>Trouble<CR>")
@@ -190,7 +212,8 @@ map('n', '<leader>s"', "<cmd>lua require('snacks').picker.registers({ layout = '
   opts("Search registers"))
 map('n', "<leader>s:", "<cmd>lua require('snacks').picker.command_history({ focus = 'list' })<cr>",
   opts("Search command history"))
-map('n', "<leader>s/", "<cmd>lua require('snacks').picker.search_history({ focus = 'list' })<cr>", opts("Search notification history"))
+map('n', "<leader>s/", "<cmd>lua require('snacks').picker.search_history({ focus = 'list' })<cr>",
+  opts("Search notification history"))
 map('n', "<leader>sn", "<cmd>lua require('snacks').notifier.show_history()<cr>", opts("Search notifications history"))
 map('n', "<leader>su", "<cmd>lua require('snacks').picker.undo({ layout = 'vertical' })<cr>", opts("Search undo history"))
 map('n', "<leader>sq", "<cmd>lua require('snacks').picker.qflist()<cr>", opts("Search quickfix list"))
