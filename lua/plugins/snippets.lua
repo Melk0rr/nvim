@@ -22,6 +22,12 @@ return {
       end
     end, { silent = true })
 
+    map({ 'i', 's' }, '<C-e>', function()
+      if ls.active() then
+        ls.unlink_current()
+      end
+    end, { expr = true })
+
     -- Friendly snippets
     require("luasnip.loaders.from_vscode").lazy_load()
 
