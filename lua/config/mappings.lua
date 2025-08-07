@@ -112,7 +112,7 @@ end, { silent = true })
 
 map({ 'i', 's' }, '<C-e>', function()
   if ls.session.current_nodes[vim.api.nvim_get_current_buf()] then
-    ls.unlink_all()
+    ls.unlink_current()
   end
 end, { expr = true })
 
