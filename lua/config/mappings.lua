@@ -99,14 +99,14 @@ map('n', "<leader>dx", "<cmd>lua require('dap').terminate()<cr><cmd>lua require(
 -- ===========================================================================
 local ls = require("luasnip")
 map({ 'i', 's' }, "<A-k>", function()
-  if ls.expand_or_jumpable() then
-    ls.expand_or_jump()
+  if ls.jumpable(-1) then
+    ls.jump(-1)
   end
 end, { silent = true })
 
 map({ 'i', 's' }, "<A-j>", function()
-  if ls.jumpable(-1) then
-    ls.jump(-1)
+  if ls.expand_or_locally_jumpable() then
+    ls.expand_or_jump()
   end
 end, { silent = true })
 
