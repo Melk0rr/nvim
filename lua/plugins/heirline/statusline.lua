@@ -96,8 +96,7 @@ local LspDiag = cmp.PillWrapper(
       extend_cmp_opts(cmp.LSPActive, { update = { "DiagnosticChanged", "LspAttach", "LspDetach", "WinEnter" } }),
       hl = function()
         return {
-          fg =
-              dim(diag_color(), .4),
+          fg = dim(diag_color(), .4),
           bg = diag_color()
         }
       end
@@ -172,7 +171,7 @@ local DefaultStatusline = {
   cmp.Space,
   FileNameBlock,
   cmp.Space,
-  { Git, condition = conditions.is_git_repo },
+  { Git,     condition = conditions.is_git_repo },
   cmp.Align,
   cmp.Align,
   cmp.DAPMessages,
