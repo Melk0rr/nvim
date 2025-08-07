@@ -176,6 +176,22 @@ local Mode = {
 }
 
 -- ===========================================================================
+-- INFO: Snippets
+-- ===========================================================================
+local Snippets = {
+  condition = function()
+    return vim.tbl_contains({ "s", "i" }, vim.fn.mode())
+  end,
+  provider = function()
+    local forward = vim.snippet.active({ direction = 1 }) and icons.jump_fw or ""
+    local backward = vim.snippet.active({ direction = -1 }) and icons.jump_bw or ""
+
+    return backward .. forward
+  end,
+  hl = { bold = true },
+}
+
+-- ===========================================================================
 -- INFO: File
 -- ===========================================================================
 local FileIcon = {
@@ -592,6 +608,7 @@ return {
   Align = Align,
   PillWrapper = PillWrapper,
   Mode = Mode,
+  Snippets = Snippets,
   FileIcon = FileIcon,
   FileName = FileName,
   FileFlags = FileFlags,
