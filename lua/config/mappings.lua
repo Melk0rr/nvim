@@ -42,7 +42,6 @@ end
 map('i', "jk", "<ESC>", opts("jk to exit insert mode"))
 map('i', "kj", "<ESC>", opts("kj to exit insert mode"))
 
-
 -- ===========================================================================
 -- NOTE: Buffer navigation
 -- ===========================================================================
@@ -112,8 +111,8 @@ map({ 'i', 's' }, "<A-j>", function()
 end, { silent = true })
 
 map({ 'i', 's' }, '<C-e>', function()
-  if ls.active() then
-    ls.unlink_current()
+  if ls.session.current_nodes[vim.api.nvim_get_current_buf()] then
+    ls.unlink_all()
   end
 end, { expr = true })
 
