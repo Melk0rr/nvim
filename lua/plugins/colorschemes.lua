@@ -39,12 +39,6 @@ return {
     config = true,
   },
 
-  -- INFO: Iceberg
-  {
-    "oahlen/iceberg.nvim",
-    priority = 1000,
-  },
-
   -- INFO: Kanagawa
   {
     "rebelot/kanagawa.nvim",
