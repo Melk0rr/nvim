@@ -27,12 +27,8 @@ end
 local function set_colorscheme(file_path)
   local theme = get_hyde_theme(file_path)
   if theme then
-    -- NOTE: Autumn Leaves
-    if theme == "Autumn Leaves" then
-      vim.cmd [[colorscheme melange]]
-
-      -- NOTE: Barad Dur
-    elseif theme == "Barad Dur" then
+    -- NOTE: Barad Dur
+    if theme == "Barad Dur" then
       vim.cmd [[colorscheme darkrose]]
 
       -- NOTE: Catppuccin Latte
@@ -45,7 +41,7 @@ local function set_colorscheme(file_path)
 
       -- NOTE: Cosmic Blue
     elseif theme == "Cosmic Blue" then
-      vim.cmd [[colorscheme iceberg]]
+      vim.cmd [[colorscheme tokyonight-storm]]
 
       -- NOTE: Decay Green
     elseif theme == "Decay Green" then
@@ -87,8 +83,8 @@ local function set_colorscheme(file_path)
     elseif theme == "Synth Wave" then
       vim.cmd [[colorscheme lavender]]
 
-      -- NOTE: Terra Nova
-    elseif theme == "Terra Nova" then
+      -- NOTE: Kanagawa Wave
+    elseif theme == "Kanagawa Wave" then
       vim.cmd [[colorscheme kanagawa-wave]]
 
       -- NOTE: Tokyo Night
@@ -104,4 +100,3 @@ end
 -- NOTE: Setting theme
 local hyde_conf = os.getenv("HOME") .. "/.config/hyde/hyde.conf"
 set_colorscheme(hyde_conf)
-
