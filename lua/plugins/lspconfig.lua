@@ -3,7 +3,7 @@ return {
   -- INFO: General LSP config
   {
     "neovim/nvim-lspconfig",
-    ft = { "asm", "bash", "c", "cpp", "css", "fish", "go", "html", "hyprlang", "javascript", "json", "lua", "markdown", "nix", "python", "rust", "typescript", "yaml" },
+    ft = { "asm", "bash", "c", "cpp", "css", "fish", "go", "html", "hyprlang", "javascript", "json", "lua", "markdown", "nix", "python", "rust", "typescript", "xml", "yaml" },
     opts = { inlay_hints = { enabled = true } },
     config = function()
       local lspconfig = require("lspconfig")
